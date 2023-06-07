@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo&display=swap');
+
+
+body{
+	margin: 0px;
+	background: black;
+	width: 100vw;
+	height: 100vh;
+}
+
+
+h1{
+	color: white;
+	font-family: 'Archivo';
+	font-weight: 400;
+}
+
+
+#logoAnimation {
+  width: 40vw;
+  height: 40vh;
+}
+
+.logoContainer{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+}
