@@ -1,5 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&display=swap');*/
 
+/*@import url('https://fonts.googleapis.com/css2?family=Archivo&display=swap');*/
+
+
+@font-face {
+  font-family: Archivo;
+  src: url(font/Archivo-VariableFont.ttf);
+}
 
 body{
 	margin: 0px;
@@ -15,16 +22,44 @@ h1{
 	font-weight: 400;
 }
 
-
-#logoAnimation {
-  width: 40vw;
-  height: 40vh;
-}
-
-.logoContainer{
+.header{
 	display: flex;
+	position: fixed;
+	top: 0px;
 	justify-content: center;
 	align-items: center;
 	width: 100vw;
+	height: 72pt;
+}
+
+#logoAnimation {
+  width: 48pt;
+  height: 48pt;
+}
+
+
+.hero-banner{
+	width: 100vw;
 	height: 100vh;
+	background: url('../asset/image/banner.png');
+	background-position: center;
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.hero-banner > span{
+	font-family: 'Archivo';
+	font-style: normal;
+	font-weight: 900;
+	font-size: 48pt;
+	line-height: 52pt;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	letter-spacing: 0.12em;
+	color: #FFFFFF;
+	font-stretch: 125%;
+	text-transform: uppercase;
 }
