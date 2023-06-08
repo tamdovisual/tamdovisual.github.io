@@ -6,38 +6,183 @@
 body{
 	margin: 0px;
 	background: black;
-	width: 100vw;
-	height: 100vh;
+/*	width: 100vw;
+	height: 100vh;*/
 }
 
+/* Text Style ====================================== */
 
-h1{
-	color: white;
+.all-cap-title-10{
 	font-family: 'Archivo';
-	font-weight: 400;
+	font-style: normal;
+	font-weight: 350;
+	font-size: 10pt;
+	line-height: 20pt;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	font-stretch: 125%;
 }
+
+.all-cap-Title-12{
+	font-family: 'Archivo';
+	font-style: normal;
+	font-weight: 350;
+	font-size: 12pt;
+	line-height: 20pt;
+	letter-spacing: 0.18em;
+	font-stretch: 125%;
+}
+
+.wide-10-regular{
+	font-family: 'Archivo';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 10pt;
+	line-height: 16pt;
+	font-stretch: 125%;
+}
+
+.wide-12-regular{
+	font-family: 'Archivo';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 12pt;
+	line-height: 18pt;
+	font-stretch: 125%;
+}
+
+
+.wide-12-bold{
+	font-family: 'Archivo';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 12pt;
+	line-height: 18pt;
+	font-stretch: 125%;
+}
+
+.wide-12-xbold{
+	font-family: 'Archivo';
+	font-style: normal;
+	font-weight: 900;
+	font-size: 12pt;
+	line-height: 18pt;
+	font-stretch: 125%;
+}
+
+.wide-14-regular{
+	font-family: 'Archivo';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 14pt;
+	line-height: 20pt;
+	letter-spacing: 0.02em;
+	font-stretch: 125%;
+}
+
+.wide-14-bold{
+	font-family: 'Archivo';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 14pt;
+	line-height: 20pt;
+	font-stretch: 125%;
+}
+
+.wide-14-xbold{
+	font-family: 'Archivo';
+	font-style: normal;
+	font-weight: 900;
+	font-size: 14pt;
+	line-height: 20pt;
+	font-stretch: 125%;
+}
+
+.wide-16-regular{
+	font-family: 'Archivo';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 16pt;
+	line-height: 20pt;
+	letter-spacing: 0.02em;
+	font-stretch: 125%;
+}
+
+.wide-16-bold{
+	font-family: 'Archivo';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 16pt;
+	line-height: 20pt;
+	font-stretch: 125%;
+}
+
+.wide-16-xbold{
+	font-family: 'Archivo';
+	font-style: normal;
+	font-weight: 900;
+	font-size: 16pt;
+	line-height: 20pt;
+	font-stretch: 125%;
+}
+
+.wide-24-regular{
+	font-family: 'Archivo';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 24pt;
+	line-height: 32pt;
+	letter-spacing: 0.02em;
+	font-stretch: 125%;
+}
+
+.wide-24-bold{
+	font-family: 'Archivo';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 24pt;
+	line-height: 32pt;
+	font-stretch: 125%;
+}
+
+.wide-24-xbold{
+	font-family: 'Archivo';
+	font-style: normal;
+	font-weight: 900;
+	font-size: 24pt;
+	line-height: 32pt;
+	font-stretch: 125%;
+}
+
+
+/* Header style ====================================== */
 
 .header{
 	display: flex;
 	position: fixed;
 	z-index: 999;
-	top: 0px;
+	gap: 48pt;
+	top: 0pt;
 	justify-content: center;
 	align-items: center;
 	width: 100vw;
-	height: 72pt;
+	height: 48pt;
+	transition: 0.3s ease-in-out;
+}
+
+.header > span{
+	width: 100pt;
+	color: white;
+	text-align: center;
 }
 
 #logoAnimation {
-  width: 48pt;
-  height: 48pt;
+  width: 32pt;
+  height: 32pt;
 }
 
-#scrollToExplore{
-	position: absolute;
-	bottom: 0px;
-}
 
+/* Hero banner ====================================== */
 
 .hero-banner{
 	position: relative;
@@ -50,6 +195,13 @@ h1{
 	justify-content: center;
 	align-items: center;
 }
+
+
+#scrollToExplore{
+	position: absolute;
+	bottom: -5px;
+}
+
 
 .hero-banner > span{
 	font-family: 'Archivo';
@@ -65,3 +217,69 @@ h1{
 	font-stretch: 125%;
 	text-transform: uppercase;
 }
+
+
+/* landscape-section ====================================== */
+
+.landscape-section{
+	display: flex;
+	flex-direction: column;
+	gap: 16pt;
+	width: 100vw;
+	height: 120vh;
+	padding: 72pt 48pt;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.landscape-section > div {
+	flex-grow: 1;
+	align-self: stretch;
+	display: flex;
+  box-sizing: border-box;
+  gap: 1pt;
+  text-transform: uppercase;
+}
+
+.landscape-section > div > div{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+/*	flex-grow: 1;*/
+	background-position: center !important;
+	background-size: cover !important;
+	flex-basis: 20%;
+	opacity: 0.7;
+	transition: 0.3s ease-in-out;
+	text-align: center;
+}
+
+.landscape-section > div > div:hover{
+	opacity: 1;
+	letter-spacing: 2pt;
+}
+
+
+/* Call-to-action Button ====================================== */
+
+.CTA{
+	border-radius: 100pt;
+	padding: 16px 24px;
+	border: none;
+	text-transform: uppercase;
+	color: black;
+	background-color: white;
+	opacity: 1;
+	transition: 0.4s ease-in-out;
+}
+
+.CTA:hover{
+	opacity: 0.4;
+}
+
+
+.CTA:active{
+	opacity: 0.8;
+}
+
