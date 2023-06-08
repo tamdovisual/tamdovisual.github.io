@@ -6,9 +6,12 @@
 body{
 	margin: 0px;
 	background: black;
-/*	width: 100vw;
-	height: 100vh;*/
 }
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 
 /* Text Style ====================================== */
 
