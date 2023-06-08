@@ -186,7 +186,6 @@ body{
 
 .hero-banner{
 	position: relative;
-	/* width: 100vw; */
 	height: 100vh;
 	background: url('../asset/image/banner.png');
 	background-position: center;
@@ -194,7 +193,6 @@ body{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	/* box-sizing: border-box; */
 }
 
 
@@ -226,10 +224,8 @@ body{
 	display: flex;
 	flex-direction: column;
 	gap: 16pt;
-	/* width: 100vw; */
 	height: 120vh;
 	padding: 72pt 48pt;
-	/* box-sizing: border-box; */
 	align-items: center;
 }
 
@@ -237,9 +233,9 @@ body{
 	flex-grow: 1;
 	align-self: stretch;
 	display: flex;
-  box-sizing: border-box;
-  gap: 1pt;
-  text-transform: uppercase;
+	box-sizing: border-box;
+	gap: 1pt;
+	text-transform: uppercase;
 }
 
 .landscape-section > div > div{
