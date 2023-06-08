@@ -19,8 +19,8 @@
       font-family: 'Archivo';
       font-style: normal;
       font-weight: 350;
-      font-size: 10pt;
-      line-height: 20pt;
+      font-size: 10px;
+      line-height: 20px;
       letter-spacing: 0.05em;
       text-transform: uppercase;
       font-stretch: 125%;
@@ -30,8 +30,8 @@
       font-family: 'Archivo';
       font-style: normal;
       font-weight: 350;
-      font-size: 12pt;
-      line-height: 20pt;
+      font-size: 12px;
+      line-height: 20px;
       letter-spacing: 0.18em;
       font-stretch: 125%;
   }
@@ -40,8 +40,8 @@
       font-family: 'Archivo';
       font-style: normal;
       font-weight: 300;
-      font-size: 10pt;
-      line-height: 16pt;
+      font-size: 10px;
+      line-height: 16px;
       font-stretch: 125%;
   }
   
@@ -49,8 +49,8 @@
       font-family: 'Archivo';
       font-style: normal;
       font-weight: 300;
-      font-size: 12pt;
-      line-height: 18pt;
+      font-size: 12px;
+      line-height: 18px;
       font-stretch: 125%;
   }
   
@@ -58,8 +58,8 @@
       font-family: 'Archivo';
       font-style: normal;
       font-weight: 600;
-      font-size: 12pt;
-      line-height: 18pt;
+      font-size: 12px;
+      line-height: 18px;
       font-stretch: 125%;
   }
   
@@ -67,8 +67,8 @@
       font-family: 'Archivo';
       font-style: normal;
       font-weight: 900;
-      font-size: 12pt;
-      line-height: 18pt;
+      font-size: 12px;
+      line-height: 18px;
       font-stretch: 125%;
   }
   
@@ -76,8 +76,8 @@
       font-family: 'Archivo';
       font-style: normal;
       font-weight: 300;
-      font-size: 14pt;
-      line-height: 20pt;
+      font-size: 14px;
+      line-height: 20px;
       letter-spacing: 0.02em;
       font-stretch: 125%;
   }
@@ -86,8 +86,8 @@
       font-family: 'Archivo';
       font-style: normal;
       font-weight: 600;
-      font-size: 14pt;
-      line-height: 20pt;
+      font-size: 14px;
+      line-height: 20px;
       font-stretch: 125%;
   }
   
@@ -95,8 +95,8 @@
       font-family: 'Archivo';
       font-style: normal;
       font-weight: 900;
-      font-size: 14pt;
-      line-height: 20pt;
+      font-size: 14px;
+      line-height: 20px;
       font-stretch: 125%;
   }
   
@@ -104,8 +104,8 @@
       font-family: 'Archivo';
       font-style: normal;
       font-weight: 300;
-      font-size: 16pt;
-      line-height: 20pt;
+      font-size: 16px;
+      line-height: 20px;
       letter-spacing: 0.02em;
       font-stretch: 125%;
   }
@@ -114,8 +114,8 @@
       font-family: 'Archivo';
       font-style: normal;
       font-weight: 600;
-      font-size: 16pt;
-      line-height: 20pt;
+      font-size: 16px;
+      line-height: 20px;
       font-stretch: 125%;
   }
   
@@ -123,8 +123,8 @@
       font-family: 'Archivo';
       font-style: normal;
       font-weight: 900;
-      font-size: 16pt;
-      line-height: 20pt;
+      font-size: 16px;
+      line-height: 20px;
       font-stretch: 125%;
   }
   
@@ -132,8 +132,8 @@
       font-family: 'Archivo';
       font-style: normal;
       font-weight: 300;
-      font-size: 24pt;
-      line-height: 32pt;
+      font-size: 24px;
+      line-height: 32px;
       letter-spacing: 0.02em;
       font-stretch: 125%;
   }
@@ -142,8 +142,8 @@
       font-family: 'Archivo';
       font-style: normal;
       font-weight: 600;
-      font-size: 24pt;
-      line-height: 32pt;
+      font-size: 24px;
+      line-height: 32px;
       font-stretch: 125%;
   }
   
@@ -151,9 +151,12 @@
       font-family: 'Archivo';
       font-style: normal;
       font-weight: 900;
-      font-size: 24pt;
-      line-height: 32pt;
+      font-size: 24px;
+      line-height: 32px;
       font-stretch: 125%;
   }
   
-  
+  .blur-background{
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
