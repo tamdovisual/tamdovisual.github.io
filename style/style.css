@@ -4,15 +4,26 @@
 .header{
 	display: flex;
 	position: fixed;
-	z-index: 999;
+	z-index: 99;
 	gap: 48pt;
-	top: 0pt;
 	justify-content: center;
 	align-items: center;
-	width: 100vw;
+	width: 100%;
 	box-sizing: border-box;
 	height: 48pt;
 	transition: 0.3s ease-in-out;
+}
+
+.header:hover{
+	background: rgba(0, 0, 0, 0.2);
+	border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
+	backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.scolled-header{
+	background: rgba(0, 0, 0, 0.2);
+	border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
 }
 
 .header > span{
@@ -22,10 +33,8 @@
 }
 
 #logoAnimation {
-  width: 60%;
-  height: 60%;
-  position: relative;
-  bottom: 100px;
+  width: 48px;
+  height: 48px;
   opacity: 0.8;
 }
 
@@ -129,9 +138,6 @@
 /* Footer ====================================== */
 
 .footer{
-	position: absolute;
-	z-index: 900;
-	bottom: 0px;
 	left: 0;
 	right: 0;
 	display: flex;
@@ -149,6 +155,14 @@
 
 span > a {
 	color: white;
+}
+
+a:visited{
+	color: #FFFFFF;
+}
+
+a{
+	text-decoration : none;
 }
 
 .footer img{
@@ -175,11 +189,25 @@ span > a {
 }
 
 @media only screen and (max-width: 1119px) {
+	.header{
+		gap: 0px !important;
+	}
 	.footer{
 		flex-direction: column;
 	}
 	.footer > span{
 		text-align: center;
+	}
+	.gallery-container .thumbnail{
+		flex: 1 0 26% !important;
+	}
+
+	.featured-brand > .logo-list{
+		gap: 50px !important;
+	}
+
+	.featured-brand img{
+		height: 30px !important;
 	}
 }
 
@@ -200,7 +228,6 @@ span > a {
 	}
 }
 
-
 @media only screen and (max-width: 1119px) and (prefers-color-scheme: light) {
 	.hero-banner{
 		background: url('../asset/image/banner-mobile-light.jpeg');
@@ -215,4 +242,121 @@ span > a {
 		background-position: center;
 		background-size: cover;
 	}
+}
+
+/* Style for gallery page ====================================== */
+
+
+.gallery-container{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1px;
+	/* margin-top: 72px; */
+	justify-content: flex-start;
+	align-items: center;
+	padding: 3px;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.gallery-container .thumbnail{
+	cursor: pointer;
+	box-sizing: border-box;
+	aspect-ratio: 1 / 1;
+	flex: 1 0 19%;
+	transition: all 0.5s ease-in-out;
+	position: relative;
+}
+
+.gallery-container .thumbnail:hover{
+	opacity: 0.3 !important;
+}
+
+#imagePreview{
+	position: fixed;
+	display: none;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 128, 0, 0.467);
+	z-index: 101;
+	transition: 0;
+}
+
+#overlay{
+	position: fixed;
+	display: none;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.9);
+	z-index: 100;
+}
+
+.closeBtt{
+	cursor: pointer;
+	position: fixed;
+	top: 16px;
+	right: 32px;
+	width: 32px;
+	height: 32px;
+}
+
+
+
+/* About page ====================================== */
+
+.bio, .featured-brand, .contact{
+	color: rgb(193, 193, 193);
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	justify-content: flex-start;
+	align-items: center;
+	margin: 100px 40px;
+}
+
+.bio > img{
+	width: 152px;
+}
+
+.bio span{
+	max-width: 1000px;
+	width: 80%;
+	min-width: 300px;
+	text-align: center;
+}
+
+.featured-brand > .logo-list{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 32px;
+	max-width: 1200px;
+	width: 80%;
+	min-width: 300px;
+	-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+	filter: grayscale(100%);
+}
+
+.featured-brand img{
+	height: 50px;
+	opacity: 0.8;
+}
+
+.featured-brand img:hover{
+	opacity: 1;
+}
+
+.contact > div{
+	display: flex;
+	flex-direction: row;
+	gap: 32px;
 }

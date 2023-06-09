@@ -9,11 +9,12 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.1/lottie.min.js" integrity="sha512-H6aKTjvYAazW0iNuGj1f2dZvSWlt1HGZGEDsXRPETo2IB4H6v36Vl2qiZNlCRxOp0kT7iBf+7USNPavNscZGAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script type="text/javascript" src="script/lottie.js"></script>
 	<script type="text/javascript" src="script/script.js" defer></script>
-	<link rel="icon" type="image/x-icon" href="/asset/icon/Logo.svg">
+    <link rel="icon" type="image/x-icon" href="/asset/icon/Logo.svg">
+    <script src="script/gallery.js" defer></script>
 </head>
 <body>
 
-	<!-- Website header ============================================== -->
+    <!-- Website header ============================================== -->
     <div id="header" class="header all-cap-title-10">
 		<span><a href="galerry.html">Landscape</a></span>
 		<!-- <span>Article</span> -->
@@ -22,13 +23,17 @@
 		<span><a href="about.html">About</a></span>
 	</div>
 
-	<!-- Content within webpage ============================================== -->
-	<div id="hero-banner" class="hero-banner">
-		<span>Tam Do Visual</span>
-	</div>
+    <!-- Content within webpage ============================================== -->
+    <div id="imagePreview">
+        <img class="closeBtt" onclick="closeImagePreview();" src="asset/icon/Close.svg">
+    </div>
+    <div id="overlay" onclick="closeImagePreview();" class="blur-background"></div>
 
-	<!-- Website footer ============================================== -->
-	<div class="footer blur-background" style="position: fixed; bottom: 0px;">
+    <div class="gallery-container" id="gallery-container">
+    </div>
+
+    <!-- Website footer ============================================== -->
+	<div class="footer blur-background">
 		<span class="wide-12-regular">Copyright © 2023 — Tam Do Visual. All Rights Reserved. Email: <a target="_blank" href = "mailto: hello@tamdovisual.com">hello@tamdovisual.com</a></span>
 		<div>
 			<a target="_blank" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d"><img src="asset/icon/Spotify.svg"></a>

@@ -18,22 +18,25 @@ var scrollToExploreItem = bodymovin.loadAnimation({
   animationData: scrollToExploreJson,
 });
 
+function changeHeaderBlur(){
+  var body = document.getElementsByTagName('body')[0];
+  var position = body.getBoundingClientRect();
+  var header = document.getElementById('header');
+  if(position.top < -80){
+    header.classList.add('scolled-header', 'blur-background');
+  }
+  else{
+    header.classList.remove('scolled-header', 'blur-background');
+  }
+}
+
 // Check if element is scrolled to the view port ===============================
 
 window.addEventListener('scroll', function() {
-	var element = document.getElementById('landscape-section');
-	var position = element.getBoundingClientRect();
-
-	console.log(position.top)
-	if(position.top < 150){
-		document.getElementById('header').style.background = "rgba(255, 255, 255, 0.05)";
-		document.getElementById('header').style.backdropFilter = "blur(40px)";
-	}
-	else{
-		document.getElementById('header').style.background = "rgba(255, 255, 255, 0.00)";
-		document.getElementById('header').style.backdropFilter = "blur(0px)";
-	}
+  changeHeaderBlur();
 });
+
+
 
 
 // logoAnimation.addEventListener("mouseenter", function () {
@@ -108,3 +111,11 @@ window.addEventListener('scroll', function() {
 //           animItem.setSpeed(1);
 //     }, 150);
 // }, false)
+
+
+// Adding header and footer ===============================
+
+// document.getElementById('header').innerHTML=
+// '<span>Landscape</span><span>Article</span><div id="logoAnimation"></div><span>Trips</span><span>About</span>'
+
+// document.getElementById('header').classList.add('header', 'all-cap-title-10');
