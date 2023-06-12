@@ -11,7 +11,7 @@ var imgThumbnails = document.getElementsByClassName('thumbnail');
 // Initial loading =========================================
 
 // Load all images in gallery folder
-var folder = "asset/image/gallery/";
+var folder = "./asset/image/gallery/";
 $.ajax({
     url : folder,
     success: function (data) {
