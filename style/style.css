@@ -69,6 +69,7 @@ svg path {
 	font-style: normal;
 	font-weight: 900;
 	font-size: 48pt;
+    transform: translate(0, -50px);
 	line-height: 52pt;
 	display: flex;
 	align-items: center;
