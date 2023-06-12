@@ -1,14 +1,13 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_b_2359_13750)">
-<rect width="32" height="32" rx="16" fill="white" fill-opacity="0.3"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M16.0007 16.0002L22.0014 22.0009L22.7085 21.2938L16.7078 15.2931L22.0014 9.99961L21.2943 9.2925L16.0007 14.586L10.7072 9.29248L10.0001 9.99959L15.2936 15.2931L9.29297 21.2938L10.0001 22.0009L16.0007 16.0002Z" fill="black"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.5.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;fill-opacity:0.3;}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+</style>
+<g>
+	<path class="st0" d="M16,0L16,0c8.8,0,16,7.2,16,16l0,0c0,8.8-7.2,16-16,16l0,0C7.2,32,0,24.8,0,16l0,0C0,7.2,7.2,0,16,0z"/>
+	<path class="st1" d="M16,16l6,6l0.7-0.7l-6-6L22,10l-0.7-0.7L16,14.6l-5.3-5.3L10,10l5.3,5.3l-6,6L10,22L16,16z"/>
 </g>
-<defs>
-<filter id="filter0_b_2359_13750" x="-80" y="-80" width="192" height="192" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feGaussianBlur in="BackgroundImageFix" stdDeviation="40"/>
-<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_2359_13750"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_2359_13750" result="shape"/>
-</filter>
-</defs>
 </svg>
