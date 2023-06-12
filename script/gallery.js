@@ -10,22 +10,29 @@ var imgThumbnails = document.getElementsByClassName('thumbnail');
 
 // Initial loading =========================================
 
-// Load all images in gallery folder
-var folder = "./asset/image/gallery/";
-$.ajax({
-    url : folder,
-    success: function (data) {
-        $(data).find("a").attr("href", function (i, val) {
-			if(val.isDirectory){console.log( val)}
-            if(val.match(/\.(jpe?g|png|gif)$/) ) { 
-				imageList.push(val);
-            }
-        });
-    }
-});
-$(document).ajaxComplete(function(){
-	viewGalleryColumn();
-  });
+// Load all images in gallery folder (Cái này hiện đang lỗi, vẫn phải fix cứng code)
+// var folder = "./asset/image/gallery/";
+// $.ajax({
+//     url : folder,
+//     success: function (data) {
+//         $(data).find("a").attr("href", function (i, val) {
+// 			if(val.isDirectory){console.log( val)}
+//             if(val.match(/\.(jpe?g|png|gif)$/) ) { 
+// 				imageList.push(val);
+//             }
+//         });
+//     }
+// });
+// $(document).ajaxComplete(function(){
+// 	viewGalleryColumn();
+//   });
+
+
+for(var i = 0; i< 104; i++){
+	imageList.push('./asset/image/gallery/image-'+ i +".jpg");
+}
+viewGalleryColumn();
+
 
 // Loading images into gallery =========================================
   
@@ -203,7 +210,6 @@ function closeImagePreview(){
 }
 
 function previewNextImage(){
-	console.log(currentPreview);
 	if(currentPreview < imageList.length - 1){
 		currentPreview++;
 	}
@@ -213,7 +219,6 @@ function previewNextImage(){
 	imagePreviewElement.style.background = "url('" + imageList[currentPreview] + "')" +  'center center / contain no-repeat';
 	// viewingThumbnail = document.getElementsByClassName('thumbnail')[currentPreview];
 	viewingThumbnail = document.getElementsByName(currentPreview)[0];
-	console.log(viewingThumbnail);
 }
 
 function previewPreviousImage(){
@@ -224,7 +229,6 @@ function previewPreviousImage(){
 	}
 	imagePreviewElement.style.background = "url('" + imageList[currentPreview] + "')" + 'center center / contain no-repeat';
 	viewingThumbnail = document.getElementsByName(currentPreview)[0];
-	console.log(viewingThumbnail);
 }
 
   document.addEventListener('keydown', function(e) {
