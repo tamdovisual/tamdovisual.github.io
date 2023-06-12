@@ -209,6 +209,16 @@ function closeImagePreview(){
    }, 310);      
 }
 
+function previewPreviousImage(){
+	if(currentPreview > 0){
+		currentPreview--;
+	} else{
+		currentPreview = imageList.length - 1;
+	}
+	imagePreviewElement.style.background = "url('" + imageList[currentPreview] + "')" + 'center center / contain no-repeat';
+	viewingThumbnail = document.getElementsByName(currentPreview)[0];
+}
+
 function previewNextImage(){
 	if(currentPreview < imageList.length - 1){
 		currentPreview++;
@@ -221,23 +231,13 @@ function previewNextImage(){
 	viewingThumbnail = document.getElementsByName(currentPreview)[0];
 }
 
-function previewPreviousImage(){
-	if(currentPreview > 0){
-		currentPreview--;
-	} else{
-		currentPreview = imageList.length - 1;
-	}
-	imagePreviewElement.style.background = "url('" + imageList[currentPreview] + "')" + 'center center / contain no-repeat';
-	viewingThumbnail = document.getElementsByName(currentPreview)[0];
-}
-
-  document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', function(e) {
 	console.log(e.key);
 	if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-	  previewPreviousImage();
+		previewPreviousImage();
 	} else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-	  previewNextImage();
+		previewNextImage();
 	} else if(e.key === 'Escape' && viewingThumbnail != null){
 		closeImagePreview();
 	}
-  });
+});

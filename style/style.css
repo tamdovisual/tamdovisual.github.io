@@ -414,6 +414,23 @@ a{
 	height: 32px;
 }
 
+.arrow-left{
+	/* cursor: pointer; */
+	position: fixed;
+	top: 50%;
+	left: 32px;
+	width: 32px;
+	height: 32px;
+}
+
+.arrow-right{
+	position: fixed;
+	top: 50%;
+	right: 32px;
+	width: 32px;
+	height: 32px;
+}
+
 
 
 /* About page ====================================== */
