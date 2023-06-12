@@ -223,7 +223,7 @@ a{
 
 @media only screen and (min-width: 1120px) and (prefers-color-scheme: light) {
 	.hero-banner{
-		background: url('../asset/image/banner-laptop-light.jpeg');
+		background: url('../asset/image/banner-laptop-light.jpg');
 		background-position: center;
 		background-size: cover;
 	}
@@ -231,7 +231,7 @@ a{
 
 @media only screen and (min-width: 1120px) and (prefers-color-scheme: dark) {
 	.hero-banner{
-		background: url('../asset/image/banner-laptop-dark.jpeg');
+		background: url('../asset/image/banner-laptop-dark.jpg');
 		background-position: center;
 		background-size: cover;
 	}
@@ -239,7 +239,7 @@ a{
 
 @media only screen and (max-width: 1119px) and (prefers-color-scheme: light) {
 	.hero-banner{
-		background: url('../asset/image/banner-mobile-light.jpeg');
+		background: url('../asset/image/banner-mobile-light.jpg');
 		background-position: center;
 		background-size: cover;
 	}
@@ -247,7 +247,7 @@ a{
 
 @media only screen and (max-width: 1119px) and (prefers-color-scheme: dark) {
 	.hero-banner{
-		background: url('../asset/image/banner-mobile-dark.jpeg');
+		background: url('../asset/image/banner-mobile-dark.jpg');
 		background-position: center;
 		background-size: cover;
 	}

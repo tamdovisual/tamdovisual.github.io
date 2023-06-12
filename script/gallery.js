@@ -194,7 +194,9 @@ function removeAllChildNodes(parentId) {
 
 function closeImagePreview(){
 	imagePreviewElement.style.transition = 'all 0.3s ease-in-out';
-	viewingThumbnail.scrollIntoView();
+	if(!isInViewport(viewingThumbnail)){
+		viewingThumbnail.scrollIntoView({block: "nearest", inline: "nearest" });
+	}
 	imagePreviewElement.style.top = viewingThumbnail.getBoundingClientRect().top + "px";
 	imagePreviewElement.style.right = viewingThumbnail.getBoundingClientRect().right + "px";
 	imagePreviewElement.style.bottom = viewingThumbnail.getBoundingClientRect().bottom + "px";
@@ -241,3 +243,13 @@ document.addEventListener('keydown', function(e) {
 		closeImagePreview();
 	}
 });
+
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
