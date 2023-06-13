@@ -219,5 +219,26 @@
     --main-color-20 : rgba(0, 0, 0, 0.2);
     --main-color-10 : rgba(0, 0, 0, 0.1);
     --main-color-05 : rgba(0, 0, 0, 0.05);
+    }
 }
-}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--bg-color-10);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--main-color-40);
+    border-radius: 20px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background:var(--main-color-80);
+  }

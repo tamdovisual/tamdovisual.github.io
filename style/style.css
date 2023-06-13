@@ -401,7 +401,7 @@ a{
 }
 
 #collection-column-list hr{
-	height: 2%;
+	height: 4%;
 	border: 0.1px solid  var(--main-color-20);
 }
 
@@ -425,7 +425,7 @@ a{
 }
 
 #gallery-container-column-right{
-	margin-top: 10%;
+	margin-top: 15%;
 }
 
 #gallery-container-column .thumbnail{

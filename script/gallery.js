@@ -1,13 +1,36 @@
-// Define variables =========================================
+// Configure Collections here =========================================
 
-var numberOfImage = 104;
+var collectionAnLac = {
+	collectionName: "An Lạc",
+	folder: "an-lac",
+	numberOfImage: 22,
+};
+var collectionDiemNhien = {
+	collectionName: "Điềm Nhiên",
+	folder: "diem-nhien",
+	numberOfImage: 27,
+};
+var collectionSoiSang = {
+	collectionName: "Soi Sáng",
+	folder: "soi-sang",
+	numberOfImage: 37,
+};
+var collectionDem = {
+	collectionName: "Đêm",
+	folder: "dem",
+	numberOfImage: 20,
+};
+
+// Define variables =========================================
+var collectionList = [collectionAnLac, collectionDiemNhien, collectionSoiSang, collectionDem];
+var numberOfImage = 0;
+
 var imageList = [];
 var currentPreview;
 var viewingThumbnail = null;
 var imagePreviewElement = document.getElementById('imagePreview');
 var overlayElement = document.getElementById('overlay');
 var imgThumbnails = document.getElementsByClassName('thumbnail');
-
 
 // Initial loading =========================================
 
@@ -28,9 +51,17 @@ var imgThumbnails = document.getElementsByClassName('thumbnail');
 // 	viewGalleryColumn();
 //   });
 
+// for(var i = 0; i < numberOfImage; i++){
+// 	imageList.push('./asset/image/gallery/image-'+ i +".jpg");
+// }
 
-for(var i = 0; i < numberOfImage; i++){
-	imageList.push('./asset/image/gallery/image-'+ i +".jpg");
+
+// Load images from collections
+for(var i = 0; i < collectionList.length; i++){
+	for(var j = 0; j < collectionList[i].numberOfImage; j++){
+		imageList.push({path: './asset/image/gallery/' + collectionList[i].folder + '/' + collectionList[i].folder + '-' + j + '.jpg', collectionName : collectionList[i].folder});
+		numberOfImage++;
+	}
 }
 viewGalleryColumn();
 
@@ -80,7 +111,7 @@ function viewGalleryColumn(){
 function loadImageIntoGrid(){
 	for(var i = 0; i<imageList.length;i++){
 		var img = document.createElement("div");
-		img.style.background = "url('" + imageList[i] + "')";
+		img.style.background = "url('" + imageList[i].path + "')";
 		img.setAttribute("name",i);
 		img.style.backgroundSize = 'cover';
 		img.style.backgroundPosition = 'center';
@@ -103,20 +134,26 @@ function loadImageIntoColumn(){
 
 	for(var i = 0; i<imageList.length;i++){
 		var img = document.createElement("div");
-		img.style.background = "url('" + imageList[i] + "')";
+		img.style.background = "url('" + imageList[i].path + "')";
 		img.setAttribute("name",i);
 		img.style.backgroundSize = 'contain';
 		img.style.backgroundPosition = 'center';
 		img.style.backgroundRepeat = 'no-repeat';
 		// img.style.opacity = '0';
 		// img.style.top = '300px';
-		img.className = "thumbnail";
+		img.className = "thumbnail " + imageList[i].collectionName;
 		img.onclick = showPreviewImage;
 		if(i % 2 == 0){var src = document.getElementById('gallery-container-column-left');
 		} else {var src = document.getElementById('gallery-container-column-right')}
 		src.appendChild(img);  
 	}
 }
+
+function scrollToCollection(collectionName){
+	var fistImageOfCollection = document.getElementsByClassName(collectionName)[0];
+	fistImageOfCollection.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest" });
+   }
+   
 
 // remove all children within element
 function removeAllChildNodes(parentId) {
@@ -235,7 +272,7 @@ function previewNextImage(){
 	else{
 		currentPreview = 0;
 	}
-	imagePreviewElement.style.background = "url('" + imageList[currentPreview] + "')" +  'center center / contain no-repeat';
+	imagePreviewElement.style.background = "url('" + imageList[currentPreview].path + "')" +  'center center / contain no-repeat';
 	// viewingThumbnail = document.getElementsByClassName('thumbnail')[currentPreview];
 	viewingThumbnail = document.getElementsByName(currentPreview)[0];
 }
@@ -263,7 +300,6 @@ function isInViewport(element) {
 
 // Update class of collection-name on mobile devices =========================================
 function updateCollectionNameSize(){
-	console.log("window resized");
 	var screenWidth = window.matchMedia("(max-width: 1119px)");
 	var collectionName = $("#collection-column-list .collection-name");
 	// Mobile size =====
