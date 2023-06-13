@@ -165,6 +165,9 @@ function removeAllChildNodes(parentId) {
 
   // Navigate between images via keyboard =========================================
   function showPreviewImage() {
+	// disable scrolling html page
+	document.getElementsByTagName('html')[0].style.overflowY = "hidden";
+
 	viewingThumbnail = this;
 	currentPreview = Number(viewingThumbnail.getAttribute('name'));
 	imagePreviewElement.style.transition = 'all 0.3s ease-in-out';
@@ -193,6 +196,9 @@ function removeAllChildNodes(parentId) {
 }
 
 function closeImagePreview(){
+	//enable scrolling html page
+	document.getElementsByTagName('html')[0].style.overflowY = "auto";
+
 	imagePreviewElement.style.transition = 'all 0.3s ease-in-out';
 	if(!isInViewport(viewingThumbnail)){
 		viewingThumbnail.scrollIntoView({block: "nearest", inline: "nearest" });
@@ -253,3 +259,34 @@ function isInViewport(element) {
         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
 }
+
+// Update class of collection-name on mobile devices =========================================
+function updateCollectionNameSize(){
+	console.log("window resized");
+	var screenWidth = window.matchMedia("(max-width: 1119px)");
+	var collectionName = $("#collection-column-list .collection-name");
+	// Mobile size =====
+	if(screenWidth.matches){
+		for(var i = 0; i < collectionName.length; i++){
+		  collectionName[i].classList.add('wide-14-regular');
+		  collectionName[i].classList.remove('wide-24-regular');
+		}
+		$("#gallery-container-column").css("gap","25%");
+		$("#gallery-container-column").css("margin","64px 1%");
+	}
+	// Laptop size =====
+	else{
+	  for(var i = 0; i < collectionName.length; i++){
+		collectionName[i].classList.remove('wide-14-regular');
+		collectionName[i].classList.add('wide-24-regular');
+	  }
+	}
+  }
+  
+//   $(document).resize(updateCollectionNameSize());
+window.addEventListener('resize', updateCollectionNameSize);
+
+  // initial load once document is ready
+  $(document).ready(function(){
+	updateCollectionNameSize();
+	});

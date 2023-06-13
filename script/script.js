@@ -23,12 +23,28 @@ function changeHeaderBlur(){
   var body = document.getElementsByTagName('body')[0];
   var position = body.getBoundingClientRect();
   var header = document.getElementById('header');
-  if(position.top < -80){
-    header.classList.add('scolled-header', 'blur-background');
-  }
-  else{
-    header.classList.remove('scolled-header', 'blur-background');
-  }
+  var x = window.matchMedia("(min-width: 1120px)");
+  // if (x.matches && position.top < -80) <--- only apply blur header when scroll for laptop
+  if (position.top < -80) {
+      header.classList.add('scolled-header', 'blur-background');
+  } else{
+      header.classList.remove('scolled-header', 'blur-background');
+    }
+}
+
+function openHeaderMenu(){
+  $('#header-menu-icon').hide();
+  $('#header-menu-icon-close').show();
+  $('#mobile-menu').show();
+  document.getElementsByTagName('html')[0].style.overflowY = "hidden";
+}
+
+function closeHeaderMenu(){
+  $('#header-menu-icon').show();
+  $('#header-menu-icon-close').hide();
+  $('#mobile-menu').hide();
+  // $('body').css("overflow", "auto");
+  document.getElementsByTagName('html')[0].style.overflowY = "auto";
 }
 
 // Check if element is scrolled to the view port ===============================

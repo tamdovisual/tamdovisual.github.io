@@ -18,14 +18,35 @@
 </head>
 <body>
 
-    <!-- Website header ============================================== -->
+	<!-- Website header ============================================== -->
     <div id="header" class="header all-cap-title-10">
-		<span><a href="galerry.html">Landscape</a></span>
+		<span><a href="galerry.html">LANDSCAPE</a></span>
 		<!-- <span>Article</span> -->
 		<a href="index.html"><div id="logoAnimation"></div></a>
 		<!-- <span>Trips</span> -->
-		<span><a href="about.html">About</a></span>
+		<span><a href="about.html">ABOUT</a></span>
+
+		<span id="page-title" style="display: none;">LANDSCAPE</span>
+		<img id="header-menu-icon" src="asset/icon/mobile-menu.svg" onload="SVGInject(this)" onclick="openHeaderMenu()">
+		<img id="header-menu-icon-close" src="asset/icon/menu-close.svg" style="display: none;" onload="SVGInject(this)" onclick="closeHeaderMenu()">
 	</div>
+
+	<div id="mobile-menu" style="display: none;" class="blur-background">
+		<!-- <hr style="visibility: hidden;"> -->
+		<span class="wide-24-regular"><a href="galerry.html">LANDSCAPE</a></span>
+		<hr>
+		<span class="wide-24-regular" style="color: white !important;"><a href="about.html">ABOUT</a></span>
+		<hr>
+		<div>
+			<a target="_blank" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d"><img src="asset/icon/Spotify.svg" onload="SVGInject(this)" ></a>
+			<a target="_blank" href="https://www.facebook.com/Tamdovisual/"><img onload="SVGInject(this)" src="asset/icon/facebook.svg"></a>
+			<a target="_blank" href="https://www.instagram.com/tamdovisual/"><img onload="SVGInject(this)" src="asset/icon/instagram.svg"></a>
+			<a target="_blank" href="https://www.youtube.com/tamdodesign/"><img onload="SVGInject(this)" src="asset/icon/Youtube.svg"></a>
+		</div>
+		<hr>
+		<span class="wide-14-regular"><a target="_blank" href = "mailto: hello@tamdovisual.com">hello@tamdovisual.com</a></span>
+	</div>
+
 
     <!-- Content within webpage ============================================== -->
 	<!-- Preview large image -->
