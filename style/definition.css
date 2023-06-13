@@ -164,7 +164,6 @@
     -webkit-backdrop-filter: blur(20px);
   }
 
-
 /* Color variables for darkmode and lightmode*/
 @media (prefers-color-scheme: dark) {
     :root{
