@@ -58,7 +58,8 @@ for(var i = 0; i < collectionList.length; i++){
 		numberOfImage++;
 	}
 }
-viewGalleryColumn();
+// viewGalleryColumn();
+viewGalleryGrid();
 
 
 // Loading images into gallery =========================================
@@ -102,18 +103,30 @@ function viewGalleryColumn(){
 	loadImageIntoColumn();
 }
 
+function loadImage(path, elementParent){
+	var img = document.createElement("div");
+	img.style.background = "url('" + imageList[path].path + "')";
+	img.setAttribute("name",path);
+	img.style.backgroundSize = 'cover';
+	img.style.backgroundPosition = 'center';
+	img.className = "thumbnail";
+	img.className = "thumbnail " + imageList[path].collectionName;
+	img.setAttribute("onclick",'showPreviewImage()');
+	img.onclick = showPreviewImage;
+	img.addEventListener("mouseover", function() {
+		cursor.classList.add("custom-cursor--link");
+	  });
+	  img.addEventListener("mouseout", function() {
+		cursor.classList.remove("custom-cursor--link");
+	  });
+	elementParent.appendChild(img);
+}
+
 // Load images into grid layout
 function loadImageIntoGrid(){
 	for(var i = 0; i<imageList.length;i++){
-		var img = document.createElement("div");
-		img.style.background = "url('" + imageList[i].path + "')";
-		img.setAttribute("name",i);
-		img.style.backgroundSize = 'cover';
-		img.style.backgroundPosition = 'center';
-		img.className = "thumbnail";
-		img.onclick = showPreviewImage;
 		var src = document.getElementById('gallery-container-grid');
-		src.appendChild(img);
+		loadImage(i, src);
 	}
 }
 
@@ -128,19 +141,9 @@ function loadImageIntoColumn(){
 	document.getElementById('gallery-container-column').appendChild(rightColumn);
 
 	for(var i = 0; i<imageList.length;i++){
-		var img = document.createElement("div");
-		img.style.background = "url('" + imageList[i].path + "')";
-		img.setAttribute("name",i);
-		img.style.backgroundSize = 'contain';
-		img.style.backgroundPosition = 'center';
-		img.style.backgroundRepeat = 'no-repeat';
-		// img.style.opacity = '0';
-		// img.style.top = '300px';
-		img.className = "thumbnail " + imageList[i].collectionName;
-		img.onclick = showPreviewImage;
 		if(i % 2 == 0){var src = document.getElementById('gallery-container-column-left');
 		} else {var src = document.getElementById('gallery-container-column-right')}
-		src.appendChild(img);  
+		loadImage(i, src);
 	}
 }
 

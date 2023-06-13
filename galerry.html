@@ -9,11 +9,15 @@
 	<link rel="stylesheet" type="text/css" href="style/definition.css">
 	<link rel="stylesheet" type="text/css" href="style/style.css">
 
+    <!-- Libs scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
 	<script src="script/svg-inject.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 	<script type="text/javascript" src="script/lottie.js"></script>
 	<script type="text/javascript" src="script/script.js" defer></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.1/lottie.min.js" integrity="sha512-H6aKTjvYAazW0iNuGj1f2dZvSWlt1HGZGEDsXRPETo2IB4H6v36Vl2qiZNlCRxOp0kT7iBf+7USNPavNscZGAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+	<!-- custom scripts for each page -->
     <script src="script/gallery.js" defer></script>
 </head>
 <body>
@@ -50,17 +54,17 @@
 
     <!-- Content within webpage ============================================== -->
 	<!-- Preview large image -->
-    <div id="imagePreview">
+    <div id="imagePreview" >
         <img class="closeBtt" onclick="closeImagePreview();" src="asset/icon/Close.svg">
 		<img class="arrow-left" onclick="previewPreviousImage();" src="asset/icon/arrow-left.svg">
 		<img class="arrow-right" onclick="previewNextImage();" src="asset/icon/arrow-right.svg">
     </div>
-    <div id="overlay" onclick="closeImagePreview();" class="blur-background"></div>
+    <div id="overlay" class="blur-background"></div>
 
 	<!-- toggle icon between view mode -->
 	<div class="toggleViewMode blur-background">
-		<img id="toggleColumn" style="opacity: 0.5;" src="asset/icon/column.svg" onload="SVGInject(this)" onclick="viewGalleryColumn();">
-		<img id="toggleGrid"   style="opacity: 0.5;" src="asset/icon/grid.svg"   onload="SVGInject(this)" onclick="viewGalleryGrid();">
+		<a><img id="toggleColumn" style="opacity: 0.5;" src="asset/icon/column.svg" onload="SVGInject(this)" onclick="viewGalleryColumn();"></a>
+		<a><img id="toggleGrid"   style="opacity: 0.5;" src="asset/icon/grid.svg"   onload="SVGInject(this)" onclick="viewGalleryGrid();"></a>
 	</div>
 	<!-- Gallery / Grid layout -->
     <div style="display: none;" class="gallery-container-grid" id="gallery-container-grid">

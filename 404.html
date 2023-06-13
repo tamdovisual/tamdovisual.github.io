@@ -8,11 +8,15 @@
 
 	<link rel="stylesheet" type="text/css" href="style/definition.css">
 	<link rel="stylesheet" type="text/css" href="style/style.css">
-
+    
+    <!-- Libs scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
 	<script src="script/svg-inject.min.js"></script>
 	<script type="text/javascript" src="script/lottie.js"></script>
 	<script type="text/javascript" src="script/script.js" defer></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.1/lottie.min.js" integrity="sha512-H6aKTjvYAazW0iNuGj1f2dZvSWlt1HGZGEDsXRPETo2IB4H6v36Vl2qiZNlCRxOp0kT7iBf+7USNPavNscZGAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
 
 </head>
 <body>
@@ -34,6 +38,12 @@
     <!-- </div> -->
 
     <style>
+
+        svg path, svg rect, #starMovingContainer g {
+            fill: var(--main-color-100) !important;
+            stroke: var(--main-color-100) !important;
+        }
+
         #starMovingContainer{
             z-index: 10;
             position: fixed;

@@ -1,3 +1,6 @@
+var cursor;
+
+
 // Creating animation ===============================
 
 var logoAnimation = document.getElementById('logoAnimation');
@@ -54,6 +57,76 @@ window.addEventListener('scroll', function() {
 });
 
 
+
+
+
+// Custom cursor =========================================
+// Add cursor div into page
+
+document.addEventListener("DOMContentLoaded", function(event) {
+
+  // add custom cursor div element into page
+  var img = document.createElement("div");
+  img.className = "custom-cursor";
+  $('body')[0].appendChild(img);
+
+  cursor = document.querySelector(".custom-cursor");
+  var links = document.querySelectorAll("a");
+  var clickableElements = $('body *').toArray().filter(function(el) { return $(el).attr('onclick') });
+  
+  var initCursor = false;
+
+  for (var i = 0; i < links.length; i++) {
+    var selfLink = links[i];
+
+    selfLink.addEventListener("mouseover", function() {
+      cursor.classList.add("custom-cursor--link");
+    });
+    selfLink.addEventListener("mouseout", function() {
+      cursor.classList.remove("custom-cursor--link");
+    });
+  }
+
+  for (var i = 0; i < clickableElements.length; i++) {
+    var selfLink = clickableElements[i];
+
+    selfLink.addEventListener("mouseover", function() {
+      cursor.classList.add("custom-cursor--link");
+    });
+    selfLink.addEventListener("mouseout", function() {
+      cursor.classList.remove("custom-cursor--link");
+    });
+  }
+
+  window.onmousemove = function(e) {
+    var mouseX = e.clientX;
+    var mouseY = e.clientY;
+
+    if (!initCursor) {
+      // cursor.style.opacity = 1;
+      TweenLite.to(cursor, 0.3, {
+        opacity: 1
+      });
+      initCursor = true;
+    }
+
+    TweenLite.to(cursor, 0, {
+      top: mouseY + "px",
+      left: mouseX + "px"
+    });
+  };
+
+  window.onmouseout = function(e) {
+    TweenLite.to(cursor, 0.3, {
+      opacity: 0
+    });
+    initCursor = false;
+  };
+});
+
+
+
+
 // logoAnimation.addEventListener("mouseenter", function () {
 //   animItem.play();
 // });
@@ -63,7 +136,7 @@ window.addEventListener('scroll', function() {
 // });
 
 
-// Setting speed of animation by scrolling speed ==========
+// Setting speed of animation by scrolling speed ========================================
 
 
 // var checkScrollSpeed = (function(settings){
