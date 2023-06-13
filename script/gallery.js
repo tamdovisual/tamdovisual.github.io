@@ -51,11 +51,6 @@ var imgThumbnails = document.getElementsByClassName('thumbnail');
 // 	viewGalleryColumn();
 //   });
 
-// for(var i = 0; i < numberOfImage; i++){
-// 	imageList.push('./asset/image/gallery/image-'+ i +".jpg");
-// }
-
-
 // Load images from collections
 for(var i = 0; i < collectionList.length; i++){
 	for(var j = 0; j < collectionList[i].numberOfImage; j++){
