@@ -1,5 +1,6 @@
 // Define variables =========================================
 
+var numberOfImage = 104;
 var imageList = [];
 var currentPreview;
 var viewingThumbnail = null;
@@ -28,7 +29,7 @@ var imgThumbnails = document.getElementsByClassName('thumbnail');
 //   });
 
 
-for(var i = 0; i< 104; i++){
+for(var i = 0; i < numberOfImage; i++){
 	imageList.push('./asset/image/gallery/image-'+ i +".jpg");
 }
 viewGalleryColumn();
