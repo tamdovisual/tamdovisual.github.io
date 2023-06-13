@@ -261,7 +261,7 @@ function previewPreviousImage(){
 	} else{
 		currentPreview = imageList.length - 1;
 	}
-	imagePreviewElement.style.background = "url('" + imageList[currentPreview] + "')" + 'center center / contain no-repeat';
+	imagePreviewElement.style.background = "url('" + imageList[currentPreview].path + "')" + 'center center / contain no-repeat';
 	viewingThumbnail = document.getElementsByName(currentPreview)[0];
 }
 
