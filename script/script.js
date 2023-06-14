@@ -137,9 +137,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 // page transition
-$(window).on("load",function(){
-  $(".loader-wrapper").fadeOut("slow");
-});
+// $(window).on("load",function(){
+//   $(".loader-wrapper").fadeOut("slow");
+// });
 
 
 // Lazy loading image in the gallery

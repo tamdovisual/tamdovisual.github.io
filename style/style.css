@@ -6,9 +6,13 @@
 	height: 100%;
 }
 
-svg path, svg rect, #starMovingContainer g {
+svg path, svg rect {
 	fill: var(--main-color-100);
-	/* stroke: var(--main-color-100); */
+}
+
+#starMovingContainer * {
+	fill: var(--main-color-100);
+	stroke: var(--main-color-100);
 }
 
 #starMovingContainer > svg{
@@ -429,7 +433,7 @@ a{
 #gallery-container-column{
 	display: flex;
 	justify-content: flex-start;
-	gap: 15%;
+	gap: 20%;
 	box-sizing: border-box;
 	margin: 0px 2%;
 }
