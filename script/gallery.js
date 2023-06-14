@@ -105,12 +105,12 @@ function viewGalleryColumn(){
 
 function loadImage(path, elementParent){
 	var img = document.createElement("div");
-	img.style.background = "url('" + imageList[path].path + "')";
+	// img.style.background = "url('" + imageList[path].path + "')";
 	img.setAttribute("name",path);
+	img.setAttribute('data-src',"url('" + imageList[path].path + "')");
 	img.style.backgroundSize = 'cover';
 	img.style.backgroundPosition = 'center';
-	img.className = "thumbnail";
-	img.className = "thumbnail " + imageList[path].collectionName;
+	img.className = "lazy thumbnail " + imageList[path].collectionName;
 	img.setAttribute("onclick",'showPreviewImage()');
 	img.setAttribute("loading","lazy");
 	img.onclick = showPreviewImage;
