@@ -15,6 +15,10 @@ var logoAnimationItem = bodymovin.loadAnimation({
   animationData: logoJson,
 });
 
+logoAnimationItem.addEventListener("complete", function(){
+  console.log('logo is animated');
+});
+
 var scrollToExploreItem = bodymovin.loadAnimation({
   wrapper: scrollToExplore,
   animType: 'svg',

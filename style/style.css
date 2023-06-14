@@ -433,7 +433,7 @@ a{
 #gallery-container-column{
 	display: flex;
 	justify-content: flex-start;
-	gap: 20%;
+	gap: 15%;
 	box-sizing: border-box;
 	margin: 0px 2%;
 }
@@ -446,7 +446,7 @@ a{
 }
 
 #gallery-container-column-right{
-	margin-top: 15%;
+	margin-top: 25vh;
 }
 
 #gallery-container-column .thumbnail{
