@@ -112,6 +112,7 @@ function loadImage(path, elementParent){
 	img.className = "thumbnail";
 	img.className = "thumbnail " + imageList[path].collectionName;
 	img.setAttribute("onclick",'showPreviewImage()');
+	img.setAttribute("loading","lazy");
 	img.onclick = showPreviewImage;
 	img.addEventListener("mouseover", function() {
 		cursor.classList.add("custom-cursor--link");
