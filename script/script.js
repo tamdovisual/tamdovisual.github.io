@@ -142,7 +142,6 @@ $(window).on("load",function(){
 });
 
 
-
 // logoAnimation.addEventListener("mouseenter", function () {
 //   animItem.play();
 // });

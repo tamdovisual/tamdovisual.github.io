@@ -23,19 +23,8 @@
 
 	<!-- Content within webpage ============================================== -->
 
-    <!-- <div> -->
         <a href="index.html"><div id="logoAnimation"></div></a>
         <div id="starMovingContainer"></div>
-        <script>
-            var scrollToExploreItem = bodymovin.loadAnimation({
-                wrapper: starMovingContainer,
-                animType: 'svg',
-                loop: true,
-                autoplay: true,
-                animationData: starMovingJson,
-            });
-        </script>
-    <!-- </div> -->
 
     <style>
         svg path, svg rect, #starMovingContainer g {
@@ -50,11 +39,11 @@
             height: 100%;
         }
         
-        #starMovingContainer > svg{
+        /* #starMovingContainer > svg{
             width: 200% !important;
             height: 200% !important;
             transform: translate(-25%, -25%) !important;
-        }
+        } */
         
         #logoAnimation{
             z-index: 30;

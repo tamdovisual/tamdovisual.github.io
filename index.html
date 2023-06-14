@@ -21,9 +21,11 @@
 			fill: white !important;
 		} */
 
-	svg path, svg rect{
+	svg path, svg rect, #starMovingContainer g {
 		fill: white !important;
+		stroke: white !important;
 	}
+
 	span, span:hover, a, a:hover{
 		color: white !important;
 	}
@@ -33,6 +35,11 @@
 	</style>
 </head>
 <body>
+
+	<!-- Page loading element ============================================== -->
+	<div class="loader-wrapper">
+		<div id="starMovingContainer"></div>
+	</div>
 
 	<!-- Website header ============================================== -->
     <div id="header" class="header all-cap-title-10">
