@@ -59,7 +59,7 @@ for(var i = 0; i < collectionList.length; i++){
 	}
 }
 // viewGalleryColumn();
-viewGalleryGrid();
+viewGalleryColumn();
 
 
 // Loading images into gallery =========================================

@@ -38,14 +38,14 @@ function changeHeaderBlur(){
 function openHeaderMenu(){
   $('#header-menu-icon').hide();
   $('#header-menu-icon-close').show();
-  $('#mobile-menu').show();
+  $('#mobile-menu').fadeIn();
   document.getElementsByTagName('html')[0].style.overflowY = "hidden";
 }
 
 function closeHeaderMenu(){
   $('#header-menu-icon').show();
   $('#header-menu-icon-close').hide();
-  $('#mobile-menu').hide();
+  $('#mobile-menu').fadeOut();
   // $('body').css("overflow", "auto");
   document.getElementsByTagName('html')[0].style.overflowY = "auto";
 }
@@ -124,6 +124,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
   };
 });
 
+
+// page transition
+$(window).on("load",function(){
+  $(".loader-wrapper").fadeOut("slow");
+});
 
 
 
