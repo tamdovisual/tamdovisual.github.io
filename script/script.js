@@ -5,6 +5,7 @@ var cursor;
 
 var logoAnimation = document.getElementById('logoAnimation');
 var scrollToExplore = document.getElementById('scrollToExplore');
+var starMovingContainer = document.getElementById('starMovingContainer')
 
 var logoAnimationItem = bodymovin.loadAnimation({
   wrapper: logoAnimation,
@@ -21,6 +22,16 @@ var scrollToExploreItem = bodymovin.loadAnimation({
   autoplay: true,
   animationData: scrollToExploreJson,
 });
+
+var scrollToExploreItem = bodymovin.loadAnimation({
+  wrapper: starMovingContainer,
+  animType: 'svg',
+  loop: true,
+  autoplay: true,
+  animationData: starMovingJson,
+});
+
+// initial functions ===============================
 
 function changeHeaderBlur(){
   var body = document.getElementsByTagName('body')[0];
