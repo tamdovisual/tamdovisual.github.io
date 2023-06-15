@@ -9,19 +9,22 @@
 	<link rel="stylesheet" type="text/css" href="style/definition.css">
 	<link rel="stylesheet" type="text/css" href="style/style.css">
 
+	<!-- Libs scripts -->
+	<script src='https://cdn.jsdelivr.net/npm/jquery.ripples@0.6.3/dist/jquery.ripples.min.js' defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
 	<script src="script/svg-inject.min.js"></script>
+	<script type="module" src="script/splitText.js"></script>
 	<script type="text/javascript" src="script/lottie.js"></script>
 	<script type="text/javascript" src="script/script.js" defer></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.1/lottie.min.js" integrity="sha512-H6aKTjvYAazW0iNuGj1f2dZvSWlt1HGZGEDsXRPETo2IB4H6v36Vl2qiZNlCRxOp0kT7iBf+7USNPavNscZGAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 	<style>
-		/* #logoAnimation path, #logoAnimation rect, #header-menu-icon path, #header-menu-icon rect, #header-menu-icon-close path, #header-menu-icon-close rect {
-			fill: white !important;
-		} */
-
 	svg path, svg rect, #starMovingContainer g {
+		fill: white !important;
+	}
+
+	#starMovingContainer g {
 		fill: white !important;
 		stroke: white !important;
 	}
@@ -50,17 +53,15 @@
 		<span><a href="about.html">ABOUT</a></span>
 
 		<span id="page-title" style="display: none;"> </span>
-		<img id="header-menu-icon" src="asset/icon/mobile-menu.svg" onload="SVGInject(this)" onclick="openHeaderMenu()">
-		<img id="header-menu-icon-close" src="asset/icon/menu-close.svg" style="display: none;" onload="SVGInject(this)" onclick="closeHeaderMenu()">
-	</div>
+		<div id="mobileMenuIcon" onload="SVGInject(this)"></div>
+		</div>
 
 	<div id="mobile-menu" style="display: none;" class="blur-background">
-		<!-- <hr style="visibility: hidden;"> -->
 		<span class="wide-24-regular"><a href="galerry.html">LANDSCAPE</a></span>
 		<hr>
 		<span class="wide-24-regular"><a href="about.html">ABOUT</a></span>
 		<hr>
-		<div>
+		<div class="social-icon">
 			<a target="_blank" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d"><img src="asset/icon/Spotify.svg" onload="SVGInject(this)" ></a>
 			<a target="_blank" href="https://www.facebook.com/Tamdovisual/"><img onload="SVGInject(this)" src="asset/icon/facebook.svg"></a>
 			<a target="_blank" href="https://www.instagram.com/tamdovisual/"><img onload="SVGInject(this)" src="asset/icon/instagram.svg"></a>
@@ -71,9 +72,13 @@
 	</div>
 
 	<!-- Content within webpage ============================================== -->
+
 	<div id="hero-banner" class="hero-banner">
-		<span>Tam Do Visual</span>
+		<div class="animateText hero-text">Tam Do Visual</div>
+		<br>
+		<a href="galerry.html"><button class="CTA all-cap-Title-12">EXPLORE</button></a>
 	</div>
+	
 
 	<!-- Website footer ============================================== -->
 	<div class="footer blur-background" style="position: fixed; bottom: 0px;">
@@ -87,6 +92,5 @@
 	</div>
 
 	<!-- <div class="custom-cursor"></div> -->
-
 </body>
 </html>

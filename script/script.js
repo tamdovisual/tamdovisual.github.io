@@ -1,11 +1,37 @@
 var cursor;
 
+// $('.hero-banner').ripples({
+// 	resolution: 48,
+// 	dropRadius: 120,
+// 	perturbance: 0.005,
+// });
 
 // Creating animation ===============================
 
 var logoAnimation = document.getElementById('logoAnimation');
 var scrollToExplore = document.getElementById('scrollToExplore');
 var starMovingContainer = document.getElementById('starMovingContainer')
+
+var mobileMenuIcon = document.getElementById('mobileMenuIcon');
+
+var mobileMenuIconItem = bodymovin.loadAnimation({
+  wrapper: mobileMenuIcon,
+  animType: 'svg',
+  loop: false,
+  autoplay: false,
+  animationData: mobileMenuIconJson,
+});
+
+var menuClose = 1;
+mobileMenuIcon.addEventListener('click', (e) => {
+  if(menuClose== 1){
+    openHeaderMenu()
+  }
+  else{closeHeaderMenu()}
+  mobileMenuIconItem.setDirection(menuClose);
+  mobileMenuIconItem.play();
+  menuClose = -menuClose;
+});
 
 var logoAnimationItem = bodymovin.loadAnimation({
   wrapper: logoAnimation,
@@ -71,12 +97,7 @@ window.addEventListener('scroll', function() {
   changeHeaderBlur();
 });
 
-
-
-
-
 // Custom cursor =========================================
-// Add cursor div into page
 
 document.addEventListener("DOMContentLoaded", function(event) {
 
@@ -140,13 +161,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
 });
 
 
-// page transition
+// page transition ========================================
 $(window).on("load",function(){
   $(".loader-wrapper").fadeOut("slow");
 });
 
 
-// Lazy loading image in the gallery
+// Lazy loading image in the gallery ========================================
 document.addEventListener("DOMContentLoaded", function() {
   var lazyloadImages = document.querySelectorAll(".lazy");    
   var lazyloadThrottleTimeout;
@@ -180,71 +201,29 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-// logoAnimation.addEventListener("mouseenter", function () {
-//   animItem.play();
-// });
+// check mouse movement direction ============================================================================
+// let oldX = 0, oldY = 0;
 
-// logoAnimation.addEventListener("mouseleave", function () {
-//   animItem.goToAndStop(0);
-// });
+// function captureMouseMove($event){
+//      let directionX = 0, directionY = 0, diffX = 0, diffY = 0;
+//      if ($event.pageX < oldX) {
+//          directionX = "left"
+//          diffX = oldX - $event.pageX;
+//      } else if ($event.pageX > oldX) {
+//          directionX = "right"
+//          diffX = $event.pageX - oldX;
+//      }
 
+//      if ($event.pageY < oldY) {
+//          directionY = "top"
+//          diffY = oldY - $event.pageY;
+//      } else if ($event.pageY > oldY) {
+//          directionY = "bottom";
+//          diffY = $event.pageY - oldY;
+//      }
 
-// Setting speed of animation by scrolling speed ========================================
+//      oldX = $event.pageX;
+//      oldY = $event.pageY;
+//  }
 
-
-// var checkScrollSpeed = (function(settings){
-//     settings = settings || {};
-  
-//     var lastPos, newPos, timer, delta, 
-//         delay = settings.delay || 500; // in "ms" (higher means lower fidelity )
-  
-//     function clear() {
-//       lastPos = null;
-//       delta = 0;
-//     }
-  
-//     clear();
-    
-//     return function(){
-//       newPos = window.scrollY;
-//       if ( lastPos != null ){ // && newPos < maxScroll 
-//         delta = Math.abs(newPos -  lastPos);
-//       }
-//       lastPos = newPos;
-//       clearTimeout(timer);
-//       timer = setTimeout(clear, delay);
-//       return delta;
-//     };
-// })();
-
-// // listen to "scroll" event
-// window.onscroll = function(){
-//     // console.clear()
-//     var speed = checkScrollSpeed();
-//     if(speed == 0) {
-//         animItem.setSpeed(1);
-//         console.log( speed );
-//     }
-//     else if(speed < 200) {
-//         animItem.setSpeed(10);
-//         console.log( speed );
-
-//     }
-//     else {
-//         animItem.setSpeed(20);
-//         console.log( speed );
-
-//     }
-//     console.log(animItem.playSpeed);
-// };
-
-
-// var timer = null;
-// window.addEventListener('scroll', function() {
-//     if(timer !== null) {
-//         clearTimeout(timer);        
-//     }
-//     timer = setTimeout(function() {
-//           animItem.setSpeed(1);
-//     }, 150);
-// }, false)
+//  window.addEventListener('mousemove', captureMouseMove);

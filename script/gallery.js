@@ -63,7 +63,7 @@ viewGalleryColumn();
 
 
 // Loading images into gallery =========================================
-  
+
 // Show grid
 function viewGalleryGrid(){
 	document.getElementById('toggleGrid').style.opacity = '1';
@@ -104,23 +104,38 @@ function viewGalleryColumn(){
 }
 
 function loadImage(path, elementParent){
+	// create thumbnail image as a div
 	var img = document.createElement("div");
 	// img.style.background = "url('" + imageList[path].path + "')";
 	img.setAttribute("name",path);
 	img.setAttribute('data-src',"url('" + imageList[path].path + "')");
 	img.style.backgroundSize = 'cover';
 	img.style.backgroundPosition = 'center';
+
+	// waving effect from svg
+	// img.style.filter = "url('#waving')";
+	
+	// lazy loading
 	img.className = "lazy thumbnail " + imageList[path].collectionName;
-	img.setAttribute("onclick",'showPreviewImage()');
 	img.setAttribute("loading","lazy");
+
+	// onclick
+	img.setAttribute("onclick",'showPreviewImage()');
 	img.onclick = showPreviewImage;
+
 	img.addEventListener("mouseover", function() {
 		cursor.classList.add("custom-cursor--link");
 	  });
 	  img.addEventListener("mouseout", function() {
 		cursor.classList.remove("custom-cursor--link");
 	  });
-	elementParent.appendChild(img);
+
+	// create thumbnail container as a div
+	var container = document.createElement('div');
+	container.classList.add('thumbnail-container');
+	container.appendChild(img);
+
+	elementParent.appendChild(container);
 }
 
 // Load images into grid layout
@@ -243,26 +258,6 @@ function removeAllChildNodes(parentId) {
 // loadImageAnimation();
 
 
-// Animate Image Thumbnail on scrolling
-// function animateImageThumbnail(){
-// 	for (var i = 0; i < imageList.length; i++){
-// 		if((imgThumbnails[i].getBoundingClientRect().top - window.innerHeight) > 300){
-// 			imgThumbnails[i].style.top = '300px';
-// 			imgThumbnails[i].style.opacity = '0';
-// 		}
-// 		else{
-// 			imgThumbnails[i].style.top = '0px';
-// 			imgThumbnails[i].style.opacity = '1';
-// 		}
-// 	}
-// }
-
-// window.addEventListener('scroll', function() {
-// 	animateImageThumbnail();
-//   });
-
-
-
   // Navigate between images via keyboard =========================================
   function showPreviewImage() {
 	// disable scrolling html page
@@ -381,11 +376,91 @@ function updateCollectionNameSize(){
 	  }
 	}
   }
-  
-//   $(document).resize(updateCollectionNameSize());
 window.addEventListener('resize', updateCollectionNameSize);
-
-  // initial load once document is ready
-  $(document).ready(function(){
+// initial load once document is ready
+$(document).ready(function(){
 	updateCollectionNameSize();
-	});
+});
+
+
+// Setting speed of animation by scrolling speed ========================================
+
+var checkScrollSpeed = (function(settings){
+    settings = settings || {};
+  
+    var lastPos, newPos, timer, delta, 
+        delay = settings.delay || 500; // in "ms" (higher means lower fidelity )
+  
+    function clear() {
+      lastPos = null;
+      delta = 0;
+    }
+  
+    clear();
+    
+    return function(){
+      newPos = window.scrollY;
+      if ( lastPos != null ){ // && newPos < maxScroll 
+        delta = newPos -  lastPos;
+      }
+      lastPos = newPos;
+      clearTimeout(timer);
+      timer = setTimeout(clear, delay);
+      return delta;
+    };
+})();
+
+// listen to "scroll" event
+window.onscroll = function(){
+    var speed = checkScrollSpeed();
+    var size = Math.max((1 - Math.abs(speed/400)), 0.2);
+    // var perspective = (Math.min((Math.abs(speed)/10),75))*Math.sign(speed);
+    if(speed == 0) {
+      // không cuộn chuột
+        $('#gallery-container-column').find('.thumbnail').css('transform', 'scaleX(1) scaleY(1) rotateX(0deg)');
+    }
+    else {
+        // có cuộn chuột
+        // console.log(size);
+        $('#gallery-container-column').find('.thumbnail').css('transform', 'scaleX('+ size +') scaleY('+ size +') rotateX('+0+'deg)');
+    }
+};
+
+const onScrollStop = callback => {
+  let isScrolling;
+  window.addEventListener(
+    'scroll',
+    e => {
+      clearTimeout(isScrolling);
+      isScrolling = setTimeout(() => {
+        callback();
+      }, 150);
+    },
+    false
+  );
+};
+
+onScrollStop(() => {
+  $('#gallery-container-column').find('.thumbnail').css('transform', 'scaleX(1) scaleY(1) rotateX(0deg)');
+  console.log('The user has stopped scrolling');
+});
+
+
+// Animate Image Thumbnail on scrolling
+
+// function animateImageThumbnail(){
+// 	for (var i = 0; i < imageList.length; i++){
+// 		if((imgThumbnails[i].getBoundingClientRect().top - window.innerHeight) > 300){
+// 			imgThumbnails[i].style.top = '300px';
+// 			imgThumbnails[i].style.opacity = '0';
+// 		}
+// 		else{
+// 			imgThumbnails[i].style.top = '0px';
+// 			imgThumbnails[i].style.opacity = '1';
+// 		}
+// 	}
+// }
+
+// window.addEventListener('scroll', function() {
+// 	animateImageThumbnail();
+//   });

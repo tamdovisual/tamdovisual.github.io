@@ -10,8 +10,10 @@
 	<link rel="stylesheet" type="text/css" href="style/style.css">
 
     <!-- Libs scripts -->
+	<script src='https://cdn.jsdelivr.net/npm/jquery.ripples@0.6.3/dist/jquery.ripples.min.js' defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
 	<script src="script/svg-inject.min.js"></script>
+	<script type="module" src="script/splitText.js"></script>
 	<script type="text/javascript" src="script/lottie.js"></script>
 	<script type="text/javascript" src="script/script.js" defer></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.1/lottie.min.js" integrity="sha512-H6aKTjvYAazW0iNuGj1f2dZvSWlt1HGZGEDsXRPETo2IB4H6v36Vl2qiZNlCRxOp0kT7iBf+7USNPavNscZGAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -36,8 +38,7 @@
 		<span><a href="about.html">ABOUT</a></span>
 
 		<span id="page-title" style="display: none;">LANDSCAPE</span>
-		<img id="header-menu-icon" src="asset/icon/mobile-menu.svg" onload="SVGInject(this)" onclick="openHeaderMenu()">
-		<img id="header-menu-icon-close" src="asset/icon/menu-close.svg" style="display: none;" onload="SVGInject(this)" onclick="closeHeaderMenu()">
+		<div id="mobileMenuIcon" onload="SVGInject(this)"></div>
 	</div>
 
 	<div id="mobile-menu" style="display: none;" class="blur-background">
@@ -46,7 +47,7 @@
 		<hr>
 		<span class="wide-24-regular" style="color: white !important;"><a href="about.html">ABOUT</a></span>
 		<hr>
-		<div>
+		<div class="social-icon">
 			<a target="_blank" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d"><img src="asset/icon/Spotify.svg" onload="SVGInject(this)" ></a>
 			<a target="_blank" href="https://www.facebook.com/Tamdovisual/"><img onload="SVGInject(this)" src="asset/icon/facebook.svg"></a>
 			<a target="_blank" href="https://www.instagram.com/tamdovisual/"><img onload="SVGInject(this)" src="asset/icon/instagram.svg"></a>
@@ -72,7 +73,7 @@
 		<a><img id="toggleGrid"   style="opacity: 0.5;" src="asset/icon/grid.svg"   onload="SVGInject(this)" onclick="viewGalleryGrid();"></a>
 	</div>
 	<!-- Gallery / Grid layout -->
-    <div style="display: none;" class="gallery-container-grid" id="gallery-container-grid">
+    <div style="display: none;" class="gallery-container-grid" id="gallery-container-grid" >
     </div>
 
 	<!-- Gallery / Column layout -->
@@ -82,13 +83,13 @@
 			<span class="header-text wide-14-regular">Collections</span>
 			<hr>
 		</div>
-		<span class="collection-name wide-24-regular" onclick="scrollToCollection('an-lac')">AN LẠC</span>
+		<div class=" animateText collection-name wide-24-regular" onclick="scrollToCollection('an-lac')">AN LẠC</div>
 		<hr>
-		<span class="collection-name wide-24-regular" onclick="scrollToCollection('diem-nhien')">ĐIỀM NHIÊN</span>
+		<div class="animateText collection-name wide-24-regular" onclick="scrollToCollection('diem-nhien')">ĐIỀM NHIÊN</div>
 		<hr>
-		<span class="collection-name wide-24-regular" onclick="scrollToCollection('soi-sang')">SOI SÁNG</span>
+		<div class="animateText collection-name wide-24-regular" onclick="scrollToCollection('soi-sang')">SOI SÁNG</div>
 		<hr>
-		<span class="collection-name wide-24-regular"  onclick="scrollToCollection('dem')">ĐÊM</span>
+		<div class="animateText collection-name wide-24-regular"  onclick="scrollToCollection('dem')">ĐÊM</div>
 		<hr class="fill-height">
 	</div>
     <div style="display: none;" id="gallery-container-column">
@@ -104,6 +105,58 @@
 			<a target="_blank" href="https://www.youtube.com/tamdodesign/"><img src="asset/icon/Youtube.svg" onload="SVGInject(this)"></a>
 		</div>
 	</div>
+
+
+
+	<!-- Waving effect filter for div has background image by svg file ================================== -->
+	<!-- <svg>
+		<defs>
+			<filter id="waving-flag" color-interpolation-filters="sRGB" x="-500%" y="-500%" width="1000%" height="1000%" bx:preset="warp 1 20 0.05">
+			  <feComponentTransfer>
+				<feFuncR type="table" tableValues="1 0.5"></feFuncR>
+			  </feComponentTransfer>
+			  <feMerge result="a">
+				<feMergeNode></feMergeNode>
+				<feMergeNode in="SourceGraphic"></feMergeNode>
+			  </feMerge>
+			  <feTurbulence type="fractalNoise" baseFrequency="0.001" numOctaves="1" result="warp"></feTurbulence>
+			  <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="100" in="a" in2="warp"></feDisplacementMap>
+			</filter>
+		  </defs>	
+	  </svg>
+	<script>
+		const tl = gsap.timeline();
+
+		tl.to("feTurbulence", {
+			duration:12, repeat:-1, yoyo:true,
+			ease: "power1.inOut",
+			attr:{
+				baseFrequency:0.008
+			}
+		});
+
+		tl.to("feDisplacementMap", {
+			duration:18, repeat:-1, yoyo:true,
+			ease: "power1.inOut",
+			attr:{
+				scale:120
+			}
+		}, 0)
+	</script> -->
+
+	<!-- Waving effect filter for div has background image by gif file ================================== -->
+	<!-- <svg width="0" height="0" style="position: absolute">
+		<filter id="waving">
+		<feImage result="img" href="asset/icon/feImage3.jpg"/>
+		<feDisplacementMap
+			scale="100"
+			xChannelSelector="R"
+			yChannelSelector="G"
+			in2="img"
+			in="SourceGraphic"
+		/>
+		</filter>
+	</svg> -->
 
 </body>
 </html>
