@@ -414,15 +414,17 @@ var checkScrollSpeed = (function(settings){
 window.onscroll = function(){
     var speed = checkScrollSpeed();
     var size = Math.max((1 - Math.abs(speed/400)), 0.2);
+	console.log(speed);
     // var perspective = (Math.min((Math.abs(speed)/10),75))*Math.sign(speed);
-    if(speed == 0) {
-      // không cuộn chuột
-        $('#gallery-container-column').find('.thumbnail').css('transform', 'scaleX(1) scaleY(1) rotateX(0deg)');
-    }
-    else {
-        // có cuộn chuột
+    if(Math.abs(speed) > 200) {
+		// có cuộn chuột nhanh
         // console.log(size);
         $('#gallery-container-column').find('.thumbnail').css('transform', 'scaleX('+ size +') scaleY('+ size +') rotateX('+0+'deg)');
+
+    }
+    else {
+		// không cuộn chuột hoặc cuộn rất chậm
+		$('#gallery-container-column').find('.thumbnail').css('transform', 'scaleX(1) scaleY(1) rotateX(0deg)');
     }
 };
 
