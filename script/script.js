@@ -25,9 +25,14 @@ var mobileMenuIconItem = bodymovin.loadAnimation({
 var menuClose = 1;
 mobileMenuIcon.addEventListener('click', (e) => {
   if(menuClose== 1){
-    openHeaderMenu()
+    openHeaderMenu();
+    var header = document.getElementById('header');
+    header.classList.remove('scolled-header', 'blur-background');
   }
-  else{closeHeaderMenu()}
+  else{
+    closeHeaderMenu();
+    changeHeaderBlur();
+  }
   mobileMenuIconItem.setDirection(menuClose);
   mobileMenuIconItem.play();
   menuClose = -menuClose;
@@ -77,16 +82,15 @@ function changeHeaderBlur(){
 }
 
 function openHeaderMenu(){
-  $('#header-menu-icon').hide();
-  $('#header-menu-icon-close').show();
   $('#mobile-menu').fadeIn();
+  $('#mobile-menu').css('top','0px');
+
   document.getElementsByTagName('html')[0].style.overflowY = "hidden";
 }
 
 function closeHeaderMenu(){
-  $('#header-menu-icon').show();
-  $('#header-menu-icon-close').hide();
-  $('#mobile-menu').fadeOut();
+  $('#mobile-menu').css('top','-100%');
+  // $('#mobile-menu').fadeOut();
   // $('body').css("overflow", "auto");
   document.getElementsByTagName('html')[0].style.overflowY = "auto";
 }
