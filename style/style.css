@@ -96,15 +96,13 @@ svg path, svg rect {
 	bottom: -5px;
 }
 
-.hero-banner > .hero-text{
+.hero-text{
 	font-family: 'Archivo';
 	font-style: normal;
 	font-weight: 900;
 	font-size: 48pt;
     transform: translate(0, -50px);
 	line-height: 52pt;
-	display: flex;
-	align-items: center;
 	text-align: center;
 	letter-spacing: 0.12em;
 	color: white;
@@ -166,9 +164,9 @@ svg path, svg rect {
 }
 
 .CTA:hover{
-	opacity: 0.8;
-	letter-spacing: 2pt;
-	transform: scale(1.4, 1.1);
+	/* opacity: 0.8; */
+	/* letter-spacing: 3pt; */
+	transform: scale(1.1, 1.1);
 }
 
 
@@ -323,14 +321,12 @@ a{
 		height: 40px !important;
 	}
 
-	.hero-banner > .hero-text{
+	.hero-text{
 		font-family: 'Archivo';
 		font-style: normal;
 		font-weight: 900;
 		font-size: 24px;
-		line-height: 26px;
-		display: flex;
-		align-items: center;
+		line-height: 32px;
 		text-align: center;
 		letter-spacing: 0.12em;
 		text-transform: uppercase;
@@ -552,6 +548,7 @@ a{
 	right: 16px;
 	width: 32px;
 	height: 32px;
+	mix-blend-mode: difference;
 }
 
 .arrow-left{
@@ -561,6 +558,7 @@ a{
 	left: 16px;
 	width: 32px;
 	height: 32px;
+	mix-blend-mode: difference;
 }
 
 .arrow-right{
@@ -569,6 +567,7 @@ a{
 	right: 16px;
 	width: 32px;
 	height: 32px;
+	mix-blend-mode: difference;
 }
 
 
