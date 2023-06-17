@@ -1,6 +1,5 @@
 /* lottie style ====================================== */
 #starMovingContainer{
-	z-index: 900;
 	position: fixed;
 	width: 100%;
 	height: 100%;
@@ -76,6 +75,7 @@ svg path, svg rect {
 	width: 100%;
 	height: 100%;
 	position: fixed;
+	z-index: 1000;
 }
 
 
@@ -511,10 +511,14 @@ a{
 
 .thumbnail:hover{
 	opacity: 0.8 !important;
-	transform: scale(1.1,1.1) !important;
 }
 
-#imagePreview{
+#gallery-container-column .thumbnail:hover{
+	transform: scale(0.9,0.9) !important;
+	filter : url('#waving2');
+}
+
+#imagePreviewContainer{
 	position: fixed;
 	display: none;
 	width: 100vw;
@@ -526,6 +530,16 @@ a{
 	background: var(--bg-color-100);
 	z-index: 250;
 	transition: 0;
+}
+
+#previewingImage{
+	position: fixed;
+	max-width: 99%;
+	max-height: 99%;
+	left: 50%;
+	top: 50%;
+    transform: translate(-50%, -50%);
+	z-index: 251;
 }
 
 #overlay{
@@ -549,6 +563,7 @@ a{
 	width: 32px;
 	height: 32px;
 	mix-blend-mode: difference;
+	z-index: 252;
 }
 
 .arrow-left{
@@ -559,6 +574,7 @@ a{
 	width: 32px;
 	height: 32px;
 	mix-blend-mode: difference;
+	z-index: 253;
 }
 
 .arrow-right{
@@ -568,6 +584,7 @@ a{
 	width: 32px;
 	height: 32px;
 	mix-blend-mode: difference;
+	z-index: 254;
 }
 
 
@@ -655,8 +672,6 @@ a{
 }
 
 /* 
-
-
 
 @keyframes squigglevision {
 	0% {

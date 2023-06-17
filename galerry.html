@@ -57,15 +57,15 @@
 		<span class="wide-14-regular"><a target="_blank" href = "mailto: hello@tamdovisual.com">hello@tamdovisual.com</a></span>
 	</div>
 
-
     <!-- Content within webpage ============================================== -->
 	<!-- Preview large image -->
-    <div id="imagePreview" >
+    <div id="imagePreviewContainer" >
         <img class="closeBtt" onclick="closeImagePreview();" src="asset/icon/Close.svg">
 		<img class="arrow-left" onclick="previewPreviousImage();" src="asset/icon/arrow-left.svg">
 		<img class="arrow-right" onclick="previewNextImage();" src="asset/icon/arrow-right.svg">
+		<img id="previewingImage" src="asset/image/gallery/an-lac/an-lac-1.jpg">
     </div>
-    <div id="overlay" class="blur-background"></div>
+    <div id="overlay"></div>
 
 	<!-- toggle icon between view mode -->
 	<div class="toggleViewMode blur-background">
@@ -99,19 +99,17 @@
 	<div class="footer blur-background">
 		<span class="wide-12-regular">Copyright © 2023 — Tam Do Visual. All Rights Reserved. Email: <a target="_blank" href = "mailto: hello@tamdovisual.com">hello@tamdovisual.com</a></span>
 		<div>
-			<a target="_blank" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d"><img src="asset/icon/Spotify.svg" onload="SVGInject(this)"></a>
 			<a target="_blank" href="https://www.facebook.com/Tamdovisual/"><img src="asset/icon/facebook.svg" onload="SVGInject(this)"></a>
+			<a target="_blank" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d"><img src="asset/icon/Spotify.svg" onload="SVGInject(this)"></a>
 			<a target="_blank" href="https://www.instagram.com/tamdovisual/"><img src="asset/icon/instagram.svg" onload="SVGInject(this)"></a>
 			<a target="_blank" href="https://www.youtube.com/tamdodesign/"><img src="asset/icon/Youtube.svg" onload="SVGInject(this)"></a>
 		</div>
 	</div>
 
-
-
 	<!-- Waving effect filter for div has background image by svg file ================================== -->
-	<!-- <svg>
+	<svg style="display: none;">
 		<defs>
-			<filter id="waving-flag" color-interpolation-filters="sRGB" x="-500%" y="-500%" width="1000%" height="1000%" bx:preset="warp 1 20 0.05">
+			<filter id="waving2" color-interpolation-filters="sRGB" x="-500%" y="-500%" width="1000%" height="1000%" bx:preset="warp 1 20 0.05">
 			  <feComponentTransfer>
 				<feFuncR type="table" tableValues="1 0.5"></feFuncR>
 			  </feComponentTransfer>
@@ -119,37 +117,38 @@
 				<feMergeNode></feMergeNode>
 				<feMergeNode in="SourceGraphic"></feMergeNode>
 			  </feMerge>
-			  <feTurbulence type="fractalNoise" baseFrequency="0.001" numOctaves="1" result="warp"></feTurbulence>
-			  <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="100" in="a" in2="warp"></feDisplacementMap>
+			  <feTurbulence type="fractalNoise" baseFrequency="0.005" numOctaves="1" result="warp"></feTurbulence>
+			  <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="40" in="a" in2="warp"></feDisplacementMap>
 			</filter>
 		  </defs>	
 	  </svg>
+
 	<script>
 		const tl = gsap.timeline();
 
 		tl.to("feTurbulence", {
-			duration:12, repeat:-1, yoyo:true,
+			duration:2, repeat:-1, yoyo:true,
 			ease: "power1.inOut",
 			attr:{
-				baseFrequency:0.008
+				baseFrequency:0.001
 			}
 		});
 
 		tl.to("feDisplacementMap", {
-			duration:18, repeat:-1, yoyo:true,
+			duration:5, repeat:-1, yoyo:true,
 			ease: "power1.inOut",
 			attr:{
-				scale:120
+				scale:10
 			}
 		}, 0)
-	</script> -->
+	</script>
 
 	<!-- Waving effect filter for div has background image by gif file ================================== -->
 	<!-- <svg width="0" height="0" style="position: absolute">
-		<filter id="waving">
-		<feImage result="img" href="asset/icon/feImage3.jpg"/>
+		<filter id="waving1">
+		<feImage result="img" href="asset/icon/feImage2.gif"/>
 		<feDisplacementMap
-			scale="100"
+			scale="20"
 			xChannelSelector="R"
 			yChannelSelector="G"
 			in2="img"
@@ -157,6 +156,5 @@
 		/>
 		</filter>
 	</svg> -->
-
 </body>
 </html>
