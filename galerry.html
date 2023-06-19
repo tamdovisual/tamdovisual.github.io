@@ -59,9 +59,10 @@
     <!-- Content within webpage ============================================== -->
 	<!-- Preview large image -->
 	<div id="imagePreviewContainer" class="imagePreviewContainer" >
-        <img class="closeBtt" onclick="closeImagePreview();" src="asset/icon/Close.svg">
-		<img class="swiper-button-prev" onclick="swiper.slidePrev(800, true)" src="asset/icon/arrow-left.svg">
-		<img class="swiper-button-next" onclick="swiper.slideNext(800, true)" src="asset/icon/arrow-right.svg">
+        <img class="closeBtt blur-background" onclick="closeImagePreview();" src="asset/icon/Close.svg">
+		<img class="swiper-button-prev blur-background" onclick="swiper.slidePrev(800, true)" src="asset/icon/arrow-left.svg">
+		<img class="swiper-button-next blur-background" onclick="swiper.slideNext(800, true)" src="asset/icon/arrow-right.svg">
+		<div class="swiper-overlay" style="pointer-events: none;"></div>
 		<div class="swiper-wrapper">
 			<div class="swiper-slide"><img src=""></div>
 			<div class="swiper-slide"><img src=""></div>

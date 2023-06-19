@@ -29,7 +29,6 @@ var imageList = [];
 var currentPreview;
 var viewingThumbnail = null;
 var imagePreviewDiv = document.getElementById('imagePreviewContainer');
-var imagePreviewImg = document.getElementById('previewingImage');
 var swiperWarpper = document.getElementsByClassName('swiper-wrapper')[0];
 var overlayElement = document.getElementById('overlay');
 var imgThumbnails = document.getElementsByClassName('thumbnail');
@@ -89,7 +88,6 @@ function viewGalleryColumn(){
 function loadImage(path, elementParent){
 	// create thumbnail image as a div
 	var img = document.createElement("div");
-	// img.style.background = "url('" + imageList[path].path + "')";
 	img.setAttribute("name",path);
 	img.setAttribute('data-src',"url('" + imageList[path].path + "')");
 	img.style.backgroundSize = 'cover';
@@ -229,11 +227,12 @@ function showPreviewImage() {
 	viewingThumbnail = this;
 	currentPreview = Number(viewingThumbnail.getAttribute('name'));
 	imagePreviewDiv.style.transition = 'all 0.3s ease-in-out';
-	$('#imagePreviewContainer').fadeIn();
+	$('#imagePreviewContainer').show();
 	$('#overlay').show();
 	console.log(viewingThumbnail.style.background);
-	swiper.slides[0].getElementsByTagName('img')[0].src = imageList[currentPreview].path;
+	console.log(imageList[currentPreview].path);
 	swiper.slideTo(0, 0, true);
+	swiper.slides[0].getElementsByTagName('img')[0].src = imageList[currentPreview].path;
 }
 
 const swiper = new Swiper('.imagePreviewContainer', {
@@ -277,7 +276,6 @@ function closeImagePreview(){
 	//enable scrolling html page
 	document.getElementsByTagName('html')[0].style.overflowY = "auto";
 
-	// imagePreviewImg.style.transition = 'all 0.3s ease-in-out';
 	if(!isInViewport(viewingThumbnail)){
 		viewingThumbnail.scrollIntoView({block: "nearest", inline: "nearest" });
 	}
