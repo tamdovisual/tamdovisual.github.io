@@ -114,7 +114,6 @@ function loadImage(path, elementParent){
 	var container = document.createElement('div');
 	container.classList.add('thumbnail-container');
 	container.appendChild(img);
-
 	elementParent.appendChild(container);
 }
 
@@ -229,6 +228,9 @@ function showPreviewImage() {
 	imagePreviewDiv.style.transition = 'all 0.3s ease-in-out';
 	$('#imagePreviewContainer').show();
 	$('#overlay').show();
+	swiper.slides[0].getElementsByTagName('img')[0].src = '';
+	swiper.slides[1].getElementsByTagName('img')[0].src = '';
+
 	console.log(viewingThumbnail.style.background);
 	console.log(imageList[currentPreview].path);
 	swiper.slideTo(0, 0, true);
