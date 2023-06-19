@@ -1,11 +1,5 @@
 var cursor;
 
-// $('.hero-banner').ripples({
-// 	resolution: 48,
-// 	dropRadius: 120,
-// 	perturbance: 0.005,
-// });
-
 // Creating animation ===============================
 
 var logoAnimation = document.getElementById('logoAnimation');
@@ -111,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   $('body')[0].appendChild(img);
 
   cursor = document.querySelector(".custom-cursor");
-  var links = document.querySelectorAll("a");
+  var links = document.querySelectorAll("a, .clickable");
   var clickableElements = $('body *').toArray().filter(function(el) { return $(el).attr('onclick') });
   
   var initCursor = false;

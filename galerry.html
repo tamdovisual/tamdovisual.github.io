@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,19 +9,22 @@
 	<link rel="stylesheet" type="text/css" href="style/definition.css">
 	<link rel="stylesheet" type="text/css" href="style/style.css">
 
-    <!-- Libs scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
+	<!-- Libs scripts -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
 	<script src="script/libs/svg-inject.min.js"></script>
 	<script type="module" src="script/splitText.js"></script>
 	<script type="text/javascript" src="script/lottie.js"></script>
 	<script type="text/javascript" src="script/script.js" defer></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.1/lottie.min.js" integrity="sha512-H6aKTjvYAazW0iNuGj1f2dZvSWlt1HGZGEDsXRPETo2IB4H6v36Vl2qiZNlCRxOp0kT7iBf+7USNPavNscZGAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.1/lottie.min.js"
+		integrity="sha512-H6aKTjvYAazW0iNuGj1f2dZvSWlt1HGZGEDsXRPETo2IB4H6v36Vl2qiZNlCRxOp0kT7iBf+7USNPavNscZGAw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 	<!-- custom scripts for each page -->
 	<script src="script/gallery.js" defer></script>
 </head>
+
 <body>
 
 	<!-- Page loading element ============================================== -->
@@ -29,10 +33,12 @@
 	</div>
 
 	<!-- Website header ============================================== -->
-    <div id="header" class="header all-cap-title-10">
+	<div id="header" class="header all-cap-title-10">
 		<span><a href="galerry.html">LANDSCAPE</a></span>
 		<!-- <span>Article</span> -->
-		<a href="index.html"><div id="logoAnimation"></div></a>
+		<a href="index.html">
+			<div id="logoAnimation"></div>
+		</a>
 		<!-- <span>Trips</span> -->
 		<span><a href="about.html">ABOUT</a></span>
 
@@ -47,37 +53,43 @@
 		<span class="wide-24-regular" style="color: white !important;"><a href="about.html">ABOUT</a></span>
 		<hr>
 		<div class="social-icon">
-			<a target="_blank" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d"><img src="asset/icon/Spotify.svg" onload="SVGInject(this)" ></a>
-			<a target="_blank" href="https://www.facebook.com/Tamdovisual/"><img onload="SVGInject(this)" src="asset/icon/facebook.svg"></a>
-			<a target="_blank" href="https://www.instagram.com/tamdovisual/"><img onload="SVGInject(this)" src="asset/icon/instagram.svg"></a>
-			<a target="_blank" href="https://www.youtube.com/tamdodesign/"><img onload="SVGInject(this)" src="asset/icon/Youtube.svg"></a>
+			<a target="_blank" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d"><img
+					src="asset/icon/Spotify.svg" onload="SVGInject(this)"></a>
+			<a target="_blank" href="https://www.facebook.com/Tamdovisual/"><img onload="SVGInject(this)"
+					src="asset/icon/facebook.svg"></a>
+			<a target="_blank" href="https://www.instagram.com/tamdovisual/"><img onload="SVGInject(this)"
+					src="asset/icon/instagram.svg"></a>
+			<a target="_blank" href="https://www.youtube.com/tamdodesign/"><img onload="SVGInject(this)"
+					src="asset/icon/Youtube.svg"></a>
 		</div>
 		<hr>
-		<span class="wide-14-regular"><a target="_blank" href = "mailto: hello@tamdovisual.com">hello@tamdovisual.com</a></span>
+		<span class="wide-14-regular"><a target="_blank"
+				href="mailto: hello@tamdovisual.com">hello@tamdovisual.com</a></span>
 	</div>
 
-    <!-- Content within webpage ============================================== -->
+	<!-- Content within webpage ============================================== -->
 	<!-- Preview large image -->
-	<div id="imagePreviewContainer" class="imagePreviewContainer" >
-        <img class="closeBtt blur-background" onclick="closeImagePreview();" src="asset/icon/Close.svg">
-		<img class="swiper-button-prev blur-background" onclick="swiper.slidePrev(800, true)" src="asset/icon/arrow-left.svg">
-		<img class="swiper-button-next blur-background" onclick="swiper.slideNext(800, true)" src="asset/icon/arrow-right.svg">
+	<div id="imagePreviewContainer" class="imagePreviewContainer">
+		<img class="closeBtt blur-background clickable" onclick="closeImagePreview();" src="asset/icon/Close.svg">
+		<img class="swiper-button-prev blur-background clickable" src="asset/icon/arrow-left.svg">
+		<img class="swiper-button-next blur-background clickable" src="asset/icon/arrow-right.svg">
 		<div class="swiper-overlay" style="pointer-events: none;"></div>
 		<div class="swiper-wrapper">
 			<div class="swiper-slide"><img src=""></div>
 			<div class="swiper-slide"><img src=""></div>
 		</div>
 	</div>
-	<div id="overlay"></div>
 
 	<!-- toggle icon between view mode -->
 	<div class="toggleViewMode blur-background">
-		<a><img id="toggleColumn" style="opacity: 0.5;" src="asset/icon/column.svg" onload="SVGInject(this)" onclick="viewGalleryColumn();"></a>
-		<a><img id="toggleGrid"   style="opacity: 0.5;" src="asset/icon/grid.svg"   onload="SVGInject(this)" onclick="viewGalleryGrid();"></a>
+		<a><img id="toggleColumn" style="opacity: 0.5;" src="asset/icon/column.svg" onload="SVGInject(this)"
+				onclick="viewGalleryColumn();"></a>
+		<a><img id="toggleGrid" style="opacity: 0.5;" src="asset/icon/grid.svg" onload="SVGInject(this)"
+				onclick="viewGalleryGrid();"></a>
 	</div>
 	<!-- Gallery / Grid layout -->
-    <div style="display: none;" class="gallery-container-grid" id="gallery-container-grid" >
-    </div>
+	<div style="display: none;" class="gallery-container-grid" id="gallery-container-grid">
+	</div>
 
 	<!-- Gallery / Column layout -->
 	<div id="collection-column-list">
@@ -88,60 +100,68 @@
 		</div>
 		<div class=" animateText collection-name wide-24-regular" onclick="scrollToCollection('an-lac')">AN LẠC</div>
 		<hr>
-		<div class="animateText collection-name wide-24-regular" onclick="scrollToCollection('diem-nhien')">ĐIỀM NHIÊN</div>
+		<div class="animateText collection-name wide-24-regular" onclick="scrollToCollection('diem-nhien')">ĐIỀM NHIÊN
+		</div>
 		<hr>
 		<div class="animateText collection-name wide-24-regular" onclick="scrollToCollection('soi-sang')">SOI SÁNG</div>
 		<hr>
-		<div class="animateText collection-name wide-24-regular"  onclick="scrollToCollection('dem')">ĐÊM</div>
+		<div class="animateText collection-name wide-24-regular" onclick="scrollToCollection('dem')">ĐÊM</div>
 		<hr class="fill-height">
 	</div>
-    <div style="display: none;" id="gallery-container-column">
-    </div>
+	<div style="display: none;" id="gallery-container-column">
+	</div>
 
-    <!-- Website footer ============================================== -->
+	<!-- Website footer ============================================== -->
 	<div class="footer blur-background">
-		<span class="wide-12-regular">Copyright © 2023 — Tam Do Visual. All Rights Reserved. Email: <a target="_blank" href = "mailto: hello@tamdovisual.com">hello@tamdovisual.com</a></span>
+		<span class="wide-12-regular">Copyright © 2023 — Tam Do Visual. All Rights Reserved. Email: <a target="_blank"
+				href="mailto: hello@tamdovisual.com">hello@tamdovisual.com</a></span>
 		<div>
-			<a target="_blank" href="https://www.facebook.com/Tamdovisual/"><img src="asset/icon/facebook.svg" onload="SVGInject(this)"></a>
-			<a target="_blank" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d"><img src="asset/icon/Spotify.svg" onload="SVGInject(this)"></a>
-			<a target="_blank" href="https://www.instagram.com/tamdovisual/"><img src="asset/icon/instagram.svg" onload="SVGInject(this)"></a>
-			<a target="_blank" href="https://www.youtube.com/tamdodesign/"><img src="asset/icon/Youtube.svg" onload="SVGInject(this)"></a>
+			<a target="_blank" href="https://www.facebook.com/Tamdovisual/"><img src="asset/icon/facebook.svg"
+					onload="SVGInject(this)"></a>
+			<a target="_blank" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d"><img
+					src="asset/icon/Spotify.svg" onload="SVGInject(this)"></a>
+			<a target="_blank" href="https://www.instagram.com/tamdovisual/"><img src="asset/icon/instagram.svg"
+					onload="SVGInject(this)"></a>
+			<a target="_blank" href="https://www.youtube.com/tamdodesign/"><img src="asset/icon/Youtube.svg"
+					onload="SVGInject(this)"></a>
 		</div>
 	</div>
 
 	<!-- Waving effect filter for div has background image by svg file ================================== -->
 	<svg style="display: none;">
 		<defs>
-			<filter id="waving2" color-interpolation-filters="sRGB" x="-500%" y="-500%" width="1000%" height="1000%" bx:preset="warp 1 20 0.05">
-			  <feComponentTransfer>
-				<feFuncR type="table" tableValues="1 0.5"></feFuncR>
-			  </feComponentTransfer>
-			  <feMerge result="a">
-				<feMergeNode></feMergeNode>
-				<feMergeNode in="SourceGraphic"></feMergeNode>
-			  </feMerge>
-			  <feTurbulence type="fractalNoise" baseFrequency="0.005" numOctaves="1" result="warp"></feTurbulence>
-			  <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="40" in="a" in2="warp"></feDisplacementMap>
+			<filter id="waving2" color-interpolation-filters="sRGB" x="-500%" y="-500%" width="1000%" height="1000%"
+				bx:preset="warp 1 20 0.05">
+				<feComponentTransfer>
+					<feFuncR type="table" tableValues="1 0.5"></feFuncR>
+				</feComponentTransfer>
+				<feMerge result="a">
+					<feMergeNode></feMergeNode>
+					<feMergeNode in="SourceGraphic"></feMergeNode>
+				</feMerge>
+				<feTurbulence type="fractalNoise" baseFrequency="0.005" numOctaves="1" result="warp"></feTurbulence>
+				<feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="40" in="a" in2="warp">
+				</feDisplacementMap>
 			</filter>
-		  </defs>	
-	  </svg>
+		</defs>
+	</svg>
 
 	<script>
 		const tl = gsap.timeline();
 
 		tl.to("feTurbulence", {
-			duration:2, repeat:-1, yoyo:true,
+			duration: 2, repeat: -1, yoyo: true,
 			ease: "power1.inOut",
-			attr:{
-				baseFrequency:0.001
+			attr: {
+				baseFrequency: 0.001
 			}
 		});
 
 		tl.to("feDisplacementMap", {
-			duration:5, repeat:-1, yoyo:true,
+			duration: 5, repeat: -1, yoyo: true,
 			ease: "power1.inOut",
-			attr:{
-				scale:10
+			attr: {
+				scale: 10
 			}
 		}, 0)
 	</script>
@@ -160,4 +180,5 @@
 		</filter>
 	</svg> -->
 </body>
+
 </html>

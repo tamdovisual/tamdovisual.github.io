@@ -84,6 +84,7 @@ svg path, svg rect {
 .hero-banner{
 	position: relative;
 	height: 100vh;
+	height: -webkit-fill-available;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -356,8 +357,7 @@ a{
 	}
 	.imagePreviewContainer{
 		background: url('../asset/image/bg-dark.jpg') !important;
-		background-position: center !important;
-		background-size: cover !important;
+		background-repeat: repeat;
 	}
 
 	.swiper-slide img{
@@ -371,7 +371,11 @@ a{
 		background-position: center;
 		background-size: cover;
 	}
-	
+
+	.imagePreviewContainer{
+		background-size: 40px !important;
+	}
+
 	.swiper-slide img{
 		border: 6px solid transparent !important;
 		border-image: url('../asset/image/frame-white.png') 18 round !important;
@@ -388,8 +392,8 @@ a{
 
 	.imagePreviewContainer{
 		background: url('../asset/image/bg-dark.jpg') !important;
-		background-position: center !important;
-		background-size: cover !important;
+		background-repeat: repeat;
+		background-size: 40px !important;
 	}
 
 	.swiper-slide img{
@@ -543,14 +547,13 @@ a{
 	display: none;
 	width: 100vw;
 	height: 100vh;
+	min-height: -webkit-fill-available;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	/* background: var(--bg-color-100); */
 	background: url('../asset/image/bg-light.jpg');
-	background-position: center;
-	background-size: cover;
+	background-repeat: repeat;
 	z-index: 250;
 	transition: 0;
 }
@@ -585,18 +588,6 @@ a{
 	filter: drop-shadow(4px 6px 4px rgba(0, 0, 0, 0.25)) drop-shadow(30px 32px 28px rgba(0, 0, 0, 0.1));
 }
 
-#overlay{
-	position: fixed;
-	display: none;
-	width: 100vw;
-	height: 100vh;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background: #000000;
-	z-index: 240;
-}
 
 .closeBtt{
 	/* cursor: pointer; */
