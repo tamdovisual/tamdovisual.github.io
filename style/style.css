@@ -83,7 +83,7 @@ svg path, svg rect {
 
 .hero-banner{
 	position: relative;
-	height: 100vh;
+	min-height: 100vh;
 	height: -webkit-fill-available;
 	display: flex;
 	flex-direction: column;
@@ -546,7 +546,7 @@ a{
 	position: fixed;
 	display: none;
 	width: 100vw;
-	height: 100vh;
+	min-height: 100vh;
 	min-height: -webkit-fill-available;
 	top: 0;
 	bottom: 0;
