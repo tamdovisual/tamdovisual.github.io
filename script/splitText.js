@@ -1,5 +1,5 @@
-import { gsap, TimelineLite } from "./gsap/all.js";
-import { SplitText } from "./gsap/splitText.js";
+import { gsap, TimelineLite } from "./libs/gsap/all.js";
+import { SplitText } from "./libs/gsap/splitText.js";
 
 const timeline = new TimelineLite();
 

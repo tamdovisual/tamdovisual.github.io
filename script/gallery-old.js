@@ -30,11 +30,28 @@ var currentPreview;
 var viewingThumbnail = null;
 var imagePreviewDiv = document.getElementById('imagePreviewContainer');
 var imagePreviewImg = document.getElementById('previewingImage');
-var swiperWarpper = document.getElementsByClassName('swiper-wrapper')[0];
 var overlayElement = document.getElementById('overlay');
 var imgThumbnails = document.getElementsByClassName('thumbnail');
 
 // Initial loading =========================================
+
+// Load all images in gallery folder (Cái này hiện đang lỗi, vẫn phải fix cứng code)
+// var folder = "./asset/image/gallery/";
+// $.ajax({
+//     url : folder,
+//     success: function (data) {
+//         $(data).find("a").attr("href", function (i, val) {
+// 			if(val.isDirectory){console.log( val)}
+//             if(val.match(/\.(jpe?g|png|gif)$/) ) { 
+// 				imageList.push(val);
+//             }
+//         });
+//     }
+// });
+// $(document).ajaxComplete(function(){
+// 	viewGalleryColumn();
+//   });
+
 // Load images from collections
 for(var i = 0; i < collectionList.length; i++){
 	for(var j = 0; j < collectionList[i].numberOfImage; j++){
@@ -221,9 +238,27 @@ function removeAllChildNodes(parentId) {
     }
 }
 
-// Navigate between images via keyboard =========================================
+// Animation for loading effect =========================================
+// function loadImageAnimation(){
+// 	const delay = async (ms = 1000) =>
+// 	new Promise(resolve => setTimeout(resolve, ms))
 
-function showPreviewImage() {
+// 	async function makeALoopWait() {
+// 		for (let i = 0; i < imageList.length; i += 1) {
+// 		// Your code goes after this line!
+// 		imgThumbnails[i].style.opacity = '1';
+// 		imgThumbnails[i].style.top = '0px';
+// 		// Your code must finish before this line!
+// 		await delay(50)
+// 		}
+// 	}
+// 	makeALoopWait();
+// }
+// loadImageAnimation();
+
+
+  // Navigate between images via keyboard =========================================
+  function showPreviewImage() {
 	// disable scrolling html page
 	document.getElementsByTagName('html')[0].style.overflowY = "hidden";
 	viewingThumbnail = this;
@@ -231,53 +266,14 @@ function showPreviewImage() {
 	imagePreviewDiv.style.transition = 'all 0.3s ease-in-out';
 	$('#imagePreviewContainer').fadeIn();
 	$('#overlay').show();
-	console.log(viewingThumbnail.style.background);
-	swiper.slides[0].getElementsByTagName('img')[0].src = imageList[currentPreview].path;
-	swiper.slideTo(0, 0, true);
+	imagePreviewImg.src = viewingThumbnail.style.backgroundImage.slice(4, -1).replace(/"/g, "");
 }
-
-const swiper = new Swiper('.imagePreviewContainer', {
-
-	// Optional parameters
-	direction: 'horizontal',
-	speed: 800,
-	loop: true,
-
-	// Navigation arrows
-	// navigation: {
-	// nextEl: '.swiper-button-next',
-	// prevEl: '.swiper-button-prev',
-	// },
-	spaceBetween: 100,
-	mousewheel: true,
-	on: {
-		slideNextTransitionStart: (swiper) => {
-			console.log('SWIPED RIGHT');
-			if (currentPreview < numberOfImage){
-				currentPreview++;
-			} else{
-				currentPreview=0;
-			}
-			swiper.slides[1].getElementsByTagName('img')[0].src = imageList[currentPreview].path;
-		},
-		slidePrevTransitionStart: (swiper) => {
-			console.log('SWIPED LEFT');
-			if (currentPreview > 0){
-				currentPreview--;
-			} else{
-				currentPreview=numberOfImage-1;
-			}
-			swiper.slides[0].getElementsByTagName('img')[0].src = imageList[currentPreview].path;
-    },
-	}
-});
-
 
 function closeImagePreview(){
 	//enable scrolling html page
 	document.getElementsByTagName('html')[0].style.overflowY = "auto";
 
-	// imagePreviewImg.style.transition = 'all 0.3s ease-in-out';
+	imagePreviewImg.style.transition = 'all 0.3s ease-in-out';
 	if(!isInViewport(viewingThumbnail)){
 		viewingThumbnail.scrollIntoView({block: "nearest", inline: "nearest" });
 	}
@@ -287,12 +283,33 @@ function closeImagePreview(){
 	$('#overlay').fadeOut();
 }
 
+function previewPreviousImage(){
+	if(currentPreview > 0){
+		currentPreview--;
+	} else{
+		currentPreview = imageList.length - 1;
+	}
+	imagePreviewImg.src = imageList[currentPreview].path;
+	viewingThumbnail = document.getElementsByName(currentPreview)[0];
+}
+
+function previewNextImage(){
+	if(currentPreview < imageList.length - 1){
+		currentPreview++;
+	}
+	else{
+		currentPreview = 0;
+	}
+	imagePreviewImg.src = imageList[currentPreview].path;
+	viewingThumbnail = document.getElementsByName(currentPreview)[0];
+}
+
 document.addEventListener('keydown', function(e) {
-	// console.log(e.key);
+	console.log(e.key);
 	if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-		swiper.slidePrev(800, true);
+		previewPreviousImage();
 	} else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-		swiper.slideNext(800, true);
+		previewNextImage();
 	} else if(e.key === 'Escape' && viewingThumbnail != null){
 		closeImagePreview();
 	}
@@ -367,7 +384,7 @@ var checkScrollSpeed = (function(settings){
 window.onscroll = function(){
     var speed = checkScrollSpeed();
     var size = Math.max((1 - Math.abs(speed/400)), 0.2);
-	// console.log(speed);
+	console.log(speed);
     // var perspective = (Math.min((Math.abs(speed)/10),75))*Math.sign(speed);
     if(Math.abs(speed) > 200) {
 		// có cuộn chuột nhanh
@@ -397,5 +414,25 @@ const onScrollStop = callback => {
 
 onScrollStop(() => {
   $('#gallery-container-column').find('.thumbnail').css('transform', 'scaleX(1) scaleY(1) rotateX(0deg)');
-//   console.log('The user has stopped scrolling');
+  console.log('The user has stopped scrolling');
 });
+
+
+// Animate Image Thumbnail on scrolling
+
+// function animateImageThumbnail(){
+// 	for (var i = 0; i < imageList.length; i++){
+// 		if((imgThumbnails[i].getBoundingClientRect().top - window.innerHeight) > 300){
+// 			imgThumbnails[i].style.top = '300px';
+// 			imgThumbnails[i].style.opacity = '0';
+// 		}
+// 		else{
+// 			imgThumbnails[i].style.top = '0px';
+// 			imgThumbnails[i].style.opacity = '1';
+// 		}
+// 	}
+// }
+
+// window.addEventListener('scroll', function() {
+// 	animateImageThumbnail();
+//   });
