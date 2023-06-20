@@ -68,10 +68,10 @@ function viewGalleryGrid() {
 	loadImageIntoGrid();
 
 	// update onclick event of 2 toggle icons. If user is viewing column mode -> click toggle column will scroll to the top.
-	$("#toggleColumn").prop("onclick", null).off("click");
+	$("#toggleColumn").unbind("click");
 	$("#toggleColumn").click(function(){ viewGalleryColumn(); });
 
-	$("#toggleGrid").prop("onclick", null).off("click");
+	$("#toggleGrid").unbind("click");
 	$("#toggleGrid").click(function(){
 		document.body.scrollTop = 0; // For Safari
 		document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
@@ -98,14 +98,14 @@ function viewGalleryColumn() {
 	loadImageIntoColumn();
 
 	// update onclick event of 2 toggle icons. If user is viewing column mode -> click toggle column will scroll to the top.
-	$("#toggleColumn").prop("onclick", null).off("click");
+	$("#toggleGrid").unbind("click");
+	$("#toggleGrid").click(function(){ viewGalleryGrid(); });
+
+	$("#toggleColumn").unbind("click");
 	$("#toggleColumn").click(function(){
 		document.body.scrollTop = 0; // For Safari
 		document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
- 	});
-
-	$("#toggleGrid").prop("onclick", null).off("click");
-	$("#toggleGrid").click(function(){ viewGalleryGrid(); });
+	});
 }
 
 function loadImage(path, elementParent) {
