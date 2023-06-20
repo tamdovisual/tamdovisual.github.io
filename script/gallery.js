@@ -43,7 +43,7 @@ for (var i = 0; i < collectionList.length; i++) {
 // viewGalleryColumn();
 // viewGalleryColumn();
 
-$(window).on("load",function(){
+$(window).on("load", function () {
 	viewGalleryColumn();
 });
 
@@ -69,13 +69,36 @@ function viewGalleryGrid() {
 
 	// update onclick event of 2 toggle icons. If user is viewing column mode -> click toggle column will scroll to the top.
 	$("#toggleColumn").unbind("click");
-	$("#toggleColumn").click(function(){ viewGalleryColumn(); });
+	$("#toggleColumn").click(function () { viewGalleryColumn(); });
 
 	$("#toggleGrid").unbind("click");
-	$("#toggleGrid").click(function(){
+	$("#toggleGrid").click(function () {
 		document.body.scrollTop = 0; // For Safari
 		document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 	});
+
+	// Add scroll trigger for scrolling effect =======================
+	var thumbnails = gsap.utils.toArray('.thumbnail');
+	thumbnails.forEach((thumbnail) => {
+		gsap.fromTo(thumbnail, {
+			opacity: 0,
+			y: 300,
+		}, {
+			scrollTrigger: {
+				trigger: thumbnail,
+				start: 'top 100%',
+				end: 'bottom bottom',
+				// scrub: true, // cái này sẽ chạy animate theo cuộn chuột, bỏ đi thì sẽ tự động chạy khi cuộn.
+				toggleActions: "play none none none", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
+				// markers: true
+			},
+			opacity: 1,
+			y: 0,
+			duration: 1,
+			ease: "power2.out",
+			stagger: 0.1,
+		});
+	})
 }
 
 // Show column
@@ -99,13 +122,40 @@ function viewGalleryColumn() {
 
 	// update onclick event of 2 toggle icons. If user is viewing column mode -> click toggle column will scroll to the top.
 	$("#toggleGrid").unbind("click");
-	$("#toggleGrid").click(function(){ viewGalleryGrid(); });
+	$("#toggleGrid").click(function () { viewGalleryGrid(); });
 
 	$("#toggleColumn").unbind("click");
-	$("#toggleColumn").click(function(){
+	$("#toggleColumn").click(function () {
 		document.body.scrollTop = 0; // For Safari
 		document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 	});
+
+	// Add scroll trigger for scrolling effect =======================
+	var thumbnails = gsap.utils.toArray('.thumbnail');
+	thumbnails.forEach((thumbnail) => {
+		gsap.fromTo(thumbnail, {
+			opacity: 0.2,
+			y: 300,
+			scale: 0.3,
+		}, {
+			scrollTrigger: {
+				trigger: thumbnail,
+				start: 'top bottom',
+				end: 'bottom top',
+				// scrub: true, // cái này sẽ chạy animate theo cuộn chuột, bỏ đi thì sẽ tự động chạy khi cuộn.
+				toggleActions: "restart none restart none", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
+				// markers: true
+			},
+			duration: 1,
+			opacity: 1,
+			scale: 1,
+			y: 0,
+			ease: "back",
+			stagger: 0.1,
+		});
+	})
+
+
 }
 
 function loadImage(path, elementParent) {
@@ -244,57 +294,98 @@ function removeAllChildNodes(parentId) {
 
 // Navigate between images via keyboard =========================================
 
+// Create swiper
+// const swiper = new Swiper('.imagePreviewContainer', {
+
+// 	// Optional parameters
+// 	direction: 'horizontal',
+// 	speed: 800,
+// 	loop: true,
+
+// 	// Navigation arrows
+// 	navigation: {
+// 		nextEl: '.swiper-button-next',
+// 		prevEl: '.swiper-button-prev',
+// 	},
+// 	spaceBetween: 100,
+// 	mousewheel: true,
+// 	on: {
+// 		slidePrevTransitionStart: (swiper) => {
+// 			console.log('SWIPED LEFT');
+// 			if (currentPreview > 0) {
+// 				currentPreview--;
+// 			} else {
+// 				currentPreview = numberOfImage - 1;
+// 			}
+// 			swiper.slides[0].getElementsByTagName('img')[0].src = imageList[currentPreview].path;
+// 			viewingThumbnail = document.getElementsByName(currentPreview)[0];
+// 		},
+
+// 		slideNextTransitionStart: (swiper) => {
+// 			console.log('SWIPED RIGHT');
+// 			if (currentPreview < numberOfImage) {
+// 				currentPreview++;
+// 			} else {
+// 				currentPreview = 0;
+// 			}
+// 			swiper.slides[1].getElementsByTagName('img')[0].src = imageList[currentPreview].path;
+// 			viewingThumbnail = document.getElementsByName(currentPreview)[0];
+// 		},
+
+// 	}
+// });
+
+var swiper;
 function showPreviewImage() {
 	// disable scrolling html page
 	document.getElementsByTagName('html')[0].style.overflowY = "hidden";
 	viewingThumbnail = this;
 	currentPreview = Number(viewingThumbnail.getAttribute('name'));
-	swiper.slideTo(0);
-	// $('#imagePreviewContainer').fadeIn();
-
 	$('#imagePreviewContainer').fadeIn();
+
+	swiper = new Swiper('.imagePreviewContainer', {
+
+		// Optional parameters
+		direction: 'horizontal',
+		speed: 800,
+		loop: true,
+	
+		// Navigation arrows
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+		spaceBetween: 100,
+		mousewheel: true,
+		on: {
+			slidePrevTransitionStart: (swiper) => {
+				// console.log('SWIPED LEFT');
+				if (currentPreview > 0) {
+					currentPreview--;
+				} else {
+					currentPreview = numberOfImage - 1;
+				}
+				swiper.slides[0].getElementsByTagName('img')[0].src = imageList[currentPreview].path;
+				viewingThumbnail = document.getElementsByName(currentPreview)[0];
+			},
+	
+			slideNextTransitionStart: (swiper) => {
+				// console.log('SWIPED RIGHT');
+				if (currentPreview < numberOfImage) {
+					currentPreview++;
+				} else {
+					currentPreview = 0;
+				}
+				swiper.slides[1].getElementsByTagName('img')[0].src = imageList[currentPreview].path;
+				viewingThumbnail = document.getElementsByName(currentPreview)[0];
+			},
+	
+		}
+	});
+
 	swiper.slides[0].getElementsByTagName('img')[0].src = imageList[currentPreview].path;
+	swiper.slideTo(0,0);
 }
-
-const swiper = new Swiper('.imagePreviewContainer', {
-
-	// Optional parameters
-	direction: 'horizontal',
-	speed: 800,
-	loop: true,
-
-	// Navigation arrows
-	navigation: {
-	nextEl: '.swiper-button-next',
-	prevEl: '.swiper-button-prev',
-	},
-	spaceBetween: 100,
-	mousewheel: true,
-	on: {
-		slidePrevTransitionStart: (swiper) => {
-			console.log('SWIPED LEFT');
-			if (currentPreview > 0) {
-				currentPreview--;
-			} else {
-				currentPreview = numberOfImage - 1;
-			}
-			swiper.slides[0].getElementsByTagName('img')[0].src = imageList[currentPreview].path;
-			viewingThumbnail = document.getElementsByName(currentPreview)[0];
-		},
-
-		slideNextTransitionStart: (swiper) => {
-			console.log('SWIPED RIGHT');
-			if (currentPreview < numberOfImage) {
-				currentPreview++;
-			} else {
-				currentPreview = 0;
-			}
-			swiper.slides[1].getElementsByTagName('img')[0].src = imageList[currentPreview].path;
-			viewingThumbnail = document.getElementsByName(currentPreview)[0];
-		},
-
-	}
-});
 
 function closeImagePreview() {
 	//enable scrolling html page
@@ -306,6 +397,7 @@ function closeImagePreview() {
 
 	// viewingThumbnail = null;
 	$('#imagePreviewContainer').fadeOut();
+	swiper.destroy();
 }
 
 document.addEventListener('keydown', function (e) {
@@ -354,69 +446,4 @@ window.addEventListener('resize', updateCollectionNameSize);
 // initial load once document is ready
 $(document).ready(function () {
 	updateCollectionNameSize();
-});
-
-
-// Setting speed of animation by scrolling speed ========================================
-
-var checkScrollSpeed = (function (settings) {
-	settings = settings || {};
-
-	var lastPos, newPos, timer, delta,
-		delay = settings.delay || 500; // in "ms" (higher means lower fidelity )
-
-	function clear() {
-		lastPos = null;
-		delta = 0;
-	}
-
-	clear();
-
-	return function () {
-		newPos = window.scrollY;
-		if (lastPos != null) { // && newPos < maxScroll 
-			delta = newPos - lastPos;
-		}
-		lastPos = newPos;
-		clearTimeout(timer);
-		timer = setTimeout(clear, delay);
-		return delta;
-	};
-})();
-
-// listen to "scroll" event
-window.onscroll = function () {
-	var speed = checkScrollSpeed();
-	var size = Math.max((1 - Math.abs(speed / 400)), 0.2);
-	// console.log(speed);
-	// var perspective = (Math.min((Math.abs(speed)/10),75))*Math.sign(speed);
-	if (Math.abs(speed) > 200) {
-		// có cuộn chuột nhanh
-		// console.log(size);
-		$('#gallery-container-column').find('.thumbnail').css('transform', 'scaleX(' + size + ') scaleY(' + size + ') rotateX(' + 0 + 'deg)');
-
-	}
-	else {
-		// không cuộn chuột hoặc cuộn rất chậm
-		$('#gallery-container-column').find('.thumbnail').css('transform', 'scaleX(1) scaleY(1) rotateX(0deg)');
-	}
-};
-
-const onScrollStop = callback => {
-	let isScrolling;
-	window.addEventListener(
-		'scroll',
-		e => {
-			clearTimeout(isScrolling);
-			isScrolling = setTimeout(() => {
-				callback();
-			}, 150);
-		},
-		false
-	);
-};
-
-onScrollStop(() => {
-	$('#gallery-container-column').find('.thumbnail').css('transform', 'scaleX(1) scaleY(1) rotateX(0deg)');
-	//   console.log('The user has stopped scrolling');
 });
