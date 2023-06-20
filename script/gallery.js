@@ -294,47 +294,6 @@ function removeAllChildNodes(parentId) {
 
 // Navigate between images via keyboard =========================================
 
-// Create swiper
-// const swiper = new Swiper('.imagePreviewContainer', {
-
-// 	// Optional parameters
-// 	direction: 'horizontal',
-// 	speed: 800,
-// 	loop: true,
-
-// 	// Navigation arrows
-// 	navigation: {
-// 		nextEl: '.swiper-button-next',
-// 		prevEl: '.swiper-button-prev',
-// 	},
-// 	spaceBetween: 100,
-// 	mousewheel: true,
-// 	on: {
-// 		slidePrevTransitionStart: (swiper) => {
-// 			console.log('SWIPED LEFT');
-// 			if (currentPreview > 0) {
-// 				currentPreview--;
-// 			} else {
-// 				currentPreview = numberOfImage - 1;
-// 			}
-// 			swiper.slides[0].getElementsByTagName('img')[0].src = imageList[currentPreview].path;
-// 			viewingThumbnail = document.getElementsByName(currentPreview)[0];
-// 		},
-
-// 		slideNextTransitionStart: (swiper) => {
-// 			console.log('SWIPED RIGHT');
-// 			if (currentPreview < numberOfImage) {
-// 				currentPreview++;
-// 			} else {
-// 				currentPreview = 0;
-// 			}
-// 			swiper.slides[1].getElementsByTagName('img')[0].src = imageList[currentPreview].path;
-// 			viewingThumbnail = document.getElementsByName(currentPreview)[0];
-// 		},
-
-// 	}
-// });
-
 var swiper;
 function showPreviewImage() {
 	// disable scrolling html page
