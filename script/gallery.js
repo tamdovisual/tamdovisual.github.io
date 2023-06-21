@@ -86,10 +86,10 @@ function viewGalleryGrid() {
 		}, {
 			scrollTrigger: {
 				trigger: thumbnail,
-				start: 'top 100%',
-				end: 'bottom bottom',
+				start: 'top bottom+=300',
+				end: 'center 90%',
 				// scrub: true, // cái này sẽ chạy animate theo cuộn chuột, bỏ đi thì sẽ tự động chạy khi cuộn.
-				toggleActions: "play none none none", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
+				toggleActions: "restart none none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
 				// markers: true
 			},
 			opacity: 1,
@@ -134,16 +134,16 @@ function viewGalleryColumn() {
 	var thumbnails = gsap.utils.toArray('.thumbnail');
 	thumbnails.forEach((thumbnail) => {
 		gsap.fromTo(thumbnail, {
-			opacity: 0.2,
+			opacity: 0,
 			y: 300,
 			scale: 0.3,
 		}, {
 			scrollTrigger: {
 				trigger: thumbnail,
-				start: 'top bottom',
-				end: 'bottom top',
+				start: 'top bottom+=300',
+				end: 'center 90%',
 				// scrub: true, // cái này sẽ chạy animate theo cuộn chuột, bỏ đi thì sẽ tự động chạy khi cuộn.
-				toggleActions: "restart none restart none", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
+				toggleActions: "restart none none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
 				// markers: true
 			},
 			duration: 1,
@@ -151,11 +151,9 @@ function viewGalleryColumn() {
 			scale: 1,
 			y: 0,
 			ease: "back",
-			stagger: 0.1,
+			// stagger: 0.1,
 		});
 	})
-
-
 }
 
 function loadImage(path, elementParent) {

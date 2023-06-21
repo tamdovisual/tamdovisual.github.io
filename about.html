@@ -11,7 +11,6 @@
 
 	<link rel="stylesheet" type="text/css" href="style/definition.css">
 	<link rel="stylesheet" type="text/css" href="style/style.css">
->
 
     <!-- Libs scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
@@ -30,14 +29,16 @@
 	</div>
 
 	<!-- Website header ============================================== -->
-    <div id="header" class="header all-cap-title-10">
+	<div id="header" class="header all-cap-title-10">
 		<span><a href="galerry.html">LANDSCAPE</a></span>
 		<!-- <span>Article</span> -->
-		<a href="index.html"><div id="logoAnimation"></div></a>
+		<a href="index.html">
+			<div id="logoAnimation"></div>
+		</a>
 		<!-- <span>Trips</span> -->
 		<span><a href="about.html">ABOUT</a></span>
 
-		<span id="page-title" style="display: none;">ABOUT</span>
+		<span id="page-title" style="display: none;">LANDSCAPE</span>
 		<div id="mobileMenuIcon" onload="SVGInject(this)"></div>
 	</div>
 
@@ -48,13 +49,18 @@
 		<span class="wide-24-regular" style="color: white !important;"><a href="about.html">ABOUT</a></span>
 		<hr>
 		<div class="social-icon">
-			<a target="_blank" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d"><img src="asset/icon/Spotify.svg" onload="SVGInject(this)" ></a>
-			<a target="_blank" href="https://www.facebook.com/Tamdovisual/"><img onload="SVGInject(this)" src="asset/icon/facebook.svg"></a>
-			<a target="_blank" href="https://www.instagram.com/tamdovisual/"><img onload="SVGInject(this)" src="asset/icon/instagram.svg"></a>
-			<a target="_blank" href="https://www.youtube.com/tamdodesign/"><img onload="SVGInject(this)" src="asset/icon/Youtube.svg"></a>
+			<a target="_blank" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d"><img
+					src="asset/icon/Spotify.svg" onload="SVGInject(this)"></a>
+			<a target="_blank" href="https://www.facebook.com/Tamdovisual/"><img onload="SVGInject(this)"
+					src="asset/icon/facebook.svg"></a>
+			<a target="_blank" href="https://www.instagram.com/tamdovisual/"><img onload="SVGInject(this)"
+					src="asset/icon/instagram.svg"></a>
+			<a target="_blank" href="https://www.youtube.com/tamdodesign/"><img onload="SVGInject(this)"
+					src="asset/icon/Youtube.svg"></a>
 		</div>
 		<hr>
-		<span class="wide-14-regular"><a target="_blank" href = "mailto: hello@tamdovisual.com">hello@tamdovisual.com</a></span>
+		<span class="wide-14-regular"><a target="_blank"
+				href="mailto: hello@tamdovisual.com">hello@tamdovisual.com</a></span>
 	</div>
 
 	<!-- Content within webpage ============================================== -->
@@ -134,43 +140,6 @@
 			<a target="_blank" href="https://www.youtube.com/tamdodesign/"><img onload="SVGInject(this)" src="asset/icon/Youtube.svg"></a>
 		</div>
 	</div>
-
-
-	<!-- Waving effect filter for div has background image by svg file ================================== -->
-	<!-- <svg>
-		<defs>
-			<filter id="waving-flag" color-interpolation-filters="sRGB" x="-500%" y="-500%" width="1000%" height="1000%" bx:preset="warp 1 20 0.05">
-			  <feComponentTransfer>
-				<feFuncR type="table" tableValues="1 0.5"></feFuncR>
-			  </feComponentTransfer>
-			  <feMerge result="a">
-				<feMergeNode></feMergeNode>
-				<feMergeNode in="SourceGraphic"></feMergeNode>
-			  </feMerge>
-			  <feTurbulence type="fractalNoise" baseFrequency="0.001" numOctaves="1" result="warp"></feTurbulence>
-			  <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="100" in="a" in2="warp"></feDisplacementMap>
-			</filter>
-		  </defs>	
-	  </svg>
-	<script>
-		const tl = gsap.timeline();
-
-		tl.to("feTurbulence", {
-			duration:5, repeat:-1, yoyo:true,
-			ease: "power1.inOut",
-			attr:{
-				baseFrequency:0.0002
-			}
-		});
-
-		// tl.to("feDisplacementMap", {
-		// 	duration:1, repeat:-1, yoyo:true,
-		// 	ease: "power1.inOut",
-		// 	attr:{
-		// 		scale:120
-		// 	}
-		// }, 0)
-	</script> -->
 </body>
 </html>
 
