@@ -177,8 +177,6 @@ svg path, svg rect {
 	transition: 0.3s ease-in-out;
 	text-align: center;
 	margin: 48px 3vw;
-	/* border: 12px solid var(--main-color-100) !important; */
-	/* border-image: url('../asset/image/frame-white.png') 18 round !important; */
 }
 
 .landscape-section > div > div:hover{
@@ -380,6 +378,14 @@ a{
 
 	#fallingImageSection .animateTextWidth{
 		font-size: 32px;
+	}
+
+	.landscape-section > div{
+		flex-direction: column;
+	}
+
+	.landscape-section > div > div{
+		margin: 2px 0px;
 	}
 }
 
