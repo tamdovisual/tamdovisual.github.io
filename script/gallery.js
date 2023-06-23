@@ -1,31 +1,4 @@
-// Configure Collections here =========================================
-
-var collectionAnLac = {
-	collectionName: "An Lạc",
-	folder: "an-lac",
-	numberOfImage: 22,
-};
-var collectionDiemNhien = {
-	collectionName: "Điềm Nhiên",
-	folder: "diem-nhien",
-	numberOfImage: 27,
-};
-var collectionSoiSang = {
-	collectionName: "Soi Sáng",
-	folder: "soi-sang",
-	numberOfImage: 37,
-};
-var collectionDem = {
-	collectionName: "Đêm",
-	folder: "dem",
-	numberOfImage: 20,
-};
-
 // Define variables =========================================
-var collectionList = [collectionAnLac, collectionDiemNhien, collectionSoiSang, collectionDem];
-var numberOfImage = 0;
-
-var imageList = [];
 var currentPreview;
 var viewingThumbnail = null;
 var imagePreviewDiv = document.getElementById('imagePreviewContainer');
@@ -33,15 +6,6 @@ var swiperWarpper = document.getElementsByClassName('swiper-wrapper')[0];
 var imgThumbnails = document.getElementsByClassName('thumbnail');
 
 // Initial loading =========================================
-// Load images from collections
-for (var i = 0; i < collectionList.length; i++) {
-	for (var j = 0; j < collectionList[i].numberOfImage; j++) {
-		imageList.push({ path: 'asset/image/gallery/' + collectionList[i].folder + '/' + collectionList[i].folder + '-' + j + '.jpg', collectionName: collectionList[i].folder });
-		numberOfImage++;
-	}
-}
-// viewGalleryColumn();
-// viewGalleryColumn();
 
 $(window).on("load", function () {
 	viewGalleryColumn();

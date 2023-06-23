@@ -15,17 +15,18 @@
 	<!-- Libs scripts -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
 	<script src="script/libs/svg-inject.min.js"></script>
-	<script type="module" src="script/splitText.js"></script>
 	<script type="text/javascript" src="script/lottie.js"></script>
-	<script type="text/javascript" src="script/script.js" defer></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.1/lottie.min.js"
-		integrity="sha512-H6aKTjvYAazW0iNuGj1f2dZvSWlt1HGZGEDsXRPETo2IB4H6v36Vl2qiZNlCRxOp0kT7iBf+7USNPavNscZGAw=="
-		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.1/lottie.min.js" integrity="sha512-H6aKTjvYAazW0iNuGj1f2dZvSWlt1HGZGEDsXRPETo2IB4H6v36Vl2qiZNlCRxOp0kT7iBf+7USNPavNscZGAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+	<script src="https://unpkg.com/split-type"></script>
+
 	<!-- custom scripts for each page -->
+	<script src="script/essential.js" defer></script>
 	<script src="script/gallery.js" defer></script>
+	<script type="module" src="script/splitType.js"></script>
+
 </head>
 
 <body>
@@ -99,14 +100,14 @@
 			<span class="header-text wide-14-regular">Collections</span>
 			<hr>
 		</div>
-		<div class=" animateText collection-name wide-24-regular" onclick="scrollToCollection('an-lac')">AN LẠC</div>
+		<div class=" animateTextMovement collection-name wide-24-regular" onclick="scrollToCollection('an-lac')">AN LẠC</div>
 		<hr>
-		<div class="animateText collection-name wide-24-regular" onclick="scrollToCollection('diem-nhien')">ĐIỀM NHIÊN
+		<div class="animateTextMovement collection-name wide-24-regular" onclick="scrollToCollection('diem-nhien')">ĐIỀM NHIÊN
 		</div>
 		<hr>
-		<div class="animateText collection-name wide-24-regular" onclick="scrollToCollection('soi-sang')">SOI SÁNG</div>
+		<div class="animateTextMovement collection-name wide-24-regular" onclick="scrollToCollection('soi-sang')">SOI SÁNG</div>
 		<hr>
-		<div class="animateText collection-name wide-24-regular" onclick="scrollToCollection('dem')">ĐÊM</div>
+		<div class="animateTextMovement collection-name wide-24-regular" onclick="scrollToCollection('dem')">ĐÊM</div>
 		<hr class="fill-height">
 	</div>
 	<div style="display: none;" id="gallery-container-column">
@@ -129,7 +130,7 @@
 	</div>
 
 	<!-- Waving effect filter for div has background image by svg file ================================== -->
-	<svg style="display: none;">
+	<!-- <svg style="display: none;">
 		<defs>
 			<filter id="waving2" color-interpolation-filters="sRGB" x="-500%" y="-500%" width="1000%" height="1000%"
 				bx:preset="warp 1 20 0.05">
@@ -165,7 +166,7 @@
 				scale: 10
 			}
 		}, 0)
-	</script>
+	</script> -->
 </body>
 
 </html>

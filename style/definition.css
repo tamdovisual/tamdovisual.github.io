@@ -151,6 +151,7 @@
       font-weight: 600;
       font-size: 24px;
       line-height: 32px;
+      letter-spacing: 0.02em;
       font-stretch: 125%;
   }
   
@@ -160,6 +161,7 @@
       font-weight: 900;
       font-size: 24px;
       line-height: 32px;
+      letter-spacing: 0.2em;
       font-stretch: 125%;
   }
   
