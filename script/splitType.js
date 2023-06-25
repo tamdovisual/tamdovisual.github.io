@@ -17,31 +17,74 @@ for (var i = 0; i<animateTextMovement.length; i++){
         ease: 'back',
         stagger: 0.02,
         delay: i/5,
-      });      
+      });
 }
 
-// Animate Text Width 
+// Animate Text Width ==============================================
 
+var animateTexWidth = $('.animateTextWidth');
 
-const text = SplitType.create('.animateTextWidth');
+for(i = 0; i<animateTexWidth.length; i++){
 
-const textWidthAnimation = gsap.timeline({
+  const text = SplitType.create(animateTexWidth[i]);
+  const textWidthAnimation = gsap.timeline({
     repeat: -1,
-    // yoyo: true,
     defaults: {ease: "Power2.easeOut"}
   });
+  
+  // textWidthAnimation
+  //   .to(text.chars, {
+  //   fontWeight: 50,
+  //   fontStretch: 60,
+  //   stagger: 0.05,
+  //   duration: 2,
+  //   })
+  //   .to(text.chars, {
+  //   fontWeight: 900,
+  //   fontStretch: 120,
+  //   stagger: 0.05,
+  //   duration: 1,
+  // });
+
 
   textWidthAnimation
-    .to(text.chars, {
-    fontWeight: 50,
-    fontStretch: 60,
-    stagger: 0.05,
+  .to(text.chars, {
+    'fontWeight': '100',
+    'fontStretch': '62%',
+    stagger: 0.1,
     duration: 2,
-    delay: 2,
+    delay: 1,
     })
-    .to(text.chars, {
-    fontWeight: 900,
-    fontStretch: 120,
+  .to(text.chars, {
+    'fontWeight': '900',
+    'fontStretch': '125%',
     stagger: 0.05,
     duration: 1,
   });
+
+}
+
+
+
+// const text = SplitType.create('.animateTextWidth');
+
+// const textWidthAnimation = gsap.timeline({
+//     repeat: -1,
+//     // yoyo: true,
+//     defaults: {ease: "Power2.easeOut"}
+//   });
+
+//   textWidthAnimation
+//     .to(text.chars, {
+//     fontWeight: 50,
+//     fontStretch: 60,
+//     stagger: 0.05,
+//     duration: 2,
+//     delay: 2,
+//     })
+//     .to(text.chars, {
+//     fontWeight: 900,
+//     fontStretch: 120,
+//     stagger: 0.05,
+//     duration: 1,
+//   });

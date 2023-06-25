@@ -102,14 +102,14 @@ svg path, svg rect {
 #fallingImageSection .animateTextWidth{
 	text-align: center;
 	font-family: 'Archivo';
+	color: white;
 	font-weight: 900;
-    font-stretch: 120%;
+    font-stretch: 125%;
 	z-index: 200;
 	font-size: 100px;
 	width: 100%;
-	color: white;
 	mix-blend-mode: difference;
-	transform: translate(-0.5%, 0%);
+	/* transform: translate(-0.5%, 0%); */
 }
 
 .hero-banner{
@@ -134,7 +134,7 @@ svg path, svg rect {
 	font-style: normal;
 	font-weight: 900;
 	font-size: 48pt;
-    transform: translate(0, -50px);
+    /* transform: translate(0, -50px); */
 	line-height: 52pt;
 	text-align: center;
 	letter-spacing: 0.12em;
@@ -165,23 +165,31 @@ svg path, svg rect {
 	text-transform: uppercase;
 }
 
-.landscape-section > div > div{
+.landscape-section > div > a{
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	color: white;
 	letter-spacing: 3px !important;
-	background-position: center !important;
-	background-size: cover !important;
 	flex-basis: 25%;
 	transition: 0.3s ease-in-out;
 	text-align: center;
-	margin: 48px 3vw;
+	margin: 48px 1vw;
 }
 
-.landscape-section > div > div:hover{
+.landscape-section > div > a > div{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-position: center !important;
+	background-size: cover !important;
+}
+
+.landscape-section > div > a:hover{
 	letter-spacing: 6px !important;
-	margin: 12px 3vw;
+	margin: 12px 1vw;
 	/* opacity: 1; */
 	letter-spacing: 2pt;
 	transform: scale(1.05,1.05);
@@ -235,15 +243,16 @@ svg path, svg rect {
 }
 
 span > a {
-	color: var(--main-color-100);
+	color: var(--main-color-100) !important;
 }
 
 a:visited{
-	color: var(--main-color-100);
+	color: var(--main-color-100) !important;
 }
 
 a{
 	text-decoration : none;
+	color: var(--main-color-100);
 }
 
 .footer img{
@@ -384,7 +393,7 @@ a{
 		flex-direction: column;
 	}
 
-	.landscape-section > div > div{
+	.landscape-section > div > a{
 		margin: 2px 0px;
 	}
 }

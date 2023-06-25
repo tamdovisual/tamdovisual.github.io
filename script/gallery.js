@@ -9,6 +9,101 @@ var imgThumbnails = document.getElementsByClassName('thumbnail');
 
 $(window).on("load", function () {
 	viewGalleryColumn();
+	
+
+	// highlight scroll to each colleciton.
+
+	gsap.to('#collectionAnLacTitle',{
+		scrollTrigger: {
+			trigger: '.an-lac',
+			start: 'top center',
+			end: 'top 90%',
+			toggleActions: "restart complete none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
+			// markers: true,
+		},
+		opacity: 1,
+		duration: 1,
+		ease: "power2.out",
+	});
+
+	gsap.to('#collectionAnLacTitle',{
+		scrollTrigger: {
+			trigger: '.diem-nhien',
+			start: 'top center',
+			end: 'top 90%',
+			toggleActions: "restart complete none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
+			// markers: true,
+		},
+		opacity: 0.4,
+		duration: 1,
+		ease: "power2.out",
+	});
+
+	gsap.to('#collectionDiemNhienTitle',{
+		scrollTrigger: {
+			trigger: '.diem-nhien',
+			start: 'top center',
+			end: 'top 90%',
+			toggleActions: "restart none none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
+			// markers: true,
+		},
+		opacity: 1,
+		duration: 1,
+		ease: "power2.out",
+	});
+
+	gsap.to('#collectionDiemNhienTitle',{
+		scrollTrigger: {
+			trigger: '.soi-sang',
+			start: 'top center',
+			end: 'top 90%',
+			toggleActions: "restart complete none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
+			// markers: true,
+		},
+		opacity: 0.4,
+		duration: 1,
+		ease: "power2.out",
+	});
+
+	gsap.to('#collectionSoiSangTitle',{
+		scrollTrigger: {
+			trigger: '.soi-sang',
+			start: 'top center',
+			end: 'top 90%',
+			toggleActions: "restart none none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
+			// markers: true,
+		},
+		opacity: 1,
+		duration: 1,
+		ease: "power2.out",
+	});
+
+	gsap.to('#collectionSoiSangTitle',{
+		scrollTrigger: {
+			trigger: '.dem',
+			start: 'top center',
+			end: 'top 90%',
+			toggleActions: "restart complete none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
+			// markers: true,
+		},
+		opacity: 0.4,
+		duration: 1,
+		ease: "power2.out",
+	});
+
+	gsap.to('#CollectionDemTitle',{
+	scrollTrigger: {
+		trigger: '.dem',
+		start: 'top center',
+		end: 'top 90%',
+		toggleActions: "restart none none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
+		// markers: true,
+	},
+	opacity: 1,
+	duration: 1,
+	ease: "power2.out",
+	});
+
 });
 
 // Loading images into gallery =========================================
@@ -120,15 +215,16 @@ function viewGalleryColumn() {
 	})
 }
 
-function loadImage(path, elementParent) {
+function loadImage(path, elementParent, isCollectionThumbnail, collectionName) {
 	// create thumbnail image as a div
 	var img = document.createElement("div");
 	img.setAttribute("name", path);
 	img.setAttribute('data-src', "url('" + imageList[path].path + "')");
 	img.style.backgroundSize = 'cover';
 	img.style.backgroundPosition = 'center';
-
-	// waving effect from svg
+	if(isCollectionThumbnail == true){
+		img.id = collectionName;
+	}
 
 	// lazy loading
 	img.className = "lazy thumbnail " + imageList[path].collectionName;
@@ -156,7 +252,7 @@ function loadImage(path, elementParent) {
 function loadImageIntoGrid() {
 	for (var i = 0; i < imageList.length; i++) {
 		var src = document.getElementById('gallery-container-grid');
-		loadImage(i, src);
+		loadImage(i, src, imageList[i].collectionThumb, imageList[i].collectionName);
 	}
 
 	var lazyloadImages = document.querySelectorAll(".lazy");
@@ -204,7 +300,7 @@ function loadImageIntoColumn() {
 		if (i % 2 == 0) {
 			var src = document.getElementById('gallery-container-column-left');
 		} else { var src = document.getElementById('gallery-container-column-right') }
-		loadImage(i, src);
+		loadImage(i, src, imageList[i].collectionThumb, imageList[i].collectionName);
 	}
 
 
@@ -239,11 +335,6 @@ function loadImageIntoColumn() {
 	window.addEventListener("orientationChange", lazyload);
 
 
-}
-
-function scrollToCollection(collectionName) {
-	var fistImageOfCollection = document.getElementsByClassName(collectionName)[0];
-	fistImageOfCollection.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
 }
 
 
@@ -343,26 +434,28 @@ function isInViewport(element) {
 }
 
 // Update class of collection-name on mobile devices =========================================
+var collectionNames = $("#collection-column-list .collection-name");
+
 function updateCollectionNameSize() {
 	var screenWidth = window.matchMedia("(max-width: 1119px)");
-	var collectionName = $("#collection-column-list .collection-name");
 	// Mobile size =====
 	if (screenWidth.matches) {
-		for (var i = 0; i < collectionName.length; i++) {
-			collectionName[i].classList.add('wide-14-regular');
-			collectionName[i].classList.remove('wide-24-regular');
+		for (var i = 0; i < collectionNames.length; i++) {
+			collectionNames[i].classList.add('wide-14-regular');
+			collectionNames[i].classList.remove('wide-24-regular');
 		}
 		$("#gallery-container-column").css("gap", "25%");
 		$("#gallery-container-column").css("margin", "64px 1%");
 	}
 	// Laptop size =====
 	else {
-		for (var i = 0; i < collectionName.length; i++) {
-			collectionName[i].classList.remove('wide-14-regular');
-			collectionName[i].classList.add('wide-24-regular');
+		for (var i = 0; i < collectionNames.length; i++) {
+			collectionNames[i].classList.remove('wide-14-regular');
+			collectionNames[i].classList.add('wide-24-regular');
 		}
 	}
 }
+
 window.addEventListener('resize', updateCollectionNameSize);
 // initial load once document is ready
 $(document).ready(function () {

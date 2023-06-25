@@ -172,7 +172,7 @@ gsap.fromTo('#landscape-section',{
   },
   scale: 1,
   opacity: 1,
-  y: '-30vh',
+  y: '-20vh',
   // duration: 1.5,
   transformOrigin: 'top center',
   // stagger: 0.05,
