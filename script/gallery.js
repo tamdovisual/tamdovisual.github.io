@@ -9,101 +9,6 @@ var imgThumbnails = document.getElementsByClassName('thumbnail');
 
 $(window).on("load", function () {
 	viewGalleryColumn();
-	
-
-	// highlight scroll to each colleciton.
-
-	gsap.to('#collectionAnLacTitle',{
-		scrollTrigger: {
-			trigger: '.an-lac',
-			start: 'top center',
-			end: 'top 90%',
-			toggleActions: "restart complete none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
-			// markers: true,
-		},
-		opacity: 1,
-		duration: 1,
-		ease: "power2.out",
-	});
-
-	gsap.to('#collectionAnLacTitle',{
-		scrollTrigger: {
-			trigger: '.diem-nhien',
-			start: 'top center',
-			end: 'top 90%',
-			toggleActions: "restart complete none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
-			// markers: true,
-		},
-		opacity: 0.4,
-		duration: 1,
-		ease: "power2.out",
-	});
-
-	gsap.to('#collectionDiemNhienTitle',{
-		scrollTrigger: {
-			trigger: '.diem-nhien',
-			start: 'top center',
-			end: 'top 90%',
-			toggleActions: "restart none none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
-			// markers: true,
-		},
-		opacity: 1,
-		duration: 1,
-		ease: "power2.out",
-	});
-
-	gsap.to('#collectionDiemNhienTitle',{
-		scrollTrigger: {
-			trigger: '.soi-sang',
-			start: 'top center',
-			end: 'top 90%',
-			toggleActions: "restart complete none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
-			// markers: true,
-		},
-		opacity: 0.4,
-		duration: 1,
-		ease: "power2.out",
-	});
-
-	gsap.to('#collectionSoiSangTitle',{
-		scrollTrigger: {
-			trigger: '.soi-sang',
-			start: 'top center',
-			end: 'top 90%',
-			toggleActions: "restart none none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
-			// markers: true,
-		},
-		opacity: 1,
-		duration: 1,
-		ease: "power2.out",
-	});
-
-	gsap.to('#collectionSoiSangTitle',{
-		scrollTrigger: {
-			trigger: '.dem',
-			start: 'top center',
-			end: 'top 90%',
-			toggleActions: "restart complete none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
-			// markers: true,
-		},
-		opacity: 0.4,
-		duration: 1,
-		ease: "power2.out",
-	});
-
-	gsap.to('#CollectionDemTitle',{
-	scrollTrigger: {
-		trigger: '.dem',
-		start: 'top center',
-		end: 'top 90%',
-		toggleActions: "restart none none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
-		// markers: true,
-	},
-	opacity: 1,
-	duration: 1,
-	ease: "power2.out",
-	});
-
 });
 
 // Loading images into gallery =========================================
@@ -457,7 +362,49 @@ function updateCollectionNameSize() {
 }
 
 window.addEventListener('resize', updateCollectionNameSize);
+
 // initial load once document is ready
 $(document).ready(function () {
 	updateCollectionNameSize();
+
+	// scroll to collection
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	const collectionRedirect = urlParams.get('collection');
+	console.log(collectionRedirect);
+	if(collectionRedirect){
+		document.querySelector('#'+ collectionRedirect).scrollIntoView();
+	}
 });
+
+
+window.addEventListener("scroll", (event) => {
+
+	// highlight scroll to each colleciton.
+
+	if(document.querySelector('#dem').getBoundingClientRect().top < window.innerHeight/2){
+		document.querySelector('#collectionAnLacTitle').style.opacity = 0.4;
+		document.querySelector('#collectionDiemNhienTitle').style.opacity = 0.4;
+		document.querySelector('#collectionSoiSangTitle').style.opacity = 0.4;
+		document.querySelector('#collectionDemTitle').style.opacity = 1;
+	}
+	else if(document.querySelector('#soi-sang').getBoundingClientRect().top < window.innerHeight/2){
+		document.querySelector('#collectionAnLacTitle').style.opacity = 0.4;
+		document.querySelector('#collectionDiemNhienTitle').style.opacity = 0.4;
+		document.querySelector('#collectionSoiSangTitle').style.opacity = 1;
+		document.querySelector('#collectionDemTitle').style.opacity = 0.4;
+	}
+	else if(document.querySelector('#diem-nhien').getBoundingClientRect().top < window.innerHeight/2){
+		document.querySelector('#collectionAnLacTitle').style.opacity = 0.4;
+		document.querySelector('#collectionDiemNhienTitle').style.opacity = 1;
+		document.querySelector('#collectionSoiSangTitle').style.opacity = 0.4;
+		document.querySelector('#collectionDemTitle').style.opacity = 0.4;
+	}
+	else{
+		document.querySelector('#collectionAnLacTitle').style.opacity = 1;
+		document.querySelector('#collectionDiemNhienTitle').style.opacity = 0.4;
+		document.querySelector('#collectionSoiSangTitle').style.opacity = 0.4;
+		document.querySelector('#collectionDemTitle').style.opacity = 0.4;
+	}
+});
+

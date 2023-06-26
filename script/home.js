@@ -1,4 +1,5 @@
 // Creating animation ===============================
+// import { gsap } from "./libs/gsap/gsap-core";
 
 var scrollToExplore = document.getElementById('scrollToExplore');
 
@@ -47,59 +48,61 @@ function showFallingImg(imgIndex, elementParent, mousePositionX, mousePositionY,
 
     const tl = new TimelineMax();
 
-    gsap.fromTo(img, {
-        transform: 'translate(-50%, -50%)',
-        left: mousePositionX,
-        scale: 1,
-        },{
-        transform: 'translate(0%, 0%)',
-        left: moveToX,
-        scale: 0,
-        duration: 2.5,
-        transformOrigin: 'top top',
-        ease: 'Power4.easeOut',
-      });
+    // gsap.fromTo(img, {
+    //     transform: 'translate(-50%, -50%)',
+    //     left: mousePositionX,
+    //     scale: 1,
+    //     },{
+    //     transform: 'translate(0%, 0%)',
+    //     left: moveToX,
+    //     scale: 0,
+    //     duration: 2.5,
+    //     transformOrigin: 'top top',
+    //     ease: 'Power4.easeOut',
+    //   });
 
-    tl.fromTo(img, {
-        top: mousePositionY,
-        },{
-        top: moveToY,
-        transformOrigin: 'top top',
-        duration: 2,
-        delay: 0.5,
-        ease: 'Bounce.easeOut',
-      }).call(removeElement(img));
+    // tl.fromTo(img, {
+    //     top: mousePositionY,
+    //     },{
+    //     top: moveToY,
+    //     transformOrigin: 'top top',
+    //     duration: 2,
+    //     // delay: 0.5,
+    //     // ease: 'Bounce.easeOut',
+    //     ease: 'Power1.easeOut',
+    //   }).call(removeElement(img));
+
+  gsap.fromTo(img, {
+      transform: 'translate(-50%, -50%)',
+      left: mousePositionX,
+      scale: 1,
+      },{
+      transform: 'translate(0%, 0%)',
+      left: moveToX,
+      scale: 0,
+      duration: 1.5,
+      transformOrigin: 'top top',
+      ease: 'Power2.easeOut',
+    });
+
+  tl.fromTo(img, {
+      top: mousePositionY,
+      },{
+      top: moveToY,
+      transformOrigin: 'top top',
+      duration: 2,
+      ease: Bounce.easeOut,
+    }).call(removeElement(img));
+    
+
 
 	$(elementParent)[0].appendChild(img);
 }
-
-// gsap.fromTo('.char', {
-//   x: 0,
-//   scale: 1,
-//   y: 0,
-// }, {
-//   scrollTrigger: {
-//     trigger: '#fallingImageSection',
-//     start: 'bottom bottom',
-//     end: 'bottom top',
-//     scrub: true, // cái này sẽ chạy animate theo cuộn chuột, bỏ đi thì sẽ tự động chạy khi cuộn.
-//     toggleActions: "restart none none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
-//     markers: true
-//   },
-//   duration: 3,
-//   // x: (this.getBoundingClientRect().left + this.getBoundingClientRect().width/2 - Math.round(window.innerWidth/2)),
-//   y: '80vh',
-//   scale: 30,
-//   ease: "Power1.easeOut",
-// });
-
-// var animateTextWidthChars = gsap.utils.toArray('.char');
-
 gsap.utils.toArray('.char').forEach((element) => {
   
   gsap.fromTo(element, {
     x: 0,
-    y: 0,
+    // y: 0,
     scale: 1,
   }, {
     scrollTrigger: {
@@ -112,7 +115,7 @@ gsap.utils.toArray('.char').forEach((element) => {
     },
     duration: 3,
     x: 35*(element.getBoundingClientRect().left + element.getBoundingClientRect().width/2 - Math.round(window.innerWidth/2)),
-    y: '50vh',
+    // y: '50vh',
     // pin: true,
     scale: 15,
     // scale: i => 1 - (i * 0.1),
@@ -120,6 +123,57 @@ gsap.utils.toArray('.char').forEach((element) => {
   });
 })
 
+
+
+// =====================================================================
+
+var homepageMovingLines = $('.movingLine');
+
+for(i = 0; i < homepageMovingLines.length; i++ ){
+
+  var lineAnimation = gsap.timeline({
+    repeat: -1,
+    // yoyo: true,
+  });
+  
+  lineAnimation
+  .to(homepageMovingLines[i], {
+    opacity: 0.6,
+    duration: 3,
+    delay: i/100,
+    transform: 'translateY('+ (i+1)*40 +'px) scaleX('+ (1 - i/10) +') scaleY('+ (0.6 - i/10) +')',
+    ease: Elastic.easeOut.config(2, 0.5),
+  }).to(homepageMovingLines[i], {
+    opacity: 0.6,
+    duration: 1,
+    transform: 'scaleX('+ 1 +') scaleY('+ 0.6 +')',
+    ease: 'Power1.easeOut',
+    stagger: 0.1,
+  });
+
+  lineAnimation.startTime(i/30);
+
+}
+
+gsap.to('#animateLineHomePage',{
+  scrollTrigger: {
+    trigger: '#fallingImageSection',
+    start: 'bottom 95%',
+    end: 'bottom 70%',
+    stagger: 0.3,
+    scrub: true,
+    toggleActions: "restart none none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
+    // markers: true
+  },
+  // y: -1000,
+  transform: 'scaleX(3) scaleY(3)',
+  duration: 0.5,
+  stagger: 0.01,
+  ease: 'Power1.easeOut',
+})
+
+
+// =====================================================================
 
 gsap.to('#scrollToExplore, #fallingImageSection .CTA', {
   scrollTrigger: {
@@ -134,27 +188,6 @@ gsap.to('#scrollToExplore, #fallingImageSection .CTA', {
   opacity: 0,
   ease: "Power2.inOut",
 })
-
-
-// gsap.fromTo('#landscape-section',{
-//   y: '-45vh',
-//   // scale: 0,
-// }, {
-//   scrollTrigger: {
-//     trigger: '#fallingImageSection',
-//     start: 'center 40%',
-//     end: 'bottom 70%',
-//     scrub: true,
-//     toggleActions: "restart none none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
-//     markers: true,
-//   },
-//   y: 0,
-//   duration: 1,
-//   transformOrigin: 'top center',
-//   // stagger: 0.05,
-//   ease: "Power1.easeIn",
-//   // ease: 'Bounce.easeOut',
-// });
 
 
 gsap.fromTo('#landscape-section',{
@@ -196,3 +229,4 @@ gsap.fromTo('#landscape-section-title, .landscape-section .CTA',{
   // stagger: 0.05,
   ease: "Power1.inOut",
 });
+

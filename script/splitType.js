@@ -31,35 +31,20 @@ for(i = 0; i<animateTexWidth.length; i++){
     repeat: -1,
     defaults: {ease: "Power2.easeOut"}
   });
-  
-  // textWidthAnimation
-  //   .to(text.chars, {
-  //   fontWeight: 50,
-  //   fontStretch: 60,
-  //   stagger: 0.05,
-  //   duration: 2,
-  //   })
-  //   .to(text.chars, {
-  //   fontWeight: 900,
-  //   fontStretch: 120,
-  //   stagger: 0.05,
-  //   duration: 1,
-  // });
-
 
   textWidthAnimation
   .to(text.chars, {
     'fontWeight': '100',
     'fontStretch': '62%',
     stagger: 0.1,
-    duration: 2,
+    duration: 1,
     delay: 1,
     })
   .to(text.chars, {
     'fontWeight': '900',
     'fontStretch': '125%',
     stagger: 0.05,
-    duration: 1,
+    duration: 2,
   });
 
 }
