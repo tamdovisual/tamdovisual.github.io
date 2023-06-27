@@ -37,6 +37,65 @@ for (var i = 0; i < collectionList.length; i++) {
     }
 }
 
+
+// Load image in sequences ===========================================
+
+var images = [numberOfImage];
+var gotResponse = [numberOfImage];
+var maxDisplayed = -1;
+var loadedImage = -1;
+
+function checkImages(index) {
+    // Check if previous images have been displayed
+    if (maxDisplayed == index - 1) {
+        for (i = index; i <= numberOfImage; i++) {
+            // Check if we've received a response for this image
+            if (gotResponse[i] !== true) {
+                break;
+            }
+            maxDisplayed = i;
+            if (images[i] != null) {
+                // console.log('Adding image ' + i);
+                // document.body.appendChild(images[i]);
+                loadedImage = i;
+                // console.log('image '+ i + ' is already');
+            }
+        }
+    }
+}
+
+function imageError(index) {
+    console.log('Error loading image ' + index);
+    images[index] = null;
+    gotResponse[index] = true;
+    checkImages(index);
+}
+
+function imageLoaded(index, image) {
+    console.log('Loaded image ' + index);
+    images[index] = image;
+    gotResponse[index] = true;
+    checkImages(index);
+}
+
+function sequenceLoadingImages() {
+    $.each(imageList, function(index, value) {
+        var image = new Image();
+        image.onload = function () {
+            imageLoaded(index, image);
+        }
+        image.onerror = function () {
+            imageError(index);
+        }
+        image.src = value.path;
+        image.style.width = '300px';
+        image.style.height = '300px';
+    });
+}
+
+sequenceLoadingImages();
+
+
 // Playing Lottie =========================================
 var logoAnimation = document.getElementById('logoAnimation');
 var mobileMenuIcon = document.getElementById('mobileMenuIcon');

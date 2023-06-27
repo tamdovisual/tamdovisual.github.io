@@ -34,7 +34,7 @@ else{ // detect touch device
   
   function autoFallingImage() {
     var fallingImageSectionElement = document.getElementById('fallingImageSection').getBoundingClientRect();
-    showFallingImg(Math.floor( Math.random() * numberOfImage ), '#fallingImageSection', fallingImageSectionElement.width*Math.random(), fallingImageSectionElement.height*Math.random()/2, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
+    showFallingImg(Math.floor( Math.random() * loadedImage ), '#fallingImageSection', fallingImageSectionElement.width*Math.random(), fallingImageSectionElement.height*Math.random()/2, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
   }
   var autoFallImageInterval = setInterval(autoFallingImage, 300);
 
@@ -43,7 +43,7 @@ else{ // detect touch device
 function mouseInFallingImgSection(event){
   var fallingImageSectionElement = document.getElementById('fallingImageSection').getBoundingClientRect();
   if(Math.abs(event.clientX - oldX) > 15 || Math.abs(event.clientY - oldY) > 15){
-    showFallingImg(Math.floor( Math.random() * numberOfImage ), '#fallingImageSection', event.clientX + fallingImageSectionElement.left, event.clientY - fallingImageSectionElement.top, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
+    showFallingImg(Math.floor( Math.random() * loadedImage ), '#fallingImageSection', event.clientX + fallingImageSectionElement.left, event.clientY - fallingImageSectionElement.top, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
   }
   oldX = event.clientX;
   oldY = event.clientY;

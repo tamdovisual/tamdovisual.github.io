@@ -5,17 +5,17 @@
 	height: 100%;
 }
 
-svg path[fill], svg rect[fill] {
-	fill: var(--main-color-100);
+svg path[fill], svg rect[fill], svg g[fill] {
+	fill: var(--main-color-100) !important;
 }
 
 svg path[stroke], svg rect[stroke]{
-	stroke: var(--main-color-100);
+	stroke: var(--main-color-100) !important;
 }
-
+/* 
 #mobileMenuIcon path[stroke]{
 	stroke: var(--main-color-100);
-}
+} */
 
 #starMovingContainer * {
 	fill: var(--main-color-100);
@@ -159,19 +159,19 @@ svg path[stroke], svg rect[stroke]{
 /* landscape-section ====================================== */
 
 .landscape-section{
-	overflow: hidden;
 	display: flex;
 	flex-direction: column;
 	gap: 32pt;
-	height: 80vh;
-	padding: 12vw;
+	padding: 4vw;
 	align-items: center;
 	color: var(--main-color-100);
 }
 
 .landscape-section > div {
+	/* height: 80vh; */
 	flex-grow: 1;
 	align-self: stretch;
+	justify-content: center;
 	display: flex;
 	box-sizing: border-box;
 	text-transform: uppercase;
@@ -190,8 +190,10 @@ svg path[stroke], svg rect[stroke]{
 }
 
 .landscape-section > div > a > div{
+	max-width: 500px;
+	min-height: 400px;
+	height: 70vh;
 	width: 100%;
-	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -337,7 +339,6 @@ a{
 
 /* Mobile size */
 
-
 @media only screen and (max-width: 1119px) {
 	.header{
 		gap: 0px !important;
@@ -408,6 +409,10 @@ a{
 
 	.landscape-section > div > a{
 		margin: 2px 0px;
+	}
+
+	.landscape-section > div > a > div{
+		height: 500px;
 	}
 }
 
