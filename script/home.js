@@ -124,8 +124,7 @@ gsap.utils.toArray('.char').forEach((element) => {
 })
 
 
-
-// =====================================================================
+// Moving Lines =====================================================================
 
 var homepageMovingLines = $('.movingLine');
 
@@ -173,7 +172,7 @@ gsap.to('#animateLineHomePage',{
 })
 
 
-// =====================================================================
+// ScrollTrigger scroll down =====================================================================
 
 gsap.to('#scrollToExplore, #fallingImageSection .CTA', {
   scrollTrigger: {

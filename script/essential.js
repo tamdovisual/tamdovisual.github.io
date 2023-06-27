@@ -3,12 +3,12 @@
 var collectionAnLac = {
     collectionName: "An Lạc",
     folder: "an-lac",
-    numberOfImage: 22,
+    numberOfImage: 17,
 };
 var collectionDiemNhien = {
     collectionName: "Điềm Nhiên",
     folder: "diem-nhien",
-    numberOfImage: 27,
+    numberOfImage: 32,
 };
 var collectionSoiSang = {
     collectionName: "Soi Sáng",

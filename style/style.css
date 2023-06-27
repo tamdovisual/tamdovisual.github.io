@@ -103,11 +103,13 @@ svg path[stroke], svg rect[stroke]{
 }
 
 #animateLineHomePage{
+	/* background: red; */
 	position: absolute;
 	bottom: 0;
+	/* scale: 2; */
 	transform-origin: bottom center;
 	height: 100vh;
-	width: 100vw;
+	max-width: 200vw;
 	/* transform: scaleX(2) scaleY(0.6); */
 }
 
@@ -130,16 +132,6 @@ svg path[stroke], svg rect[stroke]{
 	width: 100%;
 	mix-blend-mode: difference;
 	/* transform: translate(-0.5%, 0%); */
-}
-
-.hero-banner{
-	position: relative;
-	min-height: 100vh;
-	height: -webkit-fill-available;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 }
 
 
@@ -422,19 +414,9 @@ a{
 
 /* Light mode Laptop */
 @media only screen and (min-width: 1120px) and (prefers-color-scheme: light) {
-	.hero-banner{
-		background: url('../asset/image/banner-laptop-light.jpg');
-		background-position: center;
-		background-size: cover;
-	}
 }
 /* Dark mode Laptop */
 @media only screen and (min-width: 1120px) and (prefers-color-scheme: dark) {
-	.hero-banner{
-		background: url('../asset/image/banner-laptop-dark.jpg');
-		background-position: center;
-		background-size: cover;
-	}
 	.imagePreviewContainer{
 		background: url('../asset/image/bg-dark.jpg') !important;
 		background-repeat: repeat;
@@ -446,11 +428,6 @@ a{
 }
 /* Light mode Tablet & Mobile */
 @media only screen and (max-width: 1119px) and (prefers-color-scheme: light) {
-	.hero-banner{
-		background: url('../asset/image/banner-mobile-light.jpg');
-		background-position: center;
-		background-size: cover;
-	}
 
 	.imagePreviewContainer{
 		background-size: 40px !important;
@@ -464,11 +441,6 @@ a{
 
 /* Dark mode Tablet & Mobile */
 @media only screen and (max-width: 1119px) and (prefers-color-scheme: dark) {
-	.hero-banner{
-		background: url('../asset/image/banner-mobile-dark.jpg');
-		background-position: center;
-		background-size: cover;
-	}
 
 	.imagePreviewContainer{
 		background: url('../asset/image/bg-dark.jpg') !important;
