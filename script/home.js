@@ -26,7 +26,6 @@ function removeElement(element) {
 }
 
 var touchDevice = window.matchMedia("(pointer: coarse)");
-console.log(touchDevice);
 
 if (!touchDevice.matches) { // detech device using mouse / trackpad
   document.getElementById('fallingImageSection').addEventListener('mousemove', mouseInFallingImgSection,false);
@@ -37,7 +36,6 @@ else{ // detect touch device
     var fallingImageSectionElement = document.getElementById('fallingImageSection').getBoundingClientRect();
     showFallingImg(Math.floor( Math.random() * numberOfImage ), '#fallingImageSection', fallingImageSectionElement.width*Math.random(), fallingImageSectionElement.height*Math.random()/2, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
   }
-
   var autoFallImageInterval = setInterval(autoFallingImage, 300);
 
 }
