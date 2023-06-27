@@ -25,12 +25,27 @@ function removeElement(element) {
   };
 }
 
-document.getElementById('fallingImageSection').addEventListener('mousemove', mouseInFallingImgSection,false);
+var touchDevice = window.matchMedia("(pointer: coarse)");
+console.log(touchDevice);
+
+if (!touchDevice.matches) { // detech device using mouse / trackpad
+  document.getElementById('fallingImageSection').addEventListener('mousemove', mouseInFallingImgSection,false);
+}
+else{ // detect touch device
+  
+  function autoFallingImage() {
+    var fallingImageSectionElement = document.getElementById('fallingImageSection').getBoundingClientRect();
+    showFallingImg(Math.floor( Math.random() * numberOfImage ), '#fallingImageSection', fallingImageSectionElement.width*Math.random(), fallingImageSectionElement.height*Math.random()/2, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
+  }
+
+  var autoFallImageInterval = setInterval(autoFallingImage, 300);
+
+}
 
 function mouseInFallingImgSection(event){
-  var container = document.getElementById('fallingImageSection').getBoundingClientRect();
+  var fallingImageSectionElement = document.getElementById('fallingImageSection').getBoundingClientRect();
   if(Math.abs(event.clientX - oldX) > 15 || Math.abs(event.clientY - oldY) > 15){
-    showFallingImg(Math.floor( Math.random() * numberOfImage ), '#fallingImageSection', event.clientX + container.left, event.clientY - container.top, container.width/2, container.height);
+    showFallingImg(Math.floor( Math.random() * numberOfImage ), '#fallingImageSection', event.clientX + fallingImageSectionElement.left, event.clientY - fallingImageSectionElement.top, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
   }
   oldX = event.clientX;
   oldY = event.clientY;
@@ -72,6 +87,15 @@ function showFallingImg(imgIndex, elementParent, mousePositionX, mousePositionY,
     //     ease: 'Power1.easeOut',
     //   }).call(removeElement(img));
 
+
+  gsap.fromTo(img, {
+    opacity: 0,
+    },{
+    opacity: 1,
+    duration: 0.2,
+    ease: 'Power4.easeOut',
+  });
+
   gsap.fromTo(img, {
       transform: 'translate(-50%, -50%)',
       left: mousePositionX,
@@ -92,6 +116,8 @@ function showFallingImg(imgIndex, elementParent, mousePositionX, mousePositionY,
       transformOrigin: 'top top',
       duration: 2,
       ease: Bounce.easeOut,
+      // ease: 'Power4.easeOut',
+
     }).call(removeElement(img));
     
 
@@ -204,7 +230,7 @@ gsap.fromTo('#landscape-section',{
   },
   scale: 1,
   opacity: 1,
-  y: '-20vh',
+  y: 0,
   // duration: 1.5,
   transformOrigin: 'top center',
   // stagger: 0.05,

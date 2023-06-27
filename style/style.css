@@ -759,8 +759,8 @@ a{
 	transform: translate(-50%, -50%) scale(1);
 }
 
-
-@media only screen and (hover: none) {
+/* (pointer: coarse) -> device dùng touch; (pointer: fine) -> device dùng chuột */
+@media only screen and (pointer: coarse) {
 	.custom-cursor{
 		display: none;
 	}

@@ -3,22 +3,22 @@
 var collectionAnLac = {
     collectionName: "An Lạc",
     folder: "an-lac",
-    numberOfImage: 17,
+    numberOfImage: 18,
 };
 var collectionDiemNhien = {
     collectionName: "Điềm Nhiên",
     folder: "diem-nhien",
-    numberOfImage: 32,
+    numberOfImage: 29,
 };
 var collectionSoiSang = {
     collectionName: "Soi Sáng",
     folder: "soi-sang",
-    numberOfImage: 37,
+    numberOfImage: 36,
 };
 var collectionDem = {
     collectionName: "Đêm",
     folder: "dem",
-    numberOfImage: 20,
+    numberOfImage: 21,
 };
 
 // Define variables =========================================
