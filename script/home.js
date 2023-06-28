@@ -56,6 +56,8 @@ function mouseInFallingImgSection(event){
 function showFallingImg(imgIndex, elementParent, mousePositionX, mousePositionY, moveToX, moveToY) {
 	var img = document.createElement("img");
 	img.setAttribute('src', loadedImage[imgIndex] + '');
+  img.setAttribute('alt', 'falling-image');
+
 	img.style.backgroundSize = 'contain';
 	img.style.backgroundPosition = 'center';
     img.style.position = 'absolute';
