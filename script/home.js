@@ -49,7 +49,7 @@ else{ // detect touch device
 function mouseInFallingImgSection(event){
   var fallingImageSectionElement = document.getElementById('fallingImageSection').getBoundingClientRect();
   if(Math.abs(event.clientX - oldX) > 15 || Math.abs(event.clientY - oldY) > 15){
-    if(loadedImage.length){
+    if(loadedImage.length > 2){
       showFallingImg(Math.floor( Math.random() * loadedImage.length ), '#fallingImageSection', event.clientX + fallingImageSectionElement.left, event.clientY - fallingImageSectionElement.top, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
     }
   }
@@ -100,8 +100,8 @@ function showFallingImg(imgIndex, elementParent, mousePositionX, mousePositionY,
     opacity: 0,
     },{
     opacity: 1,
-    duration: 0.2,
-    ease: 'Power4.easeOut',
+    duration: 0.05,
+    ease: 'Power2.easeOut',
   });
 
   gsap.fromTo(img, {

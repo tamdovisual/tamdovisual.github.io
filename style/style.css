@@ -158,6 +158,7 @@ svg path[stroke], svg rect[stroke]{
 	padding: 4vw;
 	align-items: center;
 	color: var(--main-color-100);
+	margin-bottom: 48px;
 }
 
 .landscape-section > div {
