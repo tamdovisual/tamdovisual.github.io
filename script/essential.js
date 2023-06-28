@@ -65,14 +65,14 @@ function checkImages(index) {
 }
 
 function imageError(index) {
-    console.log('Error loading image ' + index);
+    // console.log('Error loading image ' + index);
     images[index] = null;
     gotResponse[index] = true;
     checkImages(index);
 }
 
 function imageLoaded(index, image) {
-    console.log('Loaded image ' + index);
+    // console.log('Loaded image ' + index);
     images[index] = image;
     gotResponse[index] = true;
     checkImages(index);
@@ -118,7 +118,7 @@ var logoAnimationItem = bodymovin.loadAnimation({
 });
 
 logoAnimationItem.addEventListener("complete", function(){
-  console.log('logo is animated');
+  console.log('Ơ kìa, mò mẫm vào đây làm cái gì đấy? - Tâm said!');
 });
 
 var starMovingItem = bodymovin.loadAnimation({

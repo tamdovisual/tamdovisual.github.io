@@ -1,4 +1,4 @@
-import { gsap, TimelineLite } from "./libs/gsap/all.js";
+// import { gsap, TimelineLite } from "./libs/gsap/all.js";
 // gsap.registerPlugin(ScrollTrigger);
 
 const timeline = new TimelineLite();

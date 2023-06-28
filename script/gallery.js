@@ -372,7 +372,6 @@ $(document).ready(function () {
 	const queryString = window.location.search;
 	const urlParams = new URLSearchParams(queryString);
 	const collectionRedirect = urlParams.get('collection');
-	console.log(collectionRedirect);
 	if(collectionRedirect){
 		document.querySelector('#'+ collectionRedirect).scrollIntoView();
 	}
