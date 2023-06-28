@@ -134,6 +134,7 @@ function loadImage(path, elementParent, isCollectionThumbnail, collectionName) {
 	// lazy loading
 	img.className = "lazy thumbnail " + imageList[path].collectionName;
 	img.setAttribute("loading", "lazy");
+	img.setAttribute('alt', imageList[path].collectionName);
 
 	// onclick
 	img.setAttribute("onclick", 'showPreviewImage()');
