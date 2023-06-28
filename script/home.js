@@ -32,18 +32,21 @@ if (!touchDevice.matches) { // detech device using mouse / trackpad
 }
 else{ // detect touch device
   
-  function autoFallingImage() {
-    var fallingImageSectionElement = document.getElementById('fallingImageSection').getBoundingClientRect();
-    if(loadedImage.length && falling100<100){
-      showFallingImg(Math.floor( Math.random() * loadedImage.length ), '#fallingImageSection', fallingImageSectionElement.width/2, fallingImageSectionElement.height/2, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
-      falling100++;
-    }
-    else if(falling100>=100){
-      clearInterval(autoFallImageInterval);
-    }
-  }
-  setTimeout(() => { var autoFallImageInterval = setInterval(autoFallingImage, 100);
-  }, 4000);
+  // function autoFallingImage() {
+  //   var fallingImageSectionElement = document.getElementById('fallingImageSection').getBoundingClientRect();
+  //   if(loadedImage.length && falling100<100){
+  //     showFallingImg(Math.floor( Math.random() * loadedImage.length ), '#fallingImageSection', fallingImageSectionElement.width/2, fallingImageSectionElement.height/2, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
+  //     falling100++;
+  //   }
+  //   else if(falling100>=100){
+  //     clearInterval(autoFallImageInterval);
+  //   }
+  // }
+
+  // var autoFallImageInterval;
+
+  // setTimeout(() => { autoFallImageInterval = setInterval(autoFallingImage, 100);
+  // }, 4000);
 
 }
 
