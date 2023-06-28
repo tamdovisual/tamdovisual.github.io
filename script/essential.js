@@ -43,7 +43,7 @@ for (var i = 0; i < collectionList.length; i++) {
 var images = [numberOfImage];
 var gotResponse = [numberOfImage];
 var maxDisplayed = -1;
-var loadedImage = -1;
+var loadedImage = [];
 
 function checkImages(index) {
     // Check if previous images have been displayed
@@ -57,7 +57,7 @@ function checkImages(index) {
             if (images[i] != null) {
                 // console.log('Adding image ' + i);
                 // document.body.appendChild(images[i]);
-                loadedImage = i;
+                loadedImage.push(images[i].src);
                 // console.log('image '+ i + ' is already');
             }
         }

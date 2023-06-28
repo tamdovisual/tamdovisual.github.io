@@ -34,7 +34,9 @@ else{ // detect touch device
   
   function autoFallingImage() {
     var fallingImageSectionElement = document.getElementById('fallingImageSection').getBoundingClientRect();
-    showFallingImg(Math.floor( Math.random() * loadedImage ), '#fallingImageSection', fallingImageSectionElement.width*Math.random(), fallingImageSectionElement.height*Math.random()/2, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
+    if(loadedImage.length){
+      showFallingImg(Math.floor( Math.random() * loadedImage.length ), '#fallingImageSection', fallingImageSectionElement.width*Math.random(), fallingImageSectionElement.height*Math.random()/2, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
+    }
   }
   var autoFallImageInterval = setInterval(autoFallingImage, 300);
 
@@ -43,7 +45,9 @@ else{ // detect touch device
 function mouseInFallingImgSection(event){
   var fallingImageSectionElement = document.getElementById('fallingImageSection').getBoundingClientRect();
   if(Math.abs(event.clientX - oldX) > 15 || Math.abs(event.clientY - oldY) > 15){
-    showFallingImg(Math.floor( Math.random() * loadedImage ), '#fallingImageSection', event.clientX + fallingImageSectionElement.left, event.clientY - fallingImageSectionElement.top, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
+    if(loadedImage.length){
+      showFallingImg(Math.floor( Math.random() * loadedImage.length ), '#fallingImageSection', event.clientX + fallingImageSectionElement.left, event.clientY - fallingImageSectionElement.top, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
+    }
   }
   oldX = event.clientX;
   oldY = event.clientY;
@@ -51,7 +55,7 @@ function mouseInFallingImgSection(event){
 
 function showFallingImg(imgIndex, elementParent, mousePositionX, mousePositionY, moveToX, moveToY) {
 	var img = document.createElement("img");
-	img.setAttribute('src', imageList[imgIndex].path + '');
+	img.setAttribute('src', loadedImage[imgIndex] + '');
 	img.style.backgroundSize = 'contain';
 	img.style.backgroundPosition = 'center';
     img.style.position = 'absolute';
