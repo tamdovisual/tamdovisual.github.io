@@ -35,14 +35,15 @@ else{ // detect touch device
   function autoFallingImage() {
     var fallingImageSectionElement = document.getElementById('fallingImageSection').getBoundingClientRect();
     if(loadedImage.length && falling100<100){
-      showFallingImg(Math.floor( Math.random() * loadedImage.length ), '#fallingImageSection', fallingImageSectionElement.width/2, fallingImageSectionElement.height/3, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
+      showFallingImg(Math.floor( Math.random() * loadedImage.length ), '#fallingImageSection', fallingImageSectionElement.width/2, fallingImageSectionElement.height/2, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
       falling100++;
     }
     else if(falling100>=100){
       clearInterval(autoFallImageInterval);
     }
   }
-  var autoFallImageInterval = setInterval(autoFallingImage, 100);
+  setTimeout(() => { var autoFallImageInterval = setInterval(autoFallingImage, 100);
+  }, 4000);
 
 }
 
