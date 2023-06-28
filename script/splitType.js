@@ -35,10 +35,10 @@ for(i = 0; i<animateTexWidth.length; i++){
   gsap.from(text.chars, {
     duration: 3,
     opacity: 0,
-    scale: 0,
+    scale: 0.2,
     y: 100,
     transformOrigin: "50% 50%",
-    ease: "elastic.out(1, 0.3)",
+    ease: "elastic.out(1.2, 0.5)",
     stagger: 0.02,
     delay: i/5,
   });
