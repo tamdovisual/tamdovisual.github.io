@@ -270,8 +270,8 @@ function showPreviewImage() {
 	
 		// Navigation arrows
 		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
+			nextEl: '.next-img-icon',
+			prevEl: '.pre-img-icon',
 		},
 		spaceBetween: 100,
 		mousewheel: true,

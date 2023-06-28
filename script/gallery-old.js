@@ -55,7 +55,7 @@ var imgThumbnails = document.getElementsByClassName('thumbnail');
 // Load images from collections
 for(var i = 0; i < collectionList.length; i++){
 	for(var j = 0; j < collectionList[i].numberOfImage; j++){
-		imageList.push({path: 'asset/image/gallery/' + collectionList[i].folder + '/' + collectionList[i].folder + '-' + j + '.jpg', collectionName : collectionList[i].folder});
+		imageList.push({path: 'asset/image/gallery/' + collectionList[i].folder + '/' + collectionList[i].folder + '-' + j + '.webp', collectionName : collectionList[i].folder});
 		numberOfImage++;
 	}
 }

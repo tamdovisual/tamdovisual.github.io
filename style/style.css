@@ -44,14 +44,7 @@ svg path[stroke], svg rect[stroke]{
 	transition: 0.3s ease-in-out;
 }
 
-@media not (hover:none){
-	.header:hover{
-		background: var(--bg-color-20);
-		border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
-		backdrop-filter: blur(20px);
-		-webkit-backdrop-filter: blur(20px);
-	}
-}
+
 
 .scolled-header{
 	background: var(--bg-color-20);
@@ -318,147 +311,6 @@ a{
 	gap: 24px;
 }
 
-/* Responsiveness ====================================== */
-
-/* Laptop size */
-@media only screen and (min-width: 1120px){
-	.footer{
-		flex-direction: row;
-	}
-	.footer > span{
-		text-align: left
-	};
-	#page-title{
-		display: none;
-	}
-
-	#gallery-container-column > div{
-		gap: 0px;
-	}
-}
-
-/* Mobile size */
-
-@media only screen and (max-width: 1119px) {
-	.header{
-		gap: 0px !important;
-		justify-content: space-between;
-		padding: 12px 24px;
-	}
-	.header > span{
-		display: none;
-	}
-
-	.header #page-title{
-		display: block !important;
-	}
-
-	.header #logoAnimation{
-		width: 32px;
-	}
-
-	.header #mobileMenuIcon{
-		width: 32px;
-		height: 32px;
-	}
-
-	#mobileMenuIcon{
-		display: block;
-	}
-
-	.footer{
-		flex-direction: column;
-	}
-	.footer > span{
-		text-align: center;
-	}
-	.gallery-container-grid .thumbnail-container{
-		flex: 1 0 26% !important;
-	}
-
-	.featured-brand > .logo-list{
-		gap: 30px !important;
-	}
-
-	.featured-brand img{
-		height: 40px !important;
-	}
-
-	.hero-text{
-		font-family: 'Archivo';
-		font-style: normal;
-		font-size: 24px !important;
-		line-height: 32px;
-		text-align: center;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-		color: #FFFFFF;
-	}
-
-	#gallery-container-column > div{
-		gap: 150px;
-	}
-
-	#fallingImageSection .animateTextWidth{
-		font-size: 32px;
-	}
-
-	.landscape-section > div{
-		flex-direction: column;
-	}
-
-	.landscape-section > div > a{
-		margin: 2px 0px;
-	}
-
-	.landscape-section > div > a > div{
-		height: 500px;
-	}
-}
-
-/* Customize banner for laptop mobile and dark / light mode */
-
-/* Light mode Laptop */
-@media only screen and (min-width: 1120px) and (prefers-color-scheme: light) {
-}
-/* Dark mode Laptop */
-@media only screen and (min-width: 1120px) and (prefers-color-scheme: dark) {
-	.imagePreviewContainer{
-		background: url('../asset/image/bg-dark.jpg') !important;
-		background-repeat: repeat;
-	}
-
-	.swiper-slide img{
-		border-image: url('../asset/image/frame-dark.png') 60 round !important;
-	}
-}
-/* Light mode Tablet & Mobile */
-@media only screen and (max-width: 1119px) and (prefers-color-scheme: light) {
-
-	.imagePreviewContainer{
-		background-size: 40px !important;
-	}
-
-	.swiper-slide img{
-		border: 6px solid transparent !important;
-		border-image: url('../asset/image/frame-white.png') 18 round !important;
-	}
-}
-
-/* Dark mode Tablet & Mobile */
-@media only screen and (max-width: 1119px) and (prefers-color-scheme: dark) {
-
-	.imagePreviewContainer{
-		background: url('../asset/image/bg-dark.jpg') !important;
-		background-repeat: repeat;
-		background-size: 40px !important;
-	}
-
-	.swiper-slide img{
-		border: 6px solid transparent !important;
-		border-image: url('../asset/image/frame-dark.png') 18 round !important;
-	}
-}
 
 /* Style for gallery page ====================================== */
 
@@ -616,20 +468,20 @@ a{
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background: url('../asset/image/bg-light.jpg');
+	background: var(--preview-img-bg);
+	background-size: 80px;
 	background-repeat: repeat;
 	z-index: 450;
 	transition: 0;
 }
 
 .swiper-overlay{
-	background: url('../asset/image/overlay-light.png');
+	background: var(--preview-overlay);
 	width: 100%;
 	height: 100%;
 	background-position: center;
 	background-size: cover;
 	mix-blend-mode: overlay;
-	z-index: 260;
 	position: absolute;
 }
 
@@ -644,49 +496,12 @@ a{
 }
 
 .swiper-slide img{
-	max-width: 80%;
-	max-height: 80%;
+	max-width: 88%;
+	max-height: 88%;
 	z-index: 270;
-	border: 18px solid transparent;
-	border-image: url('../asset/image/frame-white.png') 60 round;
+	border: 12px solid transparent;
+	border-image: var(--photo-frame) 12 round !important;
 	filter: drop-shadow(4px 6px 4px rgba(0, 0, 0, 0.25)) drop-shadow(30px 32px 28px rgba(0, 0, 0, 0.1));
-}
-
-
-.closeBtt{
-	/* cursor: pointer; */
-	position: fixed;
-	top: 16px;
-	right: 16px;
-	width: 32px;
-	height: 32px;
-	/* mix-blend-mode: difference; */
-	z-index: 252;
-	border-radius: 300px;
-}
-
-.swiper-button-prev{
-	cursor: none !important;
-	position: fixed !important;
-	top: 50%;
-	left: 16px !important;
-	width: 32px !important;
-	height: 32px !important;
-	/* mix-blend-mode: difference; */
-	z-index: 253 !important;
-	border-radius: 300px;
-}
-
-.swiper-button-next{
-	cursor: none !important;
-	position: fixed !important;
-	top: 50% !important;
-	right: 16px !important;
-	width: 32px !important;
-	height: 32px !important;
-	/* mix-blend-mode: difference; */
-	z-index: 254 !important;
-	border-radius: 300px;
 }
 
 
@@ -765,9 +580,219 @@ a{
 	transform: translate(-50%, -50%) scale(1);
 }
 
+
+/* @media Responsiveness =========================================================== */
+
 /* (pointer: coarse) -> device dùng touch; (pointer: fine) -> device dùng chuột */
+
 @media only screen and (pointer: coarse) {
 	.custom-cursor{
 		display: none;
+	}
+}
+
+@media only screen and (pointer:fine){
+	.header:hover{
+		background: var(--bg-color-20);
+		border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+	}
+}
+
+/* Responsiveness ====================================== */
+
+/* Laptop size */
+@media only screen and (min-width: 760px){
+
+	.closeBtt{
+		/* cursor: pointer; */
+		position: absolute;
+		top: 16px;
+		right: 16px;
+		width: 32px;
+		height: 32px;
+		/* mix-blend-mode: difference; */
+		z-index: 252;
+		border-radius: 300px;
+	}
+	
+	.pre-img-icon{
+		cursor: none !important;
+		position: absolute !important;
+		top: 50% !important;
+		transform: translate(0px, -50%);
+		left: 16px !important;
+		width: 32px !important;
+		height: 32px !important;
+		/* mix-blend-mode: difference; */
+		z-index: 253 !important;
+		border-radius: 300px;
+	}
+	
+	.next-img-icon{
+		cursor: none !important;
+		position: absolute !important;
+		top: 50% !important;
+		transform: translate(0px, -50%);
+		right: 16px !important;
+		width: 32px !important;
+		height: 32px !important;
+		/* mix-blend-mode: difference; */
+		z-index: 254 !important;
+		border-radius: 300px;
+	}
+
+	.footer{
+		flex-direction: row;
+	}
+
+	.footer > span{
+		text-align: left
+	};
+
+	#page-title{
+		display: none;
+	}
+
+	#gallery-container-column > div{
+		gap: 0px;
+	}
+}
+
+/* Mobile size */
+
+@media only screen and (max-width: 759px) {
+	.header{
+		gap: 0px !important;
+		justify-content: space-between;
+		padding: 12px 24px;
+	}
+
+	.header > span{
+		display: none;
+	}
+
+	.header #page-title{
+		display: block !important;
+	}
+
+	.header #logoAnimation{
+		width: 32px;
+	}
+
+	.header #mobileMenuIcon{
+		width: 32px;
+		height: 32px;
+	}
+
+	#mobileMenuIcon{
+		display: block;
+	}
+
+	.footer{
+		flex-direction: column;
+	}
+	.footer > span{
+		text-align: center;
+	}
+	.gallery-container-grid .thumbnail-container{
+		flex: 1 0 26% !important;
+	}
+
+	.featured-brand > .logo-list{
+		gap: 30px !important;
+	}
+
+	.featured-brand img{
+		height: 40px !important;
+	}
+
+	.hero-text{
+		font-family: 'Archivo';
+		font-style: normal;
+		font-size: 28px !important;
+		line-height: 32px;
+		text-align: center;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: #FFFFFF;
+	}
+
+	.landscape-section{
+		padding: 4px;
+
+	}
+
+	#gallery-container-column > div{
+		gap: 150px;
+	}
+
+	#fallingImageSection .animateTextWidth{
+		font-size: 32px;
+	}
+
+	.landscape-section > div{
+		flex-direction: column;
+	}
+
+	.landscape-section > div > a{
+		margin: 2px 0px;
+	}
+
+	.landscape-section > div > a > div{
+		height: 500px;
+	}
+
+	.closeBtt{
+		/* cursor: pointer; */
+		position: absolute;
+		bottom: 32px !important;
+		left: 50%;
+		transform: translate(-50%);
+		width: 48px;
+		height: 48px;
+		/* mix-blend-mode: difference; */
+		z-index: 252;
+		border-radius: 300px;
+	}
+	
+	.pre-img-icon{
+		cursor: none !important;
+		position: absolute !important;
+		bottom: 32px !important;
+		left: 32px !important;
+		width: 48px !important;
+		height: 48px !important;
+		/* mix-blend-mode: difference; */
+		z-index: 253 !important;
+		border-radius: 300px;
+	}
+	
+	.next-img-icon{
+		cursor: none !important;
+		position: absolute !important;
+		bottom: 32px !important;
+		right: 32px !important;
+		width: 48px !important;
+		height: 48px !important;
+		/* mix-blend-mode: difference; */
+		z-index: 254 !important;
+		border-radius: 300px;
+	}
+	
+}
+
+/* Customize banner for laptop mobile and dark / light mode */
+
+/*Tablet & Mobile */
+@media only screen and (max-width: 1119px){
+
+	.swiper-slide img{
+		border: 6px solid transparent !important;
+		border-image: var(--photo-frame) 12 round !important;
+	}
+	.imagePreviewContainer{
+		background-size: 40px !important;
 	}
 }

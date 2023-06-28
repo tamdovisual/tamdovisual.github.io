@@ -3,22 +3,22 @@
 var collectionAnLac = {
     collectionName: "An Lạc",
     folder: "an-lac",
-    numberOfImage: 18,
+    numberOfImage: 26,
 };
 var collectionDiemNhien = {
     collectionName: "Điềm Nhiên",
     folder: "diem-nhien",
-    numberOfImage: 29,
+    numberOfImage: 44,
 };
 var collectionSoiSang = {
     collectionName: "Soi Sáng",
     folder: "soi-sang",
-    numberOfImage: 36,
+    numberOfImage: 41,
 };
 var collectionDem = {
     collectionName: "Đêm",
     folder: "dem",
-    numberOfImage: 21,
+    numberOfImage: 22,
 };
 
 // Define variables =========================================
@@ -31,7 +31,7 @@ var cursor;
 // Load images from collections =========================================
 for (var i = 0; i < collectionList.length; i++) {
     for (var j = 0; j < collectionList[i].numberOfImage; j++) {
-        imageList.push({ path: 'asset/image/gallery/' + collectionList[i].folder + '/' + collectionList[i].folder + '-' + j + '.jpg', collectionName: collectionList[i].folder, collectionThumb: false });
+        imageList.push({ path: 'asset/image/gallery/' + collectionList[i].folder + '/' + collectionList[i].folder + '-' + j + '.webp', collectionName: collectionList[i].folder, collectionThumb: false });
         if (j==0){imageList[imageList.length-1].collectionThumb = true;}
         numberOfImage++;
     }
@@ -95,7 +95,6 @@ function sequenceLoadingImages() {
 
 sequenceLoadingImages();
 
-
 // Playing Lottie =========================================
 var logoAnimation = document.getElementById('logoAnimation');
 var mobileMenuIcon = document.getElementById('mobileMenuIcon');
@@ -128,7 +127,6 @@ var starMovingItem = bodymovin.loadAnimation({
     autoplay: true,
     animationData: starMovingJson,
   });
-  
 
 var menuClose = 1;
 mobileMenuIcon.addEventListener('click', (e) => {
