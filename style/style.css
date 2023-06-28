@@ -89,6 +89,10 @@ svg path[stroke], svg rect[stroke]{
 	gap: 32px;
 }
 
+#fallingImageSection #logoShowHide{
+	display: none;
+}
+
 #fallingImageSection img{
 	z-index: 100;
 	border: 4px solid white;
@@ -694,9 +698,11 @@ a{
 	.footer{
 		flex-direction: column;
 	}
+
 	.footer > span{
 		text-align: center;
 	}
+
 	.gallery-container-grid .thumbnail-container{
 		flex: 1 0 26% !important;
 	}
@@ -720,9 +726,17 @@ a{
 		color: #FFFFFF;
 	}
 
+	#fallingImageSection #logoShowHide{
+		display: block;
+		width: 150px !important;
+		height: 150px !important;
+		transform: translate(0px, -50%);
+		position: absolute;
+		top: 35%;
+	}
+	
 	.landscape-section{
 		padding: 4px;
-
 	}
 
 	#gallery-container-column > div{

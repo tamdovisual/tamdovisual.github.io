@@ -10,6 +10,18 @@ var scrollToExploreItem = bodymovin.loadAnimation({
   autoplay: true,
   animationData: scrollToExploreJson,
 });
+var logoShowHide = document.getElementById('logoShowHide');
+
+var logoShowHideItem = bodymovin.loadAnimation({
+  wrapper: logoShowHide,
+  animType: 'svg',
+  loop: false,
+  autoplay: true,
+  animationData: logoShowHideJson,
+});
+
+
+
 
 // fallingImageSection ============================================
 
@@ -31,24 +43,34 @@ if (!touchDevice.matches) { // detech device using mouse / trackpad
   document.getElementById('fallingImageSection').addEventListener('mousemove', mouseInFallingImgSection,false);
 }
 else{ // detect touch device
+  document.getElementById('header').style.opacity = 0;
+  document.getElementById('animateLineHomePage').style.opacity = 0;
+
+  function autoFallingImage() {
+    var fallingImageSectionElement = document.getElementById('fallingImageSection').getBoundingClientRect();
+    if(loadedImage.length>10 && falling100<100){
+      showFallingImg(Math.floor( Math.random() * loadedImage.length ), '#fallingImageSection', fallingImageSectionElement.width/2, fallingImageSectionElement.height/2, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
+      falling100++;
+    }
+    else if(falling100>=100){
+      clearInterval(autoFallImageInterval);
+    }
+  }
+
+  var autoFallImageInterval;
+
+  logoShowHideItem.addEventListener('complete',()=>{
+    console.log('ready for falling image');
+    autoFallImageInterval = setInterval(autoFallingImage, 100);
+    document.getElementById('header').style.opacity = 1;
+    document.getElementById('animateLineHomePage').style.opacity = 1;
+
+  });
+
   
-  // function autoFallingImage() {
-  //   var fallingImageSectionElement = document.getElementById('fallingImageSection').getBoundingClientRect();
-  //   if(loadedImage.length && falling100<100){
-  //     showFallingImg(Math.floor( Math.random() * loadedImage.length ), '#fallingImageSection', fallingImageSectionElement.width/2, fallingImageSectionElement.height/2, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
-  //     falling100++;
-  //   }
-  //   else if(falling100>=100){
-  //     clearInterval(autoFallImageInterval);
-  //   }
-  // }
-
-  // var autoFallImageInterval;
-
-  // setTimeout(() => { autoFallImageInterval = setInterval(autoFallingImage, 100);
-  // }, 4000);
-
 }
+
+
 
 function mouseInFallingImgSection(event){
   var fallingImageSectionElement = document.getElementById('fallingImageSection').getBoundingClientRect();
