@@ -230,7 +230,7 @@
     --main-color-10 : rgba(0, 0, 0, 0.1);
     --main-color-05 : rgba(0, 0, 0, 0.05);
 
-    --photo-frame: url('../asset/image/frame-wood.png');
+    --photo-frame: url('../asset/image/frame-white.png');
     --preview-img-bg: url('../asset/image/bg-light.jpg');
     --preview-overlay: url('../asset/image/overlay-light.png');
 
