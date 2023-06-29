@@ -96,38 +96,13 @@ function showFallingImg(imgIndex, elementParent, mousePositionX, mousePositionY,
 
     const tl = new TimelineMax();
 
-    // gsap.fromTo(img, {
-    //     transform: 'translate(-50%, -50%)',
-    //     left: mousePositionX,
-    //     scale: 1,
-    //     },{
-    //     transform: 'translate(0%, 0%)',
-    //     left: moveToX,
-    //     scale: 0,
-    //     duration: 2.5,
-    //     transformOrigin: 'top top',
-    //     ease: 'Power4.easeOut',
-    //   });
-
-    // tl.fromTo(img, {
-    //     top: mousePositionY,
-    //     },{
-    //     top: moveToY,
-    //     transformOrigin: 'top top',
-    //     duration: 2,
-    //     // delay: 0.5,
-    //     // ease: 'Bounce.easeOut',
-    //     ease: 'Power1.easeOut',
-    //   }).call(removeElement(img));
-
-
-  gsap.fromTo(img, {
-    opacity: 0,
-    },{
-    opacity: 1,
-    duration: 0.05,
-    ease: 'Power2.easeOut',
-  });
+  // gsap.fromTo(img, {
+  //   opacity: 0,
+  //   },{
+  //   opacity: 1,
+  //   duration: 0.05,
+  //   ease: 'Power2.easeOut',
+  // });
 
   gsap.fromTo(img, {
       transform: 'translate(-50%, -50%)',

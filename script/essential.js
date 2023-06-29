@@ -40,8 +40,8 @@ for (var i = 0; i < collectionList.length; i++) {
 
 // Load image in sequences ===========================================
 
-var images = [20];
-var gotResponse = [20];
+var images = [numberOfImage];
+var gotResponse = [numberOfImage];
 var maxDisplayed = -1;
 var loadedImage = [];
 
