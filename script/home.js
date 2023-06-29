@@ -38,12 +38,21 @@ function removeElement(element) {
 
 var touchDevice = window.matchMedia("(pointer: coarse)");
 var falling100 = 0;
-if (!touchDevice.matches) { // detech device using mouse / trackpad
+ // detech device using mouse / trackpad
+if (!touchDevice.matches) {
   document.getElementById('fallingImageSection').addEventListener('mousemove', mouseInFallingImgSection,false);
+  document.getElementById('header').style.opacity = 1;
+  document.getElementById('animateLineHomePage').style.opacity = 1;
+  document.getElementById('scrollToExplore').style.opacity = 1;
+  document.getElementsByClassName('CTA')[0].style.opacity = 1;
 }
-else{ // detect touch device
+
+ // detect touch device
+else{
+
   document.getElementById('header').style.opacity = 0;
   document.getElementById('animateLineHomePage').style.opacity = 0;
+  document.getElementById('scrollToExplore').style.opacity = 0;
   document.getElementsByClassName('CTA')[0].style.opacity = 0;
 
   function autoFallingImage() {
@@ -61,12 +70,12 @@ else{ // detect touch device
   var autoFallImageInterval;
 
   logoShowHideItem.addEventListener('complete',()=>{
-    console.log('ready for falling image');
+    // console.log('ready for falling image');
     autoFallImageInterval = setInterval(autoFallingImage, 100);
     document.getElementById('header').style.opacity = 1;
     document.getElementById('animateLineHomePage').style.opacity = 1;
+    document.getElementById('scrollToExplore').style.opacity = 1;
   });
-
   
 }
 
