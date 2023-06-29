@@ -12,10 +12,7 @@ svg path[fill], svg rect[fill], svg g[fill] {
 svg path[stroke], svg rect[stroke]{
 	stroke: var(--main-color-100) !important;
 }
-/* 
-#mobileMenuIcon path[stroke]{
-	stroke: var(--main-color-100);
-} */
+
 
 #starMovingContainer * {
 	fill: var(--main-color-100);
@@ -197,6 +194,7 @@ svg path[stroke], svg rect[stroke]{
 	align-items: center;
 	background-position: center !important;
 	background-size: cover !important;
+	background-color: var(--bg-color-30);
 }
 
 .landscape-section > div > a:hover{
@@ -728,8 +726,8 @@ a{
 
 	#fallingImageSection #logoShowHide{
 		display: block;
-		width: 150px !important;
-		height: 150px !important;
+		width: 80px !important;
+		height: 80px !important;
 		transform: translate(0px, -50%);
 		position: absolute;
 		top: 35%;
@@ -810,4 +808,11 @@ a{
 	.imagePreviewContainer{
 		background-size: 40px !important;
 	}
+}
+
+
+
+#pageTransition{
+	width: 100vw;
+	height: 100vh;
 }

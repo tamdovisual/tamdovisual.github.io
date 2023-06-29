@@ -27,6 +27,7 @@ function viewGalleryGrid() {
 
 	// remove all image from column
 	removeAllChildNodes('gallery-container-column');
+	removeAllChildNodes('gallery-container-grid');
 
 	// load image into column
 	loadImageIntoGrid();
@@ -79,6 +80,7 @@ function viewGalleryColumn() {
 	document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 
 	// remove all image from grid
+	removeAllChildNodes('gallery-container-column');
 	removeAllChildNodes('gallery-container-grid');
 
 	// load image into column

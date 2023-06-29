@@ -40,8 +40,8 @@ for (var i = 0; i < collectionList.length; i++) {
 
 // Load image in sequences ===========================================
 
-var images = [numberOfImage];
-var gotResponse = [numberOfImage];
+var images = [20];
+var gotResponse = [20];
 var maxDisplayed = -1;
 var loadedImage = [];
 
@@ -55,7 +55,7 @@ function checkImages(index) {
             }
             maxDisplayed = i;
             if (images[i] != null) {
-                // console.log('Adding image ' + i);
+                console.log('Adding image' + i);
                 // document.body.appendChild(images[i]);
                 loadedImage.push(images[i].src);
                 // console.log('image '+ i + ' is already');

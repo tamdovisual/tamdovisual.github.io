@@ -10,6 +10,7 @@ var scrollToExploreItem = bodymovin.loadAnimation({
   autoplay: true,
   animationData: scrollToExploreJson,
 });
+
 var logoShowHide = document.getElementById('logoShowHide');
 
 var logoShowHideItem = bodymovin.loadAnimation({
@@ -19,8 +20,6 @@ var logoShowHideItem = bodymovin.loadAnimation({
   autoplay: true,
   animationData: logoShowHideJson,
 });
-
-
 
 
 // fallingImageSection ============================================
@@ -48,7 +47,7 @@ else{ // detect touch device
 
   function autoFallingImage() {
     var fallingImageSectionElement = document.getElementById('fallingImageSection').getBoundingClientRect();
-    if(loadedImage.length>10 && falling100<100){
+    if(loadedImage.length>5 && falling100<100){
       showFallingImg(Math.floor( Math.random() * loadedImage.length ), '#fallingImageSection', fallingImageSectionElement.width/2, fallingImageSectionElement.height/2, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
       falling100++;
     }
@@ -197,12 +196,14 @@ for(i = 0; i < homepageMovingLines.length; i++ ){
   
   lineAnimation
   .to(homepageMovingLines[i], {
+    strokeWidth: '0.8px',
     opacity: 0.6,
     duration: 3,
-    delay: i/100,
-    transform: 'translateY('+ (i+1)*40 +'px) scaleX('+ (1 - i/10) +') scaleY('+ (0.6 - i/10) +')',
+    // delay: i/100,
+    transform: 'translateY('+ (i+1)*30 +'px) scaleX('+ (1 - i/10) +') scaleY('+ (0.6 - i/15) +')',
     ease: Elastic.easeOut.config(2, 0.5),
   }).to(homepageMovingLines[i], {
+    strokeWidth: '1.5px',
     opacity: 0.6,
     duration: 1,
     transform: 'scaleX('+ 1 +') scaleY('+ 0.6 +')',
@@ -210,7 +211,7 @@ for(i = 0; i < homepageMovingLines.length; i++ ){
     stagger: 0.1,
   });
 
-  lineAnimation.startTime(i/30);
+  lineAnimation.startTime(i/20);
 
 }
 
