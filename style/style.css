@@ -156,7 +156,7 @@ svg path[stroke], svg rect[stroke]{
 	display: flex;
 	flex-direction: column;
 	gap: 32pt;
-	padding: 4vw;
+	padding: 100px 4vw;
 	align-items: center;
 	color: var(--main-color-100);
 	margin-bottom: 48px;
@@ -734,7 +734,7 @@ a{
 	}
 	
 	.landscape-section{
-		padding: 4px;
+		padding: 80px 4px 48px 4px;
 	}
 
 	#gallery-container-column {

@@ -44,15 +44,17 @@ if (!touchDevice.matches) { // detech device using mouse / trackpad
 else{ // detect touch device
   document.getElementById('header').style.opacity = 0;
   document.getElementById('animateLineHomePage').style.opacity = 0;
+  document.getElementsByClassName('CTA')[0].style.opacity = 0;
 
   function autoFallingImage() {
     var fallingImageSectionElement = document.getElementById('fallingImageSection').getBoundingClientRect();
     if(loadedImage.length>5 && falling100<100){
-      showFallingImg(Math.floor( Math.random() * loadedImage.length ), '#fallingImageSection', fallingImageSectionElement.width/2, fallingImageSectionElement.height/2, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
+      showFallingImg(Math.floor( Math.random() * loadedImage.length ), '#fallingImageSection', fallingImageSectionElement.width/2, fallingImageSectionElement.height/2-32, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
       falling100++;
     }
     else if(falling100>=100){
       clearInterval(autoFallImageInterval);
+      document.getElementsByClassName('CTA')[0].style.opacity = 1;
     }
   }
 
@@ -63,12 +65,10 @@ else{ // detect touch device
     autoFallImageInterval = setInterval(autoFallingImage, 100);
     document.getElementById('header').style.opacity = 1;
     document.getElementById('animateLineHomePage').style.opacity = 1;
-
   });
 
   
 }
-
 
 
 function mouseInFallingImgSection(event){
@@ -78,7 +78,7 @@ function mouseInFallingImgSection(event){
       showFallingImg(Math.floor( Math.random() * loadedImage.length ), '#fallingImageSection', event.clientX + fallingImageSectionElement.left, event.clientY - fallingImageSectionElement.top, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
     }
   }
-  oldX = event.clientX;
+  oldX = event.clientX; 
   oldY = event.clientY;
 }
 
@@ -225,27 +225,27 @@ gsap.to('#scrollToExplore, #fallingImageSection .CTA', {
 })
 
 
-gsap.fromTo('#landscape-section',{
-  y: '-45vh',
-  opacity: 0,
-  scale: 0,
-}, {
-  scrollTrigger: {
-    trigger: '#fallingImageSection',
-    start: 'center 40%',
-    end: 'center 0%',
-    scrub: true,
-    toggleActions: "restart none none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
-    // markers: true
-  },
-  scale: 1,
-  opacity: 1,
-  y: 0,
-  // duration: 1.5,
-  transformOrigin: 'top center',
-  // stagger: 0.05,
-  ease: "Power1.inOut",
-});
+// gsap.fromTo('#landscape-section',{
+//   y: '-45vh',
+//   opacity: 0,
+//   scale: 0,
+// }, {
+//   scrollTrigger: {
+//     trigger: '#fallingImageSection',
+//     start: 'center 40%',
+//     end: 'center 0%',
+//     scrub: true,
+//     toggleActions: "restart none none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
+//     // markers: true
+//   },
+//   scale: 1,
+//   opacity: 1,
+//   y: 0,
+//   // duration: 1.5,
+//   transformOrigin: 'top center',
+//   // stagger: 0.05,
+//   ease: "Power1.inOut",
+// });
 
 
 gsap.fromTo('#landscape-section-title, .landscape-section .CTA',{
