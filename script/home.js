@@ -57,7 +57,7 @@ else{
 
   function autoFallingImage() {
     var fallingImageSectionElement = document.getElementById('fallingImageSection').getBoundingClientRect();
-    if(loadedImage.length>5 && falling100<100){
+    if(loadedImage.length>3 && falling100<100){
       showFallingImg(Math.floor( Math.random() * loadedImage.length ), '#fallingImageSection', fallingImageSectionElement.width/2, fallingImageSectionElement.height/2-32, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
       falling100++;
     }
