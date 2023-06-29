@@ -1,7 +1,4 @@
-// import { gsap, TimelineLite } from "./libs/gsap/all.js";
-// gsap.registerPlugin(ScrollTrigger);
-
-const timeline = new TimelineLite();
+// const timeline = new TimelineLite();
 
 var animateTextMovement = $('.animateTextMovement');
 for (var i = 0; i<animateTextMovement.length; i++){
@@ -32,15 +29,6 @@ for(i = 0; i<animateTexWidth.length; i++){
     defaults: {ease: "Power2.easeOut"}
   });
 
-  gsap.from(text.chars, {
-    duration: 3,
-    opacity: 0,
-    scale: 0.4,
-    y: 100,
-    transformOrigin: "50% 50%",
-    ease: "elastic.out(1.1, 0.4)",
-    stagger: 0.02,
-  });
 
   textWidthAnimation
   .to(text.chars, {
@@ -56,30 +44,4 @@ for(i = 0; i<animateTexWidth.length; i++){
     stagger: 0.05,
     duration: 2,
   });
-
 }
-
-
-
-// const text = SplitType.create('.animateTextWidth');
-
-// const textWidthAnimation = gsap.timeline({
-//     repeat: -1,
-//     // yoyo: true,
-//     defaults: {ease: "Power2.easeOut"}
-//   });
-
-//   textWidthAnimation
-//     .to(text.chars, {
-//     fontWeight: 50,
-//     fontStretch: 60,
-//     stagger: 0.05,
-//     duration: 2,
-//     delay: 2,
-//     })
-//     .to(text.chars, {
-//     fontWeight: 900,
-//     fontStretch: 120,
-//     stagger: 0.05,
-//     duration: 1,
-//   });
