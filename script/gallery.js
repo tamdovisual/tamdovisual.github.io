@@ -51,7 +51,7 @@ function viewGalleryGrid() {
 		}, {
 			scrollTrigger: {
 				trigger: thumbnail,
-				start: 'top bottom+=300',
+				start: 'top bottom+=230',
 				end: 'center 90%',
 				// scrub: true, // cái này sẽ chạy animate theo cuộn chuột, bỏ đi thì sẽ tự động chạy khi cuộn.
 				toggleActions: "restart none none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
@@ -352,8 +352,8 @@ function updateCollectionNameSize() {
 			collectionNames[i].classList.add('wide-14-regular');
 			collectionNames[i].classList.remove('wide-24-regular');
 		}
-		$("#gallery-container-column").css("gap", "25%");
-		$("#gallery-container-column").css("margin", "64px 1%");
+		// $("#gallery-container-column").css("gap", "5%");
+		// $("#gallery-container-column").css("margin", "64px 1%");
 	}
 	// Laptop size =====
 	else {

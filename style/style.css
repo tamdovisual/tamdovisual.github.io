@@ -737,8 +737,13 @@ a{
 		padding: 4px;
 	}
 
+	#gallery-container-column {
+		gap: 5%;
+		margin: 12.5vh 1%;
+	}
+
 	#gallery-container-column > div{
-		gap: 150px;
+		gap: 25vh;
 	}
 
 	#fallingImageSection .animateTextWidth{
