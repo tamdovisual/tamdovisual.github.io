@@ -26,7 +26,7 @@ $(window).on("load", function () {
 	const collectionRedirect = urlParams.get('collection');
 	if(collectionRedirect){
 		document.querySelector('#'+ collectionRedirect).scrollIntoView();
-		console.log(collectionRedirect);
+		// console.log(collectionRedirect);
 	}
 });
 
