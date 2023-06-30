@@ -15,6 +15,10 @@ $(window).on("load", function () {
 		document.body.scrollTop = 0; // For Safari
 		document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 	});
+	
+	$("#toggleGrid").unbind("click");
+	$("#toggleGrid").click(function () { viewGalleryGrid(); });
+
 
 	// scroll to collection navigated from homescreen =====
 	const queryString = window.location.search;
