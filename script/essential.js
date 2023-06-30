@@ -3,7 +3,7 @@
 var collectionAnLac = {
     collectionName: "An Lạc",
     folder: "an-lac",
-    numberOfImage: 26,
+    numberOfImage: 25,
 };
 var collectionDiemNhien = {
     collectionName: "Điềm Nhiên",
