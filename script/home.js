@@ -11,14 +11,13 @@ var scrollToExploreItem = bodymovin.loadAnimation({
   animationData: scrollToExploreJson,
 });
 
-
-
-
 // fallingImageSection ============================================
 // $(document).ready(function() {
 //   var bgMusic = document.getElementById("backgroundSound");
 //   bgMusic.play();
 //   });
+
+var fallingIndex = 0;
 
 var touchDevice = window.matchMedia("(pointer: coarse)");
 var isAutoFalling = true;
@@ -64,6 +63,12 @@ else{
     var fallingImageSectionElement = document.getElementById('fallingImageSection').getBoundingClientRect();
     if(loadedImage.length>3 && isAutoFalling){
       showFallingImg(Math.floor( Math.random() * loadedImage.length), '#fallingImageSection', fallingImageSectionElement.width/2, fallingImageSectionElement.height/2-56, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
+      if (fallingIndex < loadedImage.length){
+        fallingIndex++;
+      }
+      else{
+        fallingIndex = 0;
+      }
     }
     else if(!isAutoFalling){
       clearInterval(autoFallImageInterval);
