@@ -10,15 +10,6 @@ var imgThumbnails = document.getElementsByClassName('thumbnail');
 $(window).on("load", function () {
 	// Load column gallery =======
 	viewGalleryColumn();
-	$("#toggleColumn").unbind("click");
-	$("#toggleColumn").click(function () {
-		document.body.scrollTop = 0; // For Safari
-		document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-	});
-
-	$("#toggleGrid").unbind("click");
-	$("#toggleGrid").click(function () { viewGalleryGrid(); });
-
 
 	// scroll to collection navigated from homescreen =====
 	const queryString = window.location.search;
@@ -30,19 +21,34 @@ $(window).on("load", function () {
 	}
 });
 
+
+function toggleColumn(){
+	if (document.getElementById('gallery-container-column').childElementCount == 0){
+		viewGalleryColumn();
+
+	}
+	document.body.scrollTop = 0; // For Safari
+	document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+function toggleGrid(){
+	if (document.getElementById('gallery-container-grid').childElementCount == 0){
+		viewGalleryGrid();
+	}
+
+	document.body.scrollTop = 0; // For Safari
+	document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
 // Loading images into gallery =========================================
 
 // Show grid
 function viewGalleryGrid() {
-	document.getElementById('toggleGrid').style.opacity = '1';
 	document.getElementById('gallery-container-grid').style.display = 'flex';
-
-	document.getElementById('toggleColumn').style.opacity = '0.5';
 	document.getElementById('gallery-container-column').style.display = 'none';
 	document.getElementById('collection-column-list').style.display = 'none';
-	// Scroll to the top after changeing the view mode
-	document.body.scrollTop = 0; // For Safari
-	document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+	document.getElementById('toggleGrid').style.opacity = '1';
+	document.getElementById('toggleColumn').style.opacity = '0.5';
 
 	// remove all image from column
 	removeAllChildNodes('gallery-container-column');
@@ -51,15 +57,6 @@ function viewGalleryGrid() {
 	// load image into column
 	loadImageIntoGrid();
 
-	// update onclick event of 2 toggle icons. If user is viewing column mode -> click toggle column will scroll to the top.
-	$("#toggleColumn").unbind("click");
-	$("#toggleColumn").click(function () { viewGalleryColumn(); });
-
-	$("#toggleGrid").unbind("click");
-	$("#toggleGrid").click(function () {
-		document.body.scrollTop = 0; // For Safari
-		document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-	});
 
 	// Add scroll trigger for scrolling effect =======================
 	var thumbnails = gsap.utils.toArray('.thumbnail');
@@ -87,16 +84,12 @@ function viewGalleryGrid() {
 
 // Show column
 function viewGalleryColumn() {
-	document.getElementById('toggleGrid').style.opacity = '0.5';
 	document.getElementById('gallery-container-grid').style.display = 'none';
-
-	document.getElementById('toggleColumn').style.opacity = '1';
 	document.getElementById('gallery-container-column').style.display = 'flex';
 	document.getElementById('collection-column-list').style.display = 'flex';
+	document.getElementById('toggleGrid').style.opacity = '0.5';
+	document.getElementById('toggleColumn').style.opacity = '1';
 
-	// Scroll to the top after changeing the view mode
-	document.body.scrollTop = 0; // For Safari
-	document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 
 	// remove all image from grid
 	removeAllChildNodes('gallery-container-column');
@@ -104,16 +97,6 @@ function viewGalleryColumn() {
 
 	// load image into column
 	loadImageIntoColumn();
-
-	// update onclick event of 2 toggle icons. If user is viewing column mode -> click toggle column will scroll to the top.
-	$("#toggleGrid").unbind("click");
-	$("#toggleGrid").click(function () { viewGalleryGrid(); });
-
-	$("#toggleColumn").unbind("click");
-	$("#toggleColumn").click(function () {
-		document.body.scrollTop = 0; // For Safari
-		document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-	});
 
 	// Add scroll trigger for scrolling effect =======================
 	var thumbnails = gsap.utils.toArray('.thumbnail');
