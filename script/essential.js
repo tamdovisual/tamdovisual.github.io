@@ -128,20 +128,22 @@ var starMovingItem = bodymovin.loadAnimation({
   });
 
 var menuClose = 1;
-mobileMenuIcon.addEventListener('click', (e) => {
-  if(menuClose== 1){
-    openHeaderMenu();
-    var header = document.getElementById('header');
-    header.classList.remove('scolled-header', 'blur-background');
-  }
-  else{
-    closeHeaderMenu();
-    changeHeaderBlur();
-  }
-  mobileMenuIconItem.setDirection(menuClose);
-  mobileMenuIconItem.play();
-  menuClose = -menuClose;
-});
+mobileMenuIcon.addEventListener('click', toggleHeaderMenu);
+
+function toggleHeaderMenu(e){
+    if(menuClose== 1){
+        openHeaderMenu();
+        var header = document.getElementById('header');
+        header.classList.remove('scolled-header', 'blur-background');
+    }
+    else{
+        closeHeaderMenu();
+        changeHeaderBlur();
+    }
+    mobileMenuIconItem.setDirection(menuClose);
+    mobileMenuIconItem.play();
+    menuClose = -menuClose;
+}
 
 // Custom cursor ==================================================================================
 
@@ -207,7 +209,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 });
 
 
-
 // initial functions =============================================================================================
 
 function changeHeaderBlur() {
@@ -226,12 +227,14 @@ function changeHeaderBlur() {
 function openHeaderMenu() {
     $('#mobile-menu').fadeIn();
     $('#mobile-menu').css('top', '0px');
-
+    $('#page-title').fadeOut();
     document.getElementsByTagName('html')[0].style.overflowY = "hidden";
 }
 
 function closeHeaderMenu() {
     $('#mobile-menu').css('top', '-100%');
+    $('#page-title').fadeIn();
+
     // $('#mobile-menu').fadeOut();
     // $('body').css("overflow", "auto");
     document.getElementsByTagName('html')[0].style.overflowY = "auto";

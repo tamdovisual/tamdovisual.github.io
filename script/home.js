@@ -55,7 +55,6 @@ if (!touchDevice.matches) {
 
  // detect touch device
 else{
-
   document.getElementById('header').style.opacity = 0;
   document.getElementById('animateLineHomePage').style.opacity = 0;
   document.getElementById('scrollToExplore').style.opacity = 0;
@@ -68,7 +67,6 @@ else{
     }
     else if(!isAutoFalling){
       clearInterval(autoFallImageInterval);
-      document.getElementsByClassName('CTA')[0].style.opacity = 1;
     }
   }
 

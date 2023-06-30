@@ -252,6 +252,10 @@ svg path[stroke], svg rect[stroke]{
 	color: var(--main-color-80);
 }
 
+span {
+	color: var(--main-color-100) !important;
+}
+
 span > a {
 	color: var(--main-color-100) !important;
 }
@@ -296,14 +300,17 @@ a{
 	height: 100%;
 	text-align: center;
 	padding: 0px 24px;
-	padding-top: 96px;
+	/* padding-top: 54px; */
 	box-sizing: border-box;
 	transition: top 0.6s ease-out;
 }
 
-#mobile-menu hr{
-	border: 0.1px solid var(--main-color-20);
+#mobile-menu .horizontal-separator{
 	width: 100%;
+}
+
+#mobile-menu .vertical-separator{
+	height: 16px;
 }
 
 #mobile-menu .social-icon{
@@ -316,6 +323,11 @@ a{
 
 
 /* Style for gallery page ====================================== */
+
+#page-title{
+	display: none;
+}
+
 
 .toggleViewMode{
     position: fixed;
@@ -403,7 +415,7 @@ a{
 }
 
 #gallery-container-column .thumbnail-container{
-	flex-grow: 1;
+	/* flex-grow: 1; */
 	margin-bottom: 20%;
 	aspect-ratio: 1/1;
 	perspective: 1000px;
@@ -652,10 +664,6 @@ a{
 		text-align: left
 	};
 
-	#page-title{
-		display: none;
-	}
-
 	#gallery-container-column > div{
 		gap: 0px;
 	}
@@ -675,7 +683,7 @@ a{
 	}
 
 	.header #page-title{
-		display: block !important;
+		display: block;
 	}
 
 	.header #logoAnimation{
@@ -698,6 +706,11 @@ a{
 	.footer > span{
 		text-align: center;
 	}
+
+	#collection-column-list{
+		display: none !important;
+	}
+
 
 	.gallery-container-grid .thumbnail-container{
 		flex: 1 0 26% !important;

@@ -15,7 +15,7 @@ $(window).on("load", function () {
 		document.body.scrollTop = 0; // For Safari
 		document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 	});
-	
+
 	$("#toggleGrid").unbind("click");
 	$("#toggleGrid").click(function () { viewGalleryGrid(); });
 
@@ -389,9 +389,6 @@ window.addEventListener('resize', updateCollectionNameSize);
 $(document).ready(function () {
 	updateCollectionNameSize();
 });
-
-
-
 
 
 window.addEventListener("scroll", (event) => {

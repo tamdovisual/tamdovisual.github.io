@@ -14,10 +14,9 @@
   html{
     scroll-behavior: smooth;
   }
-  
 
   hr{
-    border: 0.1px solid var(--main-color-20) !important;
+    border: 0.1px solid var(--main-color-10) !important;
   }
   
   /* Text Style ====================================== */
