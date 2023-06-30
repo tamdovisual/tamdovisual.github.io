@@ -11,33 +11,39 @@ var scrollToExploreItem = bodymovin.loadAnimation({
   animationData: scrollToExploreJson,
 });
 
-var logoShowHide = document.getElementById('logoShowHide');
 
-var logoShowHideItem = bodymovin.loadAnimation({
-  wrapper: logoShowHide,
-  animType: 'svg',
-  loop: false,
-  autoplay: true,
-  animationData: logoShowHideJson,
-});
 
 
 // fallingImageSection ============================================
-
-let oldX = 0, oldY = 0;
-
-//reusable function
-function removeElement(element) {
-  if (typeof(element) === "string") {
-    element = document.querySelector(element);
-  }
-  return function() {
-    element.parentNode.removeChild(element);
-  };
-}
+// $(document).ready(function() {
+//   var bgMusic = document.getElementById("backgroundSound");
+//   bgMusic.play();
+//   });
 
 var touchDevice = window.matchMedia("(pointer: coarse)");
-var falling100 = 0;
+var isAutoFalling = true;
+
+var bgMusic = document.getElementById("backgroundSound");
+bgMusic.addEventListener("ended", function() 
+{
+  isAutoFalling = false;
+});
+
+document.getElementsByTagName('html')[0].style.overflowY = "hidden";
+
+function startExploring(){
+	document.getElementsByTagName('html')[0].style.overflowY = "auto";
+  bgMusic.play();
+  $('#blockForSoundElement').fadeOut();
+  var logoShowHide = document.getElementById('logoShowHide');
+
+  var logoShowHideItem = bodymovin.loadAnimation({
+    wrapper: logoShowHide,
+    animType: 'svg',
+    loop: false,
+    autoplay: true,
+    animationData: logoShowHideJson,
+  });
  // detech device using mouse / trackpad
 if (!touchDevice.matches) {
   document.getElementById('fallingImageSection').addEventListener('mousemove', mouseInFallingImgSection,false);
@@ -57,11 +63,10 @@ else{
 
   function autoFallingImage() {
     var fallingImageSectionElement = document.getElementById('fallingImageSection').getBoundingClientRect();
-    if(loadedImage.length>3 && falling100<100){
-      showFallingImg(Math.floor( Math.random() * loadedImage.length ), '#fallingImageSection', fallingImageSectionElement.width/2, fallingImageSectionElement.height/2-32, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
-      falling100++;
+    if(loadedImage.length>3 && isAutoFalling){
+      showFallingImg(Math.floor( Math.random() * loadedImage.length), '#fallingImageSection', fallingImageSectionElement.width/2, fallingImageSectionElement.height/2-56, fallingImageSectionElement.width/2, fallingImageSectionElement.height);
     }
-    else if(falling100>=100){
+    else if(!isAutoFalling){
       clearInterval(autoFallImageInterval);
       document.getElementsByClassName('CTA')[0].style.opacity = 1;
     }
@@ -77,6 +82,28 @@ else{
     document.getElementById('scrollToExplore').style.opacity = 1;
   });
   
+  logoShowHideItem.addEventListener('enterFrame', () => {
+    if(logoShowHideItem.currentFrame >= 298){
+    }
+  });
+}
+}
+
+window.addEventListener("scroll", (event) => {
+  bgMusic.volume = Math.max(Math.min(document.getElementById('landscape-section').getBoundingClientRect().top, window.innerHeight)/window.innerHeight, 0.1);
+});
+
+
+let oldX = 0, oldY = 0;
+
+//reusable function
+function removeElement(element) {
+  if (typeof(element) === "string") {
+    element = document.querySelector(element);
+  }
+  return function() {
+    element.parentNode.removeChild(element);
+  };
 }
 
 
@@ -273,4 +300,3 @@ gsap.fromTo('#landscape-section-title, .landscape-section .CTA',{
   // stagger: 0.05,
   ease: "Power1.inOut",
 });
-
