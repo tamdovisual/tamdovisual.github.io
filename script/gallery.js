@@ -8,6 +8,7 @@ var imgThumbnails = document.getElementsByClassName('thumbnail');
 // Initial loading =========================================
 
 $(window).on("load", function () {
+	// Load column gallery =======
 	viewGalleryColumn();
 	$("#toggleColumn").unbind("click");
 	$("#toggleColumn").click(function () {
@@ -15,6 +16,14 @@ $(window).on("load", function () {
 		document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 	});
 
+	// scroll to collection navigated from homescreen =====
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	const collectionRedirect = urlParams.get('collection');
+	if(collectionRedirect){
+		document.querySelector('#'+ collectionRedirect).scrollIntoView();
+		console.log(collectionRedirect);
+	}
 });
 
 // Loading images into gallery =========================================
@@ -377,16 +386,7 @@ $(document).ready(function () {
 	updateCollectionNameSize();
 });
 
-$(window).on('load', function (e) {
-	// scroll to collection
-	const queryString = window.location.search;
-	const urlParams = new URLSearchParams(queryString);
-	const collectionRedirect = urlParams.get('collection');
-	if(collectionRedirect){
-		document.querySelector('#'+ collectionRedirect).scrollIntoView();
-		console.log(collectionRedirect);
-	}
-});
+
 
 
 
