@@ -261,27 +261,27 @@ gsap.to('#scrollToExplore, #fallingImageSection .CTA', {
 })
 
 
-// gsap.fromTo('#landscape-section',{
-//   y: '-45vh',
-//   opacity: 0,
-//   scale: 0,
-// }, {
-//   scrollTrigger: {
-//     trigger: '#fallingImageSection',
-//     start: 'center 40%',
-//     end: 'center 0%',
-//     scrub: true,
-//     toggleActions: "restart none none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
-//     // markers: true
-//   },
-//   scale: 1,
-//   opacity: 1,
-//   y: 0,
-//   // duration: 1.5,
-//   transformOrigin: 'top center',
-//   // stagger: 0.05,
-//   ease: "Power1.inOut",
-// });
+gsap.fromTo('#landscape-section',{
+  y: '-45vh',
+  opacity: 0,
+  scale: 0,
+}, {
+  scrollTrigger: {
+    trigger: '#fallingImageSection',
+    start: 'center 40%',
+    end: 'center 0%',
+    scrub: true,
+    toggleActions: "restart none none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
+    // markers: true
+  },
+  scale: 1,
+  opacity: 1,
+  y: 0,
+  // duration: 1.5,
+  transformOrigin: 'top center',
+  // stagger: 0.05,
+  ease: "Power1.inOut",
+});
 
 
 gsap.fromTo('#landscape-section-title, .landscape-section .CTA',{

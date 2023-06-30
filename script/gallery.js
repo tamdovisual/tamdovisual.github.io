@@ -369,15 +369,19 @@ window.addEventListener('resize', updateCollectionNameSize);
 // initial load once document is ready
 $(document).ready(function () {
 	updateCollectionNameSize();
+});
 
+$(window).on('load', function (e) {
 	// scroll to collection
 	const queryString = window.location.search;
 	const urlParams = new URLSearchParams(queryString);
 	const collectionRedirect = urlParams.get('collection');
 	if(collectionRedirect){
 		document.querySelector('#'+ collectionRedirect).scrollIntoView();
+		console.log(collectionRedirect);
 	}
 });
+
 
 
 window.addEventListener("scroll", (event) => {
