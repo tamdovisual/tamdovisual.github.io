@@ -349,29 +349,29 @@ var collectionNames = $("#collection-column-list .collection-name");
 function updateCollectionNameSize() {
 	var screenWidth = window.matchMedia("(max-width: 1119px)");
 	// Mobile size =====
-	if (screenWidth.matches) {
-		for (var i = 0; i < collectionNames.length; i++) {
-			collectionNames[i].classList.add('wide-14-regular');
-			collectionNames[i].classList.remove('wide-24-regular');
-		}
-		// $("#gallery-container-column").css("gap", "5%");
-		// $("#gallery-container-column").css("margin", "64px 1%");
-	}
-	// Laptop size =====
-	else {
-		for (var i = 0; i < collectionNames.length; i++) {
-			collectionNames[i].classList.remove('wide-14-regular');
-			collectionNames[i].classList.add('wide-24-regular');
-		}
-	}
+	// if (screenWidth.matches) {
+	// 	for (var i = 0; i < collectionNames.length; i++) {
+	// 		collectionNames[i].classList.add('wide-14-regular');
+	// 		collectionNames[i].classList.remove('wide-24-regular');
+	// 	}
+	// 	// $("#gallery-container-column").css("gap", "5%");
+	// 	// $("#gallery-container-column").css("margin", "64px 1%");
+	// }
+	// // Laptop size =====
+	// else {
+	// 	for (var i = 0; i < collectionNames.length; i++) {
+	// 		collectionNames[i].classList.remove('wide-14-regular');
+	// 		collectionNames[i].classList.add('wide-24-regular');
+	// 	}
+	// }
 }
 
-window.addEventListener('resize', updateCollectionNameSize);
+// window.addEventListener('resize', updateCollectionNameSize);
 
-// initial load once document is ready
-$(document).ready(function () {
-	updateCollectionNameSize();
-});
+// // initial load once document is ready
+// $(document).ready(function () {
+// 	updateCollectionNameSize();
+// });
 
 
 window.addEventListener("scroll", (event) => {

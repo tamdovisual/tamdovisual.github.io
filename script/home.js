@@ -34,15 +34,28 @@ function startExploring(){
 	document.getElementsByTagName('html')[0].style.overflowY = "auto";
   bgMusic.play();
   $('#blockForSoundElement').fadeOut();
-  var logoShowHide = document.getElementById('logoShowHide');
 
-  var logoShowHideItem = bodymovin.loadAnimation({
-    wrapper: logoShowHide,
-    animType: 'svg',
-    loop: false,
-    autoplay: true,
-    animationData: logoShowHideJson,
-  });
+bgMusic.addEventListener('timeupdate', lolz);
+var timePoint = 3.28;
+
+function lolz () {
+  if (this.currentTime > timePoint) {
+    // console.log('beat kicked');
+    bgMusic.removeEventListener('timeupdate', lolz);
+  }
+}
+
+var logoShowHide = document.getElementById('logoShowHide');
+
+var logoShowHideItem = bodymovin.loadAnimation({
+  wrapper: logoShowHide,
+  animType: 'svg',
+  loop: false,
+  autoplay: true,
+  animationData: logoShowHideJson,
+});
+
+
  // detech device using mouse / trackpad
 if (!touchDevice.matches) {
   document.getElementById('fallingImageSection').addEventListener('mousemove', mouseInFallingImgSection,false);

@@ -344,6 +344,11 @@ a{
 	bottom: 16px;
 }
 
+#toggleColumn, #toggleGrid{
+	width: 24px;
+	height: 24px;
+}
+
 #collection-column-list{
 	position: fixed;
 	top: 6%;
@@ -808,6 +813,11 @@ a{
 		/* mix-blend-mode: difference; */
 		z-index: 254 !important;
 		border-radius: 300px;
+	}
+
+	#toggleColumn, #toggleGrid{
+		width: 32px;
+		height: 32px;
 	}
 	
 }
