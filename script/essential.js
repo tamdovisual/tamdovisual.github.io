@@ -13,12 +13,12 @@ var collectionDiemNhien = {
 var collectionSoiSang = {
     collectionName: "Soi Sáng",
     folder: "soi-sang",
-    numberOfImage: 41,
+    numberOfImage: 42,
 };
 var collectionDem = {
     collectionName: "Đêm",
     folder: "dem",
-    numberOfImage: 22,
+    numberOfImage: 23,
 };
 
 // Define variables =========================================
