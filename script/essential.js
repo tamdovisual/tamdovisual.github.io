@@ -8,7 +8,7 @@ var collectionAnLac = {
 var collectionDiemNhien = {
     collectionName: "Điềm Nhiên",
     folder: "diem-nhien",
-    numberOfImage: 48,
+    numberOfImage: 50,
 };
 var collectionSoiSang = {
     collectionName: "Soi Sáng",
