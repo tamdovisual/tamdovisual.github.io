@@ -13,7 +13,7 @@ var collectionDiemNhien = {
 var collectionSoiSang = {
     collectionName: "Soi Sáng",
     folder: "soi-sang",
-    numberOfImage: 42,
+    numberOfImage: 44,
 };
 var collectionDem = {
     collectionName: "Đêm",
