@@ -18,7 +18,7 @@ var collectionSoiSang = {
 var collectionDem = {
     collectionName: "Đêm",
     folder: "dem",
-    numberOfImage: 23,
+    numberOfImage: 24,
 };
 
 // Define variables =========================================
