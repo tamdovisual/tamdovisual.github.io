@@ -10,7 +10,8 @@ var scrollToExploreItem = bodymovin.loadAnimation({
   autoplay: true,
   animationData: scrollToExploreJson,
 });
-
+var sessionTimestamp = Date.now(), clickedStartExploringTimestamp;
+localStorage.setItem('sessionTimestamp', Date.now())
 // fallingImageSection ============================================
 // $(document).ready(function() {
 //   var bgMusic = document.getElementById("backgroundSound");
@@ -31,6 +32,10 @@ bgMusic.addEventListener("ended", function()
 document.getElementsByTagName('html')[0].style.overflowY = "hidden";
 
 function startExploring(){
+  clickedStartExploringTimestamp = Date.now();
+  mixpanel.track('Click Start Exploring',{
+    'Duration from Web launch to click': clickedStartExploringTimestamp - sessionTimestamp,
+  });
 	document.getElementsByTagName('html')[0].style.overflowY = "auto";
   bgMusic.play();
   $('#blockForSoundElement').fadeOut();
@@ -40,6 +45,9 @@ var timePoint = 3.28;
 
 function lolz () {
   if (this.currentTime > timePoint) {
+    mixpanel.track('Background Sound Played"',{
+      'Duration from "Click Start Exploring" to play': Date.now() - clickedStartExploringTimestamp - 3280,
+    });
     // console.log('beat kicked');
     bgMusic.removeEventListener('timeupdate', lolz);
   }

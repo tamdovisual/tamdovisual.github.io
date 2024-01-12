@@ -5,6 +5,10 @@ var imagePreviewDiv = document.getElementById('imagePreviewContainer');
 var swiperWarpper = document.getElementsByClassName('swiper-wrapper')[0];
 var imgThumbnails = document.getElementsByClassName('thumbnail');
 
+if(!localStorage.getItem('countViewedImg')){
+	localStorage.setItem('countViewedImg', 0);
+}
+
 // Initial loading =========================================
 
 $(window).on("load", function () {
@@ -25,7 +29,9 @@ $(window).on("load", function () {
 function toggleColumn(){
 	if (document.getElementById('gallery-container-column').childElementCount == 0){
 		viewGalleryColumn();
-
+		mixpanel.track('Change Gallery View', {
+			'View Mode': 'Column'
+	})
 	}
 	document.body.scrollTop = 0; // For Safari
 	document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
@@ -34,6 +40,9 @@ function toggleColumn(){
 function toggleGrid(){
 	if (document.getElementById('gallery-container-grid').childElementCount == 0){
 		viewGalleryGrid();
+		mixpanel.track('Change Gallery View', {
+			'View Mode': 'Grid'
+	})
 	}
 
 	document.body.scrollTop = 0; // For Safari
@@ -124,11 +133,12 @@ function viewGalleryColumn() {
 	})
 }
 
-function loadImage(path, elementParent, isCollectionThumbnail, collectionName) {
+function loadImage(path, elementParent, isCollectionThumbnail, collectionName, galleryViewMode) {
 	// create thumbnail image as a div
 	var img = document.createElement("div");
 	img.setAttribute("name", path);
 	img.setAttribute('data-src', "url('" + imageList[path].path + "')");
+	img.setAttribute('data-view-mode', galleryViewMode);
 	img.style.backgroundSize = 'cover';
 	img.style.backgroundPosition = 'center';
 	if(isCollectionThumbnail == true){
@@ -162,7 +172,7 @@ function loadImage(path, elementParent, isCollectionThumbnail, collectionName) {
 function loadImageIntoGrid() {
 	for (var i = 0; i < imageList.length; i++) {
 		var src = document.getElementById('gallery-container-grid');
-		loadImage(i, src, imageList[i].collectionThumb, imageList[i].collectionName);
+		loadImage(i, src, imageList[i].collectionThumb, imageList[i].collectionName, "Gallery Grid");
 	}
 
 	var lazyloadImages = document.querySelectorAll(".lazy");
@@ -210,7 +220,7 @@ function loadImageIntoColumn() {
 		if (i % 2 == 0) {
 			var src = document.getElementById('gallery-container-column-left');
 		} else { var src = document.getElementById('gallery-container-column-right') }
-		loadImage(i, src, imageList[i].collectionThumb, imageList[i].collectionName);
+		loadImage(i, src, imageList[i].collectionThumb, imageList[i].collectionName, "Gallery Column");
 	}
 
 
@@ -263,6 +273,17 @@ function showPreviewImage() {
 	document.getElementsByTagName('html')[0].style.overflowY = "hidden";
 	viewingThumbnail = this;
 	currentPreview = Number(viewingThumbnail.getAttribute('name'));
+	localStorage.setItem('countViewedImg', parseInt(localStorage.getItem('countViewedImg')) + 1);
+
+	// track user click a image thumbnail from gallery
+    mixpanel.track('View Image', {
+        'File Name': imageList[currentPreview].file_name,
+        'Source': viewingThumbnail.getAttribute('data-view-mode'),
+        "Collection ID": imageList[currentPreview].collectionName,
+		"This Device Viewed Total Image": localStorage.getItem('countViewedImg'),
+    });
+
+
 	$('#imagePreviewContainer').fadeIn();
 
 	swiper = new Swiper('.imagePreviewContainer', {
@@ -289,6 +310,14 @@ function showPreviewImage() {
 				}
 				swiper.slides[0].getElementsByTagName('img')[0].src = imageList[currentPreview].path;
 				viewingThumbnail = document.getElementsByName(currentPreview)[0];
+					// track user navigate to previous image
+					localStorage.setItem('countViewedImg', parseInt(localStorage.getItem('countViewedImg')) + 1);
+					mixpanel.track('View Image', {
+						'File Name': imageList[currentPreview].file_name,
+						'Source': "Isolated View",
+						"Collection ID": imageList[currentPreview].collectionName,
+						"This Device Viewed Total Image": localStorage.getItem('countViewedImg'),
+					});
 			},
 	
 			slideNextTransitionStart: (swiper) => {
@@ -300,8 +329,15 @@ function showPreviewImage() {
 				}
 				swiper.slides[1].getElementsByTagName('img')[0].src = imageList[currentPreview].path;
 				viewingThumbnail = document.getElementsByName(currentPreview)[0];
+				// track user navigate to next image
+				localStorage.setItem('countViewedImg', parseInt(localStorage.getItem('countViewedImg')) + 1);
+				mixpanel.track('View Image', {
+					'File Name': imageList[currentPreview].file_name,
+					'Source': "Isolated View",
+					"Collection ID": imageList[currentPreview].collectionName,
+					"This Device Viewed Total Image": localStorage.getItem('countViewedImg'),
+				});
 			},
-	
 		}
 	});
 
@@ -320,6 +356,11 @@ function closeImagePreview() {
 	// viewingThumbnail = null;
 	$('#imagePreviewContainer').fadeOut();
 	swiper.destroy();
+	mixpanel.track('Close Isolated View', {
+		'File Name': imageList[currentPreview].file_name,
+		"Collection ID": imageList[currentPreview].collectionName,
+		"This Device Viewed Total Image": localStorage.getItem('countViewedImg'),
+	});
 }
 
 document.addEventListener('keydown', function (e) {
@@ -403,4 +444,3 @@ window.addEventListener("scroll", (event) => {
 		document.querySelector('#collectionDemTitle').style.opacity = 0.4;
 	}
 });
-

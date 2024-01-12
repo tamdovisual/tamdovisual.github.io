@@ -31,7 +31,14 @@ var cursor;
 // Load images from collections =========================================
 for (var i = 0; i < collectionList.length; i++) {
     for (var j = 0; j < collectionList[i].numberOfImage; j++) {
-        imageList.push({ path: 'asset/image/gallery/' + collectionList[i].folder + '/' + collectionList[i].folder + '-' + j + '.webp', collectionName: collectionList[i].folder, collectionThumb: false });
+        imageList.push({
+            path: 'asset/image/gallery/' + collectionList[i].folder + '/' + collectionList[i].folder + '-' + j + '.webp',
+            collectionName: collectionList[i].folder,
+            // collection
+            file_name: collectionList[i].folder + '-' + j + '.webp',
+            collectionThumb: false,
+
+        });
         if (j==0){imageList[imageList.length-1].collectionThumb = true;}
         numberOfImage++;
     }
@@ -116,7 +123,7 @@ var logoAnimationItem = bodymovin.loadAnimation({
 });
 
 logoAnimationItem.addEventListener("complete", function(){
-  console.log('Ơ kìa, mò mẫm vào đây làm cái gì đấy? - Tâm said!');
+  console.log('U là trời, stalk cả vào đây cơ đấy :)');
 });
 
 var starMovingItem = bodymovin.loadAnimation({
@@ -128,21 +135,36 @@ var starMovingItem = bodymovin.loadAnimation({
   });
 
 var menuClose = 1;
-mobileMenuIcon.addEventListener('click', toggleHeaderMenu);
+mobileMenuIcon.addEventListener('click', function() {toggleHeaderMenu("menu-clicked");} 
+);
 
 function toggleHeaderMenu(e){
     if(menuClose== 1){
         openHeaderMenu();
+        if(e === "menu-clicked"){
+            mixpanel.track('Open Menu on Mobile', {
+            });
+        }
         var header = document.getElementById('header');
         header.classList.remove('scolled-header', 'blur-background');
     }
     else{
         closeHeaderMenu();
         changeHeaderBlur();
+        if(e === "menu-clicked"){
+            mixpanel.track('Close Menu on Mobile', {
+            });
+        }
     }
     mobileMenuIconItem.setDirection(menuClose);
     mobileMenuIconItem.play();
     menuClose = -menuClose;
+
+    if (e != "menu-clicked"){
+
+        // track mixpanel
+        navigateCollection(e);
+    }
 }
 
 // Custom cursor ==================================================================================
@@ -229,6 +251,7 @@ function openHeaderMenu() {
     $('#mobile-menu').css('top', '0px');
     $('#page-title').fadeOut();
     document.getElementsByTagName('html')[0].style.overflowY = "hidden";
+
 }
 
 function closeHeaderMenu() {
@@ -238,6 +261,7 @@ function closeHeaderMenu() {
     // $('#mobile-menu').fadeOut();
     // $('body').css("overflow", "auto");
     document.getElementsByTagName('html')[0].style.overflowY = "auto";
+
 }
 
 // Check if element is scrolled to the view port ===============================
@@ -285,3 +309,22 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("resize", lazyload);
     window.addEventListener("orientationChange", lazyload);
 });
+
+
+
+
+// Mixpanel ==============================
+
+function navigateCollection(name){
+	mixpanel.track('Navigate to Collection', {
+		'Collection Name': name,
+	});
+}
+
+
+function navigateSocial(event,screen,section){
+    mixpanel.track(event, {
+        'Screen Name': screen,
+        "Section": section,
+    })
+}

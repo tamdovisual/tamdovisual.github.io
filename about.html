@@ -15,13 +15,19 @@
 	
 	
 	<!-- Microsoft Clarity -->
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 		(function(c,l,a,r,i,t,y){
 			c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
 			t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
 			y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 		})(window, document, "clarity", "script", "iv9e5mjxa4");
+	</script> -->
+
+	<!-- Mixpanel -->
+	<script type="text/javascript">
+		(function (f, b) { if (!b.__SV) { var e, g, i, h; window.mixpanel = b; b._i = []; b.init = function (e, f, c) { function g(a, d) { var b = d.split("."); 2 == b.length && ((a = a[b[0]]), (d = b[1])); a[d] = function () { a.push([d].concat(Array.prototype.slice.call(arguments, 0))); }; } var a = b; "undefined" !== typeof c ? (a = b[c] = []) : (c = "mixpanel"); a.people = a.people || []; a.toString = function (a) { var d = "mixpanel"; "mixpanel" !== c && (d += "." + c); a || (d += " (stub)"); return d; }; a.people.toString = function () { return a.toString(1) + ".people (stub)"; }; i = "disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split( " "); for (h = 0; h < i.length; h++) g(a, i[h]); var j = "set set_once union unset remove delete".split(" "); a.get_group = function () { function b(c) { d[c] = function () { call2_args = arguments; call2 = [c].concat(Array.prototype.slice.call(call2_args, 0)); a.push([e, call2]); }; } for ( var d = {}, e = ["get_group"].concat( Array.prototype.slice.call(arguments, 0)), c = 0; c < j.length; c++) b(j[c]); return d; }; b._i.push([e, f, c]); }; b.__SV = 1.2; e = f.createElement("script"); e.type = "text/javascript"; e.async = !0; e.src = "undefined" !== typeof MIXPANEL_CUSTOM_LIB_URL ? MIXPANEL_CUSTOM_LIB_URL : "file:" === f.location.protocol && "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//) ? "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js" : "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"; g = f.getElementsByTagName("script")[0]; g.parentNode.insertBefore(e, g); } })(document, window.mixpanel || []);
 	</script>
+	<script src="script/mixpanel.js" type="module"></script>	  
 
 
 	<!-- Meta data -->
@@ -95,10 +101,10 @@
 		<span class="wide-12-regular" style="color: white !important;"><a href="about.html">ABOUT</a></span>
 		<hr class="horizontal-separator">
 		<div class="social-icon">
-			<a target="_blank" alt="facebook page" aria-label="Facebook" href="https://www.facebook.com/Tamdovisual/"><img onload="SVGInject(this)" src="asset/icon/facebook.svg"></a>
-			<a target="_blank" alt="spotify page" aria-label="Spotify" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d"><img onload="SVGInject(this)" src="asset/icon/Spotify.svg"></a>
-			<a target="_blank" alt="instagram page" aria-label="Instagram" href="https://www.instagram.com/tamdovisual/"><img onload="SVGInject(this)" src="asset/icon/instagram.svg"></a>
-			<a target="_blank" alt="youtube page" aria-label="Youtube" href="https://www.youtube.com/tamdodesign/"><img onload="SVGInject(this)" src="asset/icon/Youtube.svg"></a>
+			<a target="_blank" alt="facebook page" aria-label="Facebook" href="https://www.facebook.com/Tamdovisual/" onclick="navigateSocial('Visit Facebook', 'About', 'Mobile Menu')"><img onload="SVGInject(this)" src="asset/icon/facebook.svg"></a>
+			<a target="_blank" alt="spotify page" aria-label="Spotify" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d" onclick="navigateSocial('Visit Spotify', 'About', 'Mobile Menu')"><img onload="SVGInject(this)" src="asset/icon/Spotify.svg"></a>
+			<a target="_blank" alt="instagram page" aria-label="Instagram" href="https://www.instagram.com/tamdovisual/" onclick="navigateSocial('Visit Instagram', 'About', 'Mobile Menu')"><img onload="SVGInject(this)" src="asset/icon/instagram.svg"></a>
+			<a target="_blank" alt="youtube page" aria-label="Youtube" href="https://www.youtube.com/tamdodesign/" onclick="navigateSocial('Visit Youtube', 'About', 'Mobile Menu')"><img onload="SVGInject(this)" src="asset/icon/Youtube.svg"></a>
 		</div>
 	</div>
 
@@ -160,12 +166,12 @@
 
     <div class="contact">
         <img style="width: 64px;" onload="SVGInject(this)" src="asset/icon/email-icon.svg">
-        <span class="wide-14-regular" style="max-width: 650px; text-align: center;">For further questions about licensing, printing, photo trips or workshop, please reach out to <a target="_blank" href = "mailto: hello@tamdovisual.com" style="display:inline; text-decoration: underline;">hello@tamdovisual.com</a>. Tam's willing to answer any questions. Or you can connect with Tam on another social channels</span>
+        <span class="wide-14-regular" style="max-width: 650px; text-align: center;">For further questions about licensing, printing, photo trips or workshop, please reach out to <a target="_blank" href = "mailto: hello@tamdovisual.com" onclick="navigateSocial('Visit Email', 'About', 'About')" style="display:inline; text-decoration: underline;">hello@tamdovisual.com</a>. Tam's willing to answer any questions. Or you can connect with Tam on another social channels</span>
         <div>
-			<a target="_blank" alt="facebook page" aria-label="Facebook" href="https://www.facebook.com/Tamdovisual/"><img onload="SVGInject(this)" src="asset/icon/facebook.svg"></a>
-			<a target="_blank" alt="spotify page" aria-label="Spotify" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d"><img onload="SVGInject(this)" src="asset/icon/Spotify.svg"></a>
-			<a target="_blank" alt="instagram page" aria-label="Instagram" href="https://www.instagram.com/tamdovisual/"><img onload="SVGInject(this)" src="asset/icon/instagram.svg"></a>
-			<a target="_blank" alt="youtube page" aria-label="Youtube" href="https://www.youtube.com/tamdodesign/"><img onload="SVGInject(this)" src="asset/icon/Youtube.svg"></a>
+			<a target="_blank" alt="facebook page" aria-label="Facebook" href="https://www.facebook.com/Tamdovisual/" onclick="navigateSocial('Visit Facebook', 'About', 'About')"><img onload="SVGInject(this)" src="asset/icon/facebook.svg"></a>
+			<a target="_blank" alt="spotify page" aria-label="Spotify" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d" onclick="navigateSocial('Visit Spotify', 'About', 'About')"><img onload="SVGInject(this)" src="asset/icon/Spotify.svg"></a>
+			<a target="_blank" alt="instagram page" aria-label="Instagram" href="https://www.instagram.com/tamdovisual/" onclick="navigateSocial('Visit Instagram', 'About', 'About')"><img onload="SVGInject(this)" src="asset/icon/instagram.svg"></a>
+			<a target="_blank" alt="youtube page" aria-label="Youtube" href="https://www.youtube.com/tamdodesign/" onclick="navigateSocial('Visit Youtube', 'About', 'About')"><img onload="SVGInject(this)" src="asset/icon/Youtube.svg"></a>
 		</div>
     </div>
 
@@ -188,12 +194,12 @@
 	</div>
 	<!-- Website footer ============================================== -->
 	<div class="footer blur-background">
-		<span class="wide-12-regular">Copyright © 2023 — Tam Do Visual. All Rights Reserved. Email: <a target="_blank" href = "mailto: hello@tamdovisual.com">hello@tamdovisual.com</a></span>
+		<span class="wide-12-regular">Copyright © 2023 — Tam Do Visual. All Rights Reserved. Email: <a target="_blank" href = "mailto: hello@tamdovisual.com" onclick="navigateSocial('Visit Email', 'About', 'Footer')">hello@tamdovisual.com</a></span>
 		<div>
-			<a target="_blank" alt="facebook page" aria-label="Facebook" href="https://www.facebook.com/Tamdovisual/"><img onload="SVGInject(this)" src="asset/icon/facebook.svg"></a>
-			<a target="_blank" alt="spotify page" aria-label="Spotify" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d"><img onload="SVGInject(this)" src="asset/icon/Spotify.svg"></a>
-			<a target="_blank" alt="instagram page" aria-label="Instagram" href="https://www.instagram.com/tamdovisual/"><img onload="SVGInject(this)" src="asset/icon/instagram.svg"></a>
-			<a target="_blank" alt="youtube page" aria-label="Youtube" href="https://www.youtube.com/tamdodesign/"><img onload="SVGInject(this)" src="asset/icon/Youtube.svg"></a>
+			<a target="_blank" alt="facebook page" aria-label="Facebook" href="https://www.facebook.com/Tamdovisual/" onclick="navigateSocial('Visit Facebook', 'About', 'Footer')"><img onload="SVGInject(this)" src="asset/icon/facebook.svg"></a>
+			<a target="_blank" alt="spotify page" aria-label="Spotify" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d" onclick="navigateSocial('Visit Spotify', 'About', 'Footer')"><img onload="SVGInject(this)" src="asset/icon/Spotify.svg"></a>
+			<a target="_blank" alt="instagram page" aria-label="Instagram" href="https://www.instagram.com/tamdovisual/" onclick="navigateSocial('Visit Instagram', 'About', 'Footer')"><img onload="SVGInject(this)" src="asset/icon/instagram.svg"></a>
+			<a target="_blank" alt="youtube page" aria-label="Youtube" href="https://www.youtube.com/tamdodesign/" onclick="navigateSocial('Visit Youtube', 'About', 'Footer')"><img onload="SVGInject(this)" src="asset/icon/Youtube.svg"></a>
 		</div>
 	</div>
 </body>

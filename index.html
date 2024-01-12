@@ -14,15 +14,13 @@
 	</script>
 	
 	<!-- Microsoft Clarity -->
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 		(function(c,l,a,r,i,t,y){
 			c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
 			t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
 			y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 		})(window, document, "clarity", "script", "iv9e5mjxa4");
-	</script>
-
-
+	</script> -->
 
 	<!-- Meta data -->
 
@@ -61,12 +59,15 @@
 	<script src="script/essential.js" defer></script>
 	<script type="module" src="script/splitType.js" defer></script>
 	<script type="text/javascript" src="script/home.js" defer></script>
+	
 
-
-	<!-- <script src="script/libs/p5.min.js" defer></script>
-	<script src="script/p5-animate.js" defer></script> -->
-
+	<!-- Mixpanel -->
+	<script type="text/javascript">
+		(function (f, b) { if (!b.__SV) { var e, g, i, h; window.mixpanel = b; b._i = []; b.init = function (e, f, c) { function g(a, d) { var b = d.split("."); 2 == b.length && ((a = a[b[0]]), (d = b[1])); a[d] = function () { a.push([d].concat(Array.prototype.slice.call(arguments, 0))); }; } var a = b; "undefined" !== typeof c ? (a = b[c] = []) : (c = "mixpanel"); a.people = a.people || []; a.toString = function (a) { var d = "mixpanel"; "mixpanel" !== c && (d += "." + c); a || (d += " (stub)"); return d; }; a.people.toString = function () { return a.toString(1) + ".people (stub)"; }; i = "disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split( " "); for (h = 0; h < i.length; h++) g(a, i[h]); var j = "set set_once union unset remove delete".split(" "); a.get_group = function () { function b(c) { d[c] = function () { call2_args = arguments; call2 = [c].concat(Array.prototype.slice.call(call2_args, 0)); a.push([e, call2]); }; } for ( var d = {}, e = ["get_group"].concat( Array.prototype.slice.call(arguments, 0)), c = 0; c < j.length; c++) b(j[c]); return d; }; b._i.push([e, f, c]); }; b.__SV = 1.2; e = f.createElement("script"); e.type = "text/javascript"; e.async = !0; e.src = "undefined" !== typeof MIXPANEL_CUSTOM_LIB_URL ? MIXPANEL_CUSTOM_LIB_URL : "file:" === f.location.protocol && "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//) ? "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js" : "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"; g = f.getElementsByTagName("script")[0]; g.parentNode.insertBefore(e, g); } })(document, window.mixpanel || []);
+	</script>
+	<script src="script/mixpanel.js" type="module"></script>	  	  
 </head>
+
 <body style="overflow: hidden;">
 
 	<!-- Page loading element ============================================== -->
@@ -126,10 +127,10 @@
 		<span class="wide-12-regular" style="color: white !important;"><a href="about.html">ABOUT</a></span>
 		<hr class="horizontal-separator">
 		<div class="social-icon">
-			<a target="_blank" alt="facebook page" aria-label="Facebook" href="https://www.facebook.com/Tamdovisual/"><img onload="SVGInject(this)" src="asset/icon/facebook.svg"></a>
-			<a target="_blank" alt="spotify page" aria-label="Spotify" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d"><img onload="SVGInject(this)" src="asset/icon/Spotify.svg"></a>
-			<a target="_blank" alt="instagram page" aria-label="Instagram" href="https://www.instagram.com/tamdovisual/"><img onload="SVGInject(this)" src="asset/icon/instagram.svg"></a>
-			<a target="_blank" alt="youtube page" aria-label="Youtube" href="https://www.youtube.com/tamdodesign/"><img onload="SVGInject(this)" src="asset/icon/Youtube.svg"></a>
+			<a target="_blank" alt="facebook page" aria-label="Facebook" href="https://www.facebook.com/Tamdovisual/" onclick="navigateSocial('Visit Facebook', 'Homescreen', 'Mobile Menu')"><img onload="SVGInject(this)" src="asset/icon/facebook.svg"></a>
+			<a target="_blank" alt="spotify page" aria-label="Spotify" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d" onclick="navigateSocial('Visit Spotify', 'Homescreen', 'Mobile Menu')"><img onload="SVGInject(this)" src="asset/icon/Spotify.svg"></a>
+			<a target="_blank" alt="instagram page" aria-label="Instagram" href="https://www.instagram.com/tamdovisual/" onclick="navigateSocial('Visit Instagram', 'Homescreen', 'Mobile Menu')"><img onload="SVGInject(this)" src="asset/icon/instagram.svg"></a>
+			<a target="_blank" alt="youtube page" aria-label="Youtube" href="https://www.youtube.com/tamdodesign/" onclick="navigateSocial('Visit Youtube', 'Homescreen', 'Mobile Menu')"><img onload="SVGInject(this)" src="asset/icon/Youtube.svg"></a>
 		</div>
 	</div>
 
@@ -137,7 +138,7 @@
 	<div id="fallingImageSection">
 		<div id="logoShowHide"></div>
 		<div class="animateTextWidth animateTextMovement hero-text">TAM DO VISUAL</div>
-		<a href="#landscape-section"><button class="CTA all-cap-title-10" style="z-index: 200;">View Collections</button></a>
+		<a href="#landscape-section" onclick="mixpanel.track('Click View Collection',{})"><button class="CTA all-cap-title-10" style="z-index: 200;">View Collections</button></a>
 		<svg style="opacity: 0;" id="animateLineHomePage" viewBox="0 0 1366 738" fill="none" xmlns="http://www.w3.org/2000/svg">			
 			<path class="movingLine" d="M962.897 492.256C962.897 493.252 962.473 494.275 961.566 495.331C960.657 496.39 959.281 497.459 957.436 498.526C953.746 500.659 948.272 502.734 941.176 504.72C926.991 508.688 906.442 512.267 881.021 515.275C830.186 521.291 759.945 525.012 682.349 525.012C604.753 525.012 534.511 521.291 483.677 515.275C458.256 512.267 437.706 508.688 423.522 504.72C416.425 502.734 410.951 500.659 407.261 498.526C405.416 497.459 404.041 496.39 403.131 495.331C402.225 494.275 401.801 493.252 401.801 492.256C401.801 491.261 402.225 490.238 403.131 489.182C404.041 488.122 405.416 487.054 407.261 485.987C410.951 483.853 416.425 481.778 423.522 479.793C437.706 475.825 458.256 472.245 483.677 469.237C534.511 463.222 604.753 459.5 682.349 459.5C759.945 459.5 830.186 463.222 881.021 469.237C906.442 472.245 926.991 475.825 941.176 479.793C948.272 481.778 953.746 483.853 957.436 485.987C959.281 487.054 960.657 488.122 961.566 489.182C962.473 490.238 962.897 491.261 962.897 492.256Z" stroke="black"/>
 			<path class="movingLine" d="M926.589 521.863C926.589 522.725 926.222 523.613 925.434 524.53C924.644 525.451 923.448 526.38 921.843 527.309C918.632 529.166 913.867 530.972 907.689 532.7C895.34 536.155 877.45 539.271 855.317 541.89C811.059 547.127 749.904 550.368 682.346 550.368C614.787 550.368 553.633 547.127 509.374 541.89C487.242 539.271 469.352 536.155 457.003 532.7C450.825 530.972 446.06 529.166 442.849 527.309C441.243 526.38 440.047 525.451 439.257 524.53C438.47 523.613 438.102 522.725 438.102 521.863C438.102 521.001 438.47 520.114 439.257 519.196C440.047 518.275 441.243 517.346 442.849 516.417C446.06 514.561 450.825 512.754 457.003 511.026C469.352 507.571 487.242 504.455 509.374 501.836C553.633 496.599 614.787 493.359 682.346 493.359C749.904 493.359 811.059 496.599 855.317 501.836C877.45 504.455 895.34 507.571 907.689 511.026C913.867 512.754 918.632 514.561 921.843 516.417C923.448 517.346 924.644 518.275 925.434 519.196C926.222 520.114 926.589 521.001 926.589 521.863Z" stroke="black" stroke-width="0.9"/>
@@ -156,30 +157,30 @@
 	<div id="landscape-section" class="landscape-section wide-24-regular">
 		<span id="landscape-section-title">COLLECTIONS</span>
 		<div>
-			<a href="galerry.html?collection=an-lac">
+			<a href="galerry.html?collection=an-lac" onclick="mixpanel.track('Click Collection Thumbnail', {'Collection ID': 'an-lac', 'Collection Thumbnail': 'an-lac-0.webp'})">
 				<div data-src="url('asset/image/gallery/an-lac/an-lac-0.webp')" loading="lazy" class="clickable collection wide-16-regular lazy" alt="An Lạc" style="color: white;">AN LẠC</div>
 			</a>
-			<a href="galerry.html?collection=diem-nhien">
+			<a href="galerry.html?collection=diem-nhien" onclick="mixpanel.track('Click Collection Thumbnail', {'Collection ID': 'diem-nhien', 'Collection Thumbnail': 'diem-nhien-0.webp'})">
 				<div data-src="url('asset/image/gallery/diem-nhien/diem-nhien-0.webp')" loading="lazy" class="clickable collection wide-16-regular lazy" style="color: white;">ĐIỀM NHIÊN</div>
 			</a>
-			<a href="galerry.html?collection=soi-sang">
+			<a href="galerry.html?collection=soi-sang" onclick="mixpanel.track('Click Collection Thumbnail', {'Collection ID': 'soi-sang', 'Collection Thumbnail': 'soi-sang-0.webp'})">
 				<div data-src="url('asset/image/gallery/soi-sang/soi-sang-0.webp')" loading="lazy" class="clickable collection wide-16-regular lazy" alt="Soi Sáng" style="color: white;">SOI SÁNG</div>
 			</a>
-			<a href="galerry.html?collection=dem">
+			<a href="galerry.html?collection=dem" onclick="mixpanel.track('Click Collection Thumbnail', {'Collection ID': 'dem', 'Collection Thumbnail': 'dem-0.webp'})">
 				<div data-src="url('asset/image/gallery/dem/dem-0.webp')" loading="lazy" class="clickable collection wide-16-regular lazy" alt="Đêm" style="color: white;">ĐÊM</div>
 			</a>
 		</div>
-		<a href="galerry.html"><button class="CTA wide-12-bold">Explore all collections</button></a>
+		<a href="galerry.html" onclick="mixpanel.track('Click Explore All Collection, {}')"><button class="CTA wide-12-bold">Explore all collections</button></a>
 	</div>
 	
 	<!-- Website footer ============================================== -->
 	<div class="footer blur-background">
 		<span class="wide-12-regular">Copyright © 2023 — Tam Do Visual. All Rights Reserved. Email: <a target="_blank" href = "mailto: hello@tamdovisual.com">hello@tamdovisual.com</a></span>
 		<div>
-			<a target="_blank" alt="facebook page" aria-label="Facebook" href="https://www.facebook.com/Tamdovisual/"><img onload="SVGInject(this)" src="asset/icon/facebook.svg"></a>
-			<a target="_blank" alt="spotify page" aria-label="Spotify" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d"><img onload="SVGInject(this)" src="asset/icon/Spotify.svg"></a>
-			<a target="_blank" alt="instagram page" aria-label="Instagram" href="https://www.instagram.com/tamdovisual/"><img onload="SVGInject(this)" src="asset/icon/instagram.svg"></a>
-			<a target="_blank" alt="youtube page" aria-label="Youtube" href="https://www.youtube.com/tamdodesign/"><img onload="SVGInject(this)" src="asset/icon/Youtube.svg"></a>
+			<a target="_blank" alt="facebook page" aria-label="Facebook" href="https://www.facebook.com/Tamdovisual/" onclick="navigateSocial('Visit Facebook', 'Homescreen', 'Footer')"><img onload="SVGInject(this)" src="asset/icon/facebook.svg"></a>
+			<a target="_blank" alt="spotify page" aria-label="Spotify" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d" onclick="navigateSocial('Visit Spotify', 'Homescreen', 'Footer')"><img onload="SVGInject(this)" src="asset/icon/Spotify.svg"></a>
+			<a target="_blank" alt="instagram page" aria-label="Instagram" href="https://www.instagram.com/tamdovisual/" onclick="navigateSocial('Visit Instagram', 'Homescreen', 'Footer')"><img onload="SVGInject(this)" src="asset/icon/instagram.svg"></a>
+			<a target="_blank" alt="youtube page" aria-label="Youtube" href="https://www.youtube.com/tamdodesign/" onclick="navigateSocial('Visit Youtube', 'Homescreen', 'Footer')"><img onload="SVGInject(this)" src="asset/icon/Youtube.svg"></a>
 		</div>
 	</div>
 </body>
