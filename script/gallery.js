@@ -72,18 +72,16 @@ function viewGalleryGrid() {
 	thumbnails.forEach((thumbnail) => {
 		gsap.fromTo(thumbnail, {
 			opacity: 0,
-			y: 300,
 		}, {
 			scrollTrigger: {
 				trigger: thumbnail,
-				start: 'top bottom+=230',
+				start: 'top bottom',
 				end: 'center 90%',
 				// scrub: true, // cái này sẽ chạy animate theo cuộn chuột, bỏ đi thì sẽ tự động chạy khi cuộn.
 				toggleActions: "restart none none reverse", // onEnter, onLeave, onEnterBack, and onLeaveBack -> sẽ nhận 1 trong các giá trị sau: "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
 				// markers: true
 			},
 			opacity: 1,
-			y: 0,
 			duration: 1,
 			ease: "power2.out",
 			stagger: 0.1,
@@ -133,22 +131,25 @@ function viewGalleryColumn() {
 	})
 }
 
-function loadImage(path, elementParent, isCollectionThumbnail, collectionName, galleryViewMode) {
+function loadImage(path, elementParent, isCollectionThumbnail, collection_name, galleryViewMode) {
 	// create thumbnail image as a div
 	var img = document.createElement("div");
 	img.setAttribute("name", path);
 	img.setAttribute('data-src', "url('" + imageList[path].path + "')");
 	img.setAttribute('data-view-mode', galleryViewMode);
+	img.setAttribute('data-image-id', imageList[path].image_id);
+	img.setAttribute('data-collection-id', imageList[path].collection_id);
+
 	img.style.backgroundSize = 'cover';
 	img.style.backgroundPosition = 'center';
 	if(isCollectionThumbnail == true){
-		img.id = collectionName;
+		img.id = collection_name;
 	}
 
 	// lazy loading
-	img.className = "lazy thumbnail " + imageList[path].collectionName;
+	img.className = "lazy thumbnail " + imageList[path].collection_name;
 	img.setAttribute("loading", "lazy");
-	img.setAttribute('alt', imageList[path].collectionName);
+	img.setAttribute('alt', imageList[path].collection_name);
 
 	// onclick
 	img.setAttribute("onclick", 'showPreviewImage()');
@@ -172,7 +173,7 @@ function loadImage(path, elementParent, isCollectionThumbnail, collectionName, g
 function loadImageIntoGrid() {
 	for (var i = 0; i < imageList.length; i++) {
 		var src = document.getElementById('gallery-container-grid');
-		loadImage(i, src, imageList[i].collectionThumb, imageList[i].collectionName, "Gallery Grid");
+		loadImage(i, src, imageList[i].collection_thumb, imageList[i].collection_id, "Gallery Grid");
 	}
 
 	var lazyloadImages = document.querySelectorAll(".lazy");
@@ -220,7 +221,7 @@ function loadImageIntoColumn() {
 		if (i % 2 == 0) {
 			var src = document.getElementById('gallery-container-column-left');
 		} else { var src = document.getElementById('gallery-container-column-right') }
-		loadImage(i, src, imageList[i].collectionThumb, imageList[i].collectionName, "Gallery Column");
+		loadImage(i, src, imageList[i].collection_thumb, imageList[i].collection_id, "Gallery Column");
 	}
 
 
@@ -279,7 +280,7 @@ function showPreviewImage() {
     mixpanel.track('View Image', {
         'File Name': imageList[currentPreview].file_name,
         'Source': viewingThumbnail.getAttribute('data-view-mode'),
-        "Collection ID": imageList[currentPreview].collectionName,
+        "Collection ID": imageList[currentPreview].collection_name,
 		"This Device Viewed Total Image": localStorage.getItem('countViewedImg'),
     });
 
@@ -315,14 +316,14 @@ function showPreviewImage() {
 					mixpanel.track('View Image', {
 						'File Name': imageList[currentPreview].file_name,
 						'Source': "Isolated View",
-						"Collection ID": imageList[currentPreview].collectionName,
+						"Collection ID": imageList[currentPreview].collection_name,
 						"This Device Viewed Total Image": localStorage.getItem('countViewedImg'),
 					});
 			},
 	
 			slideNextTransitionStart: (swiper) => {
 				// console.log('SWIPED RIGHT');
-				if (currentPreview < numberOfImage) {
+				if (currentPreview < numberOfImage-1) {
 					currentPreview++;
 				} else {
 					currentPreview = 0;
@@ -334,7 +335,7 @@ function showPreviewImage() {
 				mixpanel.track('View Image', {
 					'File Name': imageList[currentPreview].file_name,
 					'Source': "Isolated View",
-					"Collection ID": imageList[currentPreview].collectionName,
+					"Collection ID": imageList[currentPreview].collection_name,
 					"This Device Viewed Total Image": localStorage.getItem('countViewedImg'),
 				});
 			},
@@ -358,7 +359,7 @@ function closeImagePreview() {
 	swiper.destroy();
 	mixpanel.track('Close Isolated View', {
 		'File Name': imageList[currentPreview].file_name,
-		"Collection ID": imageList[currentPreview].collectionName,
+		"Collection ID": imageList[currentPreview].collection_name,
 		"This Device Viewed Total Image": localStorage.getItem('countViewedImg'),
 	});
 }

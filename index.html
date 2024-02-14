@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	
+
 	<!-- Google tag (gtag.js) -->
 
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-D25JF5CFDR"></script>
 	<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
 
-	gtag('config', 'G-D25JF5CFDR');
+		gtag('config', 'G-D25JF5CFDR');
 	</script>
-	
+
 	<!-- Microsoft Clarity -->
 	<!-- <script type="text/javascript">
 		(function(c,l,a,r,i,t,y){
@@ -31,11 +32,12 @@
 
 	<meta name="title" content="Tam Do Visual">
 	<meta property="og:type" content="website">
-	<meta property="description" content='Tam Do Visual Official Website'/>
-	<meta property="og:image" content="https://i.ibb.co/vjDZt2r/tamdovisual-website-thumbnail.jpg"/>
-	<meta property="og:description" content='Tam Do Visual Official Website'/>
-	<meta property="og:url" content='http://tamdovisual.com/'/>
-	<meta name="description" content="Đỗ Minh Tâm (Tam Do Visual) is a Vietnamese landscape photographer, currently based in Hanoi, Vietnam. Being passionate about photography since 2015, Tam offers in his photographs the beauty of his motherland. Devoted to dedication and creativity, Tam's photos are also widely published by renowned media outlets such as Nikon Asia, Zing News, CNN, etc..">
+	<meta property="description" content='Tam Do Visual Official Website' />
+	<meta property="og:image" content="https://i.ibb.co/vjDZt2r/tamdovisual-website-thumbnail.jpg" />
+	<meta property="og:description" content='Tam Do Visual Official Website' />
+	<meta property="og:url" content='http://tamdovisual.com/' />
+	<meta name="description"
+		content="Đỗ Minh Tâm (Tam Do Visual) is a Vietnamese landscape photographer, currently based in Hanoi, Vietnam. Being passionate about photography since 2015, Tam offers in his photographs the beauty of his motherland. Devoted to dedication and creativity, Tam's photos are also widely published by renowned media outlets such as Nikon Asia, Zing News, CNN, etc..">
 
 	<!-- custom css -->
 
@@ -50,22 +52,25 @@
 
 	<script src="script/libs/svg-inject.min.js"></script>
 	<script type="text/javascript" src="script/lottie.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.1/lottie.min.js" integrity="sha512-H6aKTjvYAazW0iNuGj1f2dZvSWlt1HGZGEDsXRPETo2IB4H6v36Vl2qiZNlCRxOp0kT7iBf+7USNPavNscZGAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.1/lottie.min.js"
+		integrity="sha512-H6aKTjvYAazW0iNuGj1f2dZvSWlt1HGZGEDsXRPETo2IB4H6v36Vl2qiZNlCRxOp0kT7iBf+7USNPavNscZGAw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 	<script src="https://unpkg.com/split-type"></script>
+	<script src="script/libs/jquery.csv.min.js"></script>
 
 
 	<!-- custom scripts for each page -->
 	<script src="script/essential.js" defer></script>
 	<script type="module" src="script/splitType.js" defer></script>
 	<script type="text/javascript" src="script/home.js" defer></script>
-	
+
 
 	<!-- Mixpanel -->
 	<script type="text/javascript">
-		(function (f, b) { if (!b.__SV) { var e, g, i, h; window.mixpanel = b; b._i = []; b.init = function (e, f, c) { function g(a, d) { var b = d.split("."); 2 == b.length && ((a = a[b[0]]), (d = b[1])); a[d] = function () { a.push([d].concat(Array.prototype.slice.call(arguments, 0))); }; } var a = b; "undefined" !== typeof c ? (a = b[c] = []) : (c = "mixpanel"); a.people = a.people || []; a.toString = function (a) { var d = "mixpanel"; "mixpanel" !== c && (d += "." + c); a || (d += " (stub)"); return d; }; a.people.toString = function () { return a.toString(1) + ".people (stub)"; }; i = "disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split( " "); for (h = 0; h < i.length; h++) g(a, i[h]); var j = "set set_once union unset remove delete".split(" "); a.get_group = function () { function b(c) { d[c] = function () { call2_args = arguments; call2 = [c].concat(Array.prototype.slice.call(call2_args, 0)); a.push([e, call2]); }; } for ( var d = {}, e = ["get_group"].concat( Array.prototype.slice.call(arguments, 0)), c = 0; c < j.length; c++) b(j[c]); return d; }; b._i.push([e, f, c]); }; b.__SV = 1.2; e = f.createElement("script"); e.type = "text/javascript"; e.async = !0; e.src = "undefined" !== typeof MIXPANEL_CUSTOM_LIB_URL ? MIXPANEL_CUSTOM_LIB_URL : "file:" === f.location.protocol && "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//) ? "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js" : "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"; g = f.getElementsByTagName("script")[0]; g.parentNode.insertBefore(e, g); } })(document, window.mixpanel || []);
+		(function (f, b) { if (!b.__SV) { var e, g, i, h; window.mixpanel = b; b._i = []; b.init = function (e, f, c) { function g(a, d) { var b = d.split("."); 2 == b.length && ((a = a[b[0]]), (d = b[1])); a[d] = function () { a.push([d].concat(Array.prototype.slice.call(arguments, 0))); }; } var a = b; "undefined" !== typeof c ? (a = b[c] = []) : (c = "mixpanel"); a.people = a.people || []; a.toString = function (a) { var d = "mixpanel"; "mixpanel" !== c && (d += "." + c); a || (d += " (stub)"); return d; }; a.people.toString = function () { return a.toString(1) + ".people (stub)"; }; i = "disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" "); for (h = 0; h < i.length; h++) g(a, i[h]); var j = "set set_once union unset remove delete".split(" "); a.get_group = function () { function b(c) { d[c] = function () { call2_args = arguments; call2 = [c].concat(Array.prototype.slice.call(call2_args, 0)); a.push([e, call2]); }; } for (var d = {}, e = ["get_group"].concat(Array.prototype.slice.call(arguments, 0)), c = 0; c < j.length; c++) b(j[c]); return d; }; b._i.push([e, f, c]); }; b.__SV = 1.2; e = f.createElement("script"); e.type = "text/javascript"; e.async = !0; e.src = "undefined" !== typeof MIXPANEL_CUSTOM_LIB_URL ? MIXPANEL_CUSTOM_LIB_URL : "file:" === f.location.protocol && "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//) ? "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js" : "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"; g = f.getElementsByTagName("script")[0]; g.parentNode.insertBefore(e, g); } })(document, window.mixpanel || []);
 	</script>
-	<script src="script/mixpanel.js" type="module"></script>	  	  
+	<script src="script/mixpanel.js" type="module"></script>
 </head>
 
 <body style="overflow: hidden;">
@@ -75,79 +80,79 @@
 		<div id="starMovingContainer"></div>
 	</div> -->
 
-	<!-- Background sound element ============================================== -->
-
-	<div id="blockForSoundElement">
-		<button class="enter-CTA all-cap-title-10" style="z-index: 5000;" onclick="startExploring();">Start Exploring</button>
-		<div id="starMovingContainer"></div>
-
-	</div>
-
-	<audio id="backgroundSound" src="asset/fiei-cant-stay-here.mp3"></audio>
-
-
 	<!-- Website header ============================================== -->
-    <div id="header" class="header all-cap-title-10" style="opacity: 0;">
+	<div id="header" class="header all-cap-title-10" style="opacity: 0;">
 		<span><a href="galerry.html" alt="Gallery" aria-label="Gallery">LANDSCAPE</a></span>
 		<!-- <span>Article</span> -->
-		<a href="index.html" alt="Home" aria-label="Home"><div id="logoAnimation"></div></a>
+		<a href="index.html" alt="Home" aria-label="Home">
+			<div id="logoAnimation"></div>
+		</a>
 		<!-- <span>Trips</span> -->
 		<span><a href="about.html" alt="About" aria-label="About">ABOUT</a></span>
 
 		<span id="page-title" style="display: none;"> </span>
 		<div id="mobileMenuIcon" onload="SVGInject(this)"></div>
-		</div>
-
-	<!-- <div id="mobile-menu" style="display: none; " class="blur-background">
-		<span class="wide-24-regular"><a href="galerry.html">LANDSCAPE</a></span>
-		<hr>
-		<span class="wide-24-regular"><a href="about.html">ABOUT</a></span>
-		<hr>
-		<div class="social-icon">
-			<a target="_blank" alt="facebook page" aria-label="Facebook" href="https://www.facebook.com/Tamdovisual/"><img onload="SVGInject(this)" src="asset/icon/facebook.svg"></a>
-			<a target="_blank" alt="spotify page" aria-label="Spotify" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d"><img onload="SVGInject(this)" src="asset/icon/Spotify.svg"></a>
-			<a target="_blank" alt="instagram page" aria-label="Instagram" href="https://www.instagram.com/tamdovisual/"><img onload="SVGInject(this)" src="asset/icon/instagram.svg"></a>
-			<a target="_blank" alt="youtube page" aria-label="Youtube" href="https://www.youtube.com/tamdodesign/"><img onload="SVGInject(this)" src="asset/icon/Youtube.svg"></a>
-		</div>
-		<hr>
-		<span class="wide-14-regular"><a target="_blank" href = "mailto: hello@tamdovisual.com">hello@tamdovisual.com</a></span>
-	</div> -->
-
+	</div>
 	<div id="mobile-menu" style="display: none;" class="blur-background">
-			<span class="wide-10-regular">COLLECTIONS</span>
-			<hr class="vertical-separator">
-			<div class="wide-24-regular"><a href="galerry.html?collection=an-lac">AN LẠC</a></div>
-			<hr class="vertical-separator">
-			<div class="wide-24-regular"><a href="galerry.html?collection=diem-nhien">ĐIỀM NHIÊN</a></div>
-			<hr class="vertical-separator">
-			<div class="wide-24-regular"><a href="galerry.html?collection=soi-sang">SOI SÁNG</a></div>
-			<hr class="vertical-separator">
-			<div class="wide-24-regular"><a href="galerry.html?collection=dem">ĐÊM</a></div>
+		<span class="wide-10-regular">COLLECTIONS</span>
+		<hr class="vertical-separator">
+		<div class="wide-24-regular"><a href="galerry.html?collection=an-lac">AN LẠC</a></div>
+		<hr class="vertical-separator">
+		<div class="wide-24-regular"><a href="galerry.html?collection=diem-nhien">ĐIỀM NHIÊN</a></div>
+		<hr class="vertical-separator">
+		<div class="wide-24-regular"><a href="galerry.html?collection=soi-sang">SOI SÁNG</a></div>
+		<hr class="vertical-separator">
+		<div class="wide-24-regular"><a href="galerry.html?collection=dem">ĐÊM</a></div>
 		<hr class="horizontal-separator">
 		<span class="wide-12-regular" style="color: white !important;"><a href="about.html">ABOUT</a></span>
 		<hr class="horizontal-separator">
 		<div class="social-icon">
-			<a target="_blank" alt="facebook page" aria-label="Facebook" href="https://www.facebook.com/Tamdovisual/" onclick="navigateSocial('Visit Facebook', 'Homescreen', 'Mobile Menu')"><img onload="SVGInject(this)" src="asset/icon/facebook.svg"></a>
-			<a target="_blank" alt="spotify page" aria-label="Spotify" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d" onclick="navigateSocial('Visit Spotify', 'Homescreen', 'Mobile Menu')"><img onload="SVGInject(this)" src="asset/icon/Spotify.svg"></a>
-			<a target="_blank" alt="instagram page" aria-label="Instagram" href="https://www.instagram.com/tamdovisual/" onclick="navigateSocial('Visit Instagram', 'Homescreen', 'Mobile Menu')"><img onload="SVGInject(this)" src="asset/icon/instagram.svg"></a>
-			<a target="_blank" alt="youtube page" aria-label="Youtube" href="https://www.youtube.com/tamdodesign/" onclick="navigateSocial('Visit Youtube', 'Homescreen', 'Mobile Menu')"><img onload="SVGInject(this)" src="asset/icon/Youtube.svg"></a>
+			<a target="_blank" alt="facebook page" aria-label="Facebook" href="https://www.facebook.com/Tamdovisual/"
+				onclick="navigateSocial('Visit Facebook', 'Homescreen', 'Mobile Menu')"><img onload="SVGInject(this)"
+					src="asset/icon/facebook.svg"></a>
+			<a target="_blank" alt="spotify page" aria-label="Spotify"
+				href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d"
+				onclick="navigateSocial('Visit Spotify', 'Homescreen', 'Mobile Menu')"><img onload="SVGInject(this)"
+					src="asset/icon/Spotify.svg"></a>
+			<a target="_blank" alt="instagram page" aria-label="Instagram" href="https://www.instagram.com/tamdovisual/"
+				onclick="navigateSocial('Visit Instagram', 'Homescreen', 'Mobile Menu')"><img onload="SVGInject(this)"
+					src="asset/icon/instagram.svg"></a>
+			<a target="_blank" alt="youtube page" aria-label="Youtube" href="https://www.youtube.com/tamdodesign/"
+				onclick="navigateSocial('Visit Youtube', 'Homescreen', 'Mobile Menu')"><img onload="SVGInject(this)"
+					src="asset/icon/Youtube.svg"></a>
 		</div>
 	</div>
 
-	<!-- Content within webpage ============================================== -->		
+	<!-- Content within webpage ============================================== -->
 	<div id="fallingImageSection">
 		<div id="logoShowHide"></div>
 		<div class="animateTextWidth animateTextMovement hero-text">TAM DO VISUAL</div>
-		<a href="#landscape-section" onclick="mixpanel.track('Click View Collection',{})"><button class="CTA all-cap-title-10" style="z-index: 200;">View Collections</button></a>
-		<svg style="opacity: 0;" id="animateLineHomePage" viewBox="0 0 1366 738" fill="none" xmlns="http://www.w3.org/2000/svg">			
-			<path class="movingLine" d="M962.897 492.256C962.897 493.252 962.473 494.275 961.566 495.331C960.657 496.39 959.281 497.459 957.436 498.526C953.746 500.659 948.272 502.734 941.176 504.72C926.991 508.688 906.442 512.267 881.021 515.275C830.186 521.291 759.945 525.012 682.349 525.012C604.753 525.012 534.511 521.291 483.677 515.275C458.256 512.267 437.706 508.688 423.522 504.72C416.425 502.734 410.951 500.659 407.261 498.526C405.416 497.459 404.041 496.39 403.131 495.331C402.225 494.275 401.801 493.252 401.801 492.256C401.801 491.261 402.225 490.238 403.131 489.182C404.041 488.122 405.416 487.054 407.261 485.987C410.951 483.853 416.425 481.778 423.522 479.793C437.706 475.825 458.256 472.245 483.677 469.237C534.511 463.222 604.753 459.5 682.349 459.5C759.945 459.5 830.186 463.222 881.021 469.237C906.442 472.245 926.991 475.825 941.176 479.793C948.272 481.778 953.746 483.853 957.436 485.987C959.281 487.054 960.657 488.122 961.566 489.182C962.473 490.238 962.897 491.261 962.897 492.256Z" stroke="black"/>
-			<path class="movingLine" d="M926.589 521.863C926.589 522.725 926.222 523.613 925.434 524.53C924.644 525.451 923.448 526.38 921.843 527.309C918.632 529.166 913.867 530.972 907.689 532.7C895.34 536.155 877.45 539.271 855.317 541.89C811.059 547.127 749.904 550.368 682.346 550.368C614.787 550.368 553.633 547.127 509.374 541.89C487.242 539.271 469.352 536.155 457.003 532.7C450.825 530.972 446.06 529.166 442.849 527.309C441.243 526.38 440.047 525.451 439.257 524.53C438.47 523.613 438.102 522.725 438.102 521.863C438.102 521.001 438.47 520.114 439.257 519.196C440.047 518.275 441.243 517.346 442.849 516.417C446.06 514.561 450.825 512.754 457.003 511.026C469.352 507.571 487.242 504.455 509.374 501.836C553.633 496.599 614.787 493.359 682.346 493.359C749.904 493.359 811.059 496.599 855.317 501.836C877.45 504.455 895.34 507.571 907.689 511.026C913.867 512.754 918.632 514.561 921.843 516.417C923.448 517.346 924.644 518.275 925.434 519.196C926.222 520.114 926.589 521.001 926.589 521.863Z" stroke="black" stroke-width="0.9"/>
-			<path class="movingLine" d="M891.688 550.331C891.688 551.065 891.375 551.823 890.701 552.608C890.025 553.395 889.002 554.191 887.626 554.986C884.876 556.577 880.793 558.125 875.498 559.606C864.914 562.567 849.58 565.238 830.61 567.483C792.675 571.971 740.257 574.749 682.351 574.749C624.444 574.749 572.026 571.971 534.091 567.483C515.121 565.238 499.787 562.567 489.203 559.606C483.908 558.125 479.825 556.577 477.075 554.986C475.699 554.191 474.676 553.395 474 552.608C473.326 551.823 473.013 551.065 473.013 550.331C473.013 549.596 473.326 548.839 474 548.054C474.676 547.266 475.699 546.471 477.075 545.675C479.825 544.085 483.908 542.537 489.203 541.056C499.787 538.095 515.121 535.424 534.091 533.179C572.026 528.69 624.444 525.913 682.351 525.913C740.257 525.913 792.675 528.69 830.61 533.179C849.58 535.424 864.914 538.095 875.498 541.056C880.793 542.537 884.876 544.085 887.626 545.675C889.002 546.471 890.025 547.266 890.701 548.054C891.375 548.839 891.688 549.596 891.688 550.331Z" stroke="black" stroke-width="0.8"/>
-			<path class="movingLine" d="M865.171 571.966C865.171 572.608 864.898 573.269 864.309 573.955C863.719 574.642 862.825 575.337 861.624 576.032C859.222 577.421 855.656 578.772 851.032 580.066C841.789 582.652 828.397 584.985 811.83 586.945C778.7 590.865 732.922 593.291 682.35 593.291C631.778 593.291 586 590.865 552.87 586.945C536.303 584.985 522.911 582.652 513.668 580.066C509.044 578.772 505.479 577.421 503.076 576.032C501.875 575.337 500.981 574.642 500.391 573.955C499.803 573.269 499.53 572.608 499.53 571.966C499.53 571.325 499.803 570.664 500.391 569.978C500.981 569.291 501.875 568.596 503.076 567.901C505.479 566.512 509.044 565.161 513.668 563.867C522.911 561.281 536.303 558.948 552.87 556.988C586 553.068 631.778 550.642 682.35 550.642C732.922 550.642 778.7 553.068 811.83 556.988C828.397 558.948 841.789 561.281 851.032 563.867C855.656 565.161 859.222 566.512 861.624 567.901C862.825 568.596 863.719 569.291 864.309 569.978C864.898 570.664 865.171 571.325 865.171 571.966Z" stroke="black" stroke-width="0.7"/>
-			<path class="movingLine" d="M838.654 593.602C838.654 594.15 838.42 594.715 837.918 595.301C837.413 595.889 836.649 596.483 835.622 597.077C833.568 598.264 830.52 599.42 826.566 600.526C818.664 602.737 807.215 604.731 793.05 606.407C764.726 609.759 725.587 611.832 682.35 611.832C639.113 611.832 599.974 609.759 571.65 606.407C557.485 604.731 546.036 602.737 538.134 600.526C534.18 599.42 531.132 598.264 529.078 597.077C528.051 596.483 527.287 595.889 526.782 595.301C526.279 594.715 526.046 594.15 526.046 593.602C526.046 593.054 526.279 592.488 526.782 591.902C527.287 591.314 528.051 590.721 529.078 590.127C531.132 588.939 534.18 587.784 538.134 586.678C546.036 584.467 557.485 582.472 571.65 580.796C599.974 577.445 639.113 575.371 682.35 575.371C725.587 575.371 764.726 577.445 793.05 580.796C807.215 582.472 818.664 584.467 826.566 586.678C830.52 587.784 833.568 588.939 835.622 590.127C836.649 590.721 837.413 591.314 837.918 591.902C838.42 592.488 838.654 593.054 838.654 593.602Z" stroke="black" stroke-width="0.6"/>
-			<path class="movingLine" d="M819.131 609.544C819.131 610.027 818.925 610.525 818.484 611.039C818.041 611.555 817.371 612.075 816.472 612.595C814.673 613.635 812.005 614.647 808.545 615.615C801.63 617.549 791.611 619.295 779.217 620.761C754.432 623.694 720.185 625.509 682.353 625.509C644.52 625.509 610.273 623.694 585.488 620.761C573.094 619.295 563.075 617.549 556.16 615.615C552.7 614.647 550.032 613.635 548.233 612.595C547.334 612.075 546.664 611.555 546.221 611.039C545.78 610.525 545.574 610.027 545.574 609.544C545.574 609.061 545.78 608.563 546.221 608.049C546.664 607.533 547.334 607.013 548.233 606.493C550.032 605.453 552.7 604.441 556.16 603.473C563.075 601.539 573.094 599.794 585.488 598.327C610.273 595.394 644.52 593.58 682.353 593.58C720.185 593.58 754.432 595.394 779.217 598.327C791.611 599.794 801.63 601.539 808.545 603.473C812.005 604.441 814.673 605.453 816.472 606.493C817.371 607.013 818.041 607.533 818.484 608.049C818.925 608.563 819.131 609.061 819.131 609.544Z" stroke="black" stroke-width="0.5"/>
-			<path class="movingLine" d="M799.608 625.486C799.608 625.905 799.43 626.334 799.05 626.777C798.669 627.221 798.093 627.668 797.322 628.114C795.779 629.006 793.49 629.873 790.524 630.703C784.596 632.362 776.007 633.858 765.383 635.115C744.139 637.629 714.784 639.184 682.355 639.184C649.927 639.184 620.572 637.629 599.327 635.115C588.703 633.858 580.115 632.362 574.186 630.703C571.22 629.873 568.932 629.006 567.389 628.114C566.617 627.668 566.041 627.221 565.661 626.777C565.281 626.334 565.102 625.905 565.102 625.486C565.102 625.067 565.281 624.638 565.661 624.195C566.041 623.751 566.617 623.304 567.389 622.858C568.932 621.966 571.22 621.099 574.186 620.269C580.115 618.61 588.703 617.114 599.327 615.857C620.572 613.343 649.927 611.788 682.355 611.788C714.784 611.788 744.139 613.343 765.383 615.857C776.007 617.114 784.596 618.61 790.524 620.269C793.49 621.099 795.779 621.966 797.322 622.858C798.093 623.304 798.669 623.751 799.05 624.195C799.43 624.638 799.608 625.067 799.608 625.486Z" stroke="black" stroke-width="0.4"/>
-			<path class="movingLine" d="M784.276 638.012C784.276 638.383 784.117 638.761 783.785 639.149C783.451 639.537 782.948 639.928 782.277 640.316C780.933 641.093 778.942 641.847 776.364 642.569C771.21 644.011 763.745 645.311 754.512 646.403C736.048 648.588 710.536 649.94 682.353 649.94C654.171 649.94 628.659 648.588 610.195 646.403C600.962 645.311 593.497 644.011 588.343 642.569C585.765 641.847 583.774 641.093 582.43 640.316C581.758 639.928 581.255 639.537 580.922 639.149C580.59 638.761 580.431 638.383 580.431 638.012C580.431 637.641 580.59 637.262 580.922 636.875C581.255 636.486 581.758 636.096 582.43 635.707C583.774 634.931 585.765 634.176 588.343 633.455C593.497 632.013 600.962 630.713 610.195 629.62C628.659 627.435 654.171 626.084 682.353 626.084C710.536 626.084 736.048 627.435 754.512 629.62C763.745 630.713 771.21 632.013 776.364 633.455C778.942 634.176 780.933 634.931 782.277 635.707C782.948 636.096 783.451 636.486 783.785 636.875C784.117 637.262 784.276 637.641 784.276 638.012Z" stroke="black" stroke-width="0.3"/>			
+		<svg style="opacity: 0;" id="animateLineHomePage" viewBox="0 0 1366 738" fill="none"
+			xmlns="http://www.w3.org/2000/svg">
+			<path class="movingLine"
+				d="M962.897 492.256C962.897 493.252 962.473 494.275 961.566 495.331C960.657 496.39 959.281 497.459 957.436 498.526C953.746 500.659 948.272 502.734 941.176 504.72C926.991 508.688 906.442 512.267 881.021 515.275C830.186 521.291 759.945 525.012 682.349 525.012C604.753 525.012 534.511 521.291 483.677 515.275C458.256 512.267 437.706 508.688 423.522 504.72C416.425 502.734 410.951 500.659 407.261 498.526C405.416 497.459 404.041 496.39 403.131 495.331C402.225 494.275 401.801 493.252 401.801 492.256C401.801 491.261 402.225 490.238 403.131 489.182C404.041 488.122 405.416 487.054 407.261 485.987C410.951 483.853 416.425 481.778 423.522 479.793C437.706 475.825 458.256 472.245 483.677 469.237C534.511 463.222 604.753 459.5 682.349 459.5C759.945 459.5 830.186 463.222 881.021 469.237C906.442 472.245 926.991 475.825 941.176 479.793C948.272 481.778 953.746 483.853 957.436 485.987C959.281 487.054 960.657 488.122 961.566 489.182C962.473 490.238 962.897 491.261 962.897 492.256Z"
+				stroke="black" />
+			<path class="movingLine"
+				d="M926.589 521.863C926.589 522.725 926.222 523.613 925.434 524.53C924.644 525.451 923.448 526.38 921.843 527.309C918.632 529.166 913.867 530.972 907.689 532.7C895.34 536.155 877.45 539.271 855.317 541.89C811.059 547.127 749.904 550.368 682.346 550.368C614.787 550.368 553.633 547.127 509.374 541.89C487.242 539.271 469.352 536.155 457.003 532.7C450.825 530.972 446.06 529.166 442.849 527.309C441.243 526.38 440.047 525.451 439.257 524.53C438.47 523.613 438.102 522.725 438.102 521.863C438.102 521.001 438.47 520.114 439.257 519.196C440.047 518.275 441.243 517.346 442.849 516.417C446.06 514.561 450.825 512.754 457.003 511.026C469.352 507.571 487.242 504.455 509.374 501.836C553.633 496.599 614.787 493.359 682.346 493.359C749.904 493.359 811.059 496.599 855.317 501.836C877.45 504.455 895.34 507.571 907.689 511.026C913.867 512.754 918.632 514.561 921.843 516.417C923.448 517.346 924.644 518.275 925.434 519.196C926.222 520.114 926.589 521.001 926.589 521.863Z"
+				stroke="black" stroke-width="0.9" />
+			<path class="movingLine"
+				d="M891.688 550.331C891.688 551.065 891.375 551.823 890.701 552.608C890.025 553.395 889.002 554.191 887.626 554.986C884.876 556.577 880.793 558.125 875.498 559.606C864.914 562.567 849.58 565.238 830.61 567.483C792.675 571.971 740.257 574.749 682.351 574.749C624.444 574.749 572.026 571.971 534.091 567.483C515.121 565.238 499.787 562.567 489.203 559.606C483.908 558.125 479.825 556.577 477.075 554.986C475.699 554.191 474.676 553.395 474 552.608C473.326 551.823 473.013 551.065 473.013 550.331C473.013 549.596 473.326 548.839 474 548.054C474.676 547.266 475.699 546.471 477.075 545.675C479.825 544.085 483.908 542.537 489.203 541.056C499.787 538.095 515.121 535.424 534.091 533.179C572.026 528.69 624.444 525.913 682.351 525.913C740.257 525.913 792.675 528.69 830.61 533.179C849.58 535.424 864.914 538.095 875.498 541.056C880.793 542.537 884.876 544.085 887.626 545.675C889.002 546.471 890.025 547.266 890.701 548.054C891.375 548.839 891.688 549.596 891.688 550.331Z"
+				stroke="black" stroke-width="0.8" />
+			<path class="movingLine"
+				d="M865.171 571.966C865.171 572.608 864.898 573.269 864.309 573.955C863.719 574.642 862.825 575.337 861.624 576.032C859.222 577.421 855.656 578.772 851.032 580.066C841.789 582.652 828.397 584.985 811.83 586.945C778.7 590.865 732.922 593.291 682.35 593.291C631.778 593.291 586 590.865 552.87 586.945C536.303 584.985 522.911 582.652 513.668 580.066C509.044 578.772 505.479 577.421 503.076 576.032C501.875 575.337 500.981 574.642 500.391 573.955C499.803 573.269 499.53 572.608 499.53 571.966C499.53 571.325 499.803 570.664 500.391 569.978C500.981 569.291 501.875 568.596 503.076 567.901C505.479 566.512 509.044 565.161 513.668 563.867C522.911 561.281 536.303 558.948 552.87 556.988C586 553.068 631.778 550.642 682.35 550.642C732.922 550.642 778.7 553.068 811.83 556.988C828.397 558.948 841.789 561.281 851.032 563.867C855.656 565.161 859.222 566.512 861.624 567.901C862.825 568.596 863.719 569.291 864.309 569.978C864.898 570.664 865.171 571.325 865.171 571.966Z"
+				stroke="black" stroke-width="0.7" />
+			<path class="movingLine"
+				d="M838.654 593.602C838.654 594.15 838.42 594.715 837.918 595.301C837.413 595.889 836.649 596.483 835.622 597.077C833.568 598.264 830.52 599.42 826.566 600.526C818.664 602.737 807.215 604.731 793.05 606.407C764.726 609.759 725.587 611.832 682.35 611.832C639.113 611.832 599.974 609.759 571.65 606.407C557.485 604.731 546.036 602.737 538.134 600.526C534.18 599.42 531.132 598.264 529.078 597.077C528.051 596.483 527.287 595.889 526.782 595.301C526.279 594.715 526.046 594.15 526.046 593.602C526.046 593.054 526.279 592.488 526.782 591.902C527.287 591.314 528.051 590.721 529.078 590.127C531.132 588.939 534.18 587.784 538.134 586.678C546.036 584.467 557.485 582.472 571.65 580.796C599.974 577.445 639.113 575.371 682.35 575.371C725.587 575.371 764.726 577.445 793.05 580.796C807.215 582.472 818.664 584.467 826.566 586.678C830.52 587.784 833.568 588.939 835.622 590.127C836.649 590.721 837.413 591.314 837.918 591.902C838.42 592.488 838.654 593.054 838.654 593.602Z"
+				stroke="black" stroke-width="0.6" />
+			<path class="movingLine"
+				d="M819.131 609.544C819.131 610.027 818.925 610.525 818.484 611.039C818.041 611.555 817.371 612.075 816.472 612.595C814.673 613.635 812.005 614.647 808.545 615.615C801.63 617.549 791.611 619.295 779.217 620.761C754.432 623.694 720.185 625.509 682.353 625.509C644.52 625.509 610.273 623.694 585.488 620.761C573.094 619.295 563.075 617.549 556.16 615.615C552.7 614.647 550.032 613.635 548.233 612.595C547.334 612.075 546.664 611.555 546.221 611.039C545.78 610.525 545.574 610.027 545.574 609.544C545.574 609.061 545.78 608.563 546.221 608.049C546.664 607.533 547.334 607.013 548.233 606.493C550.032 605.453 552.7 604.441 556.16 603.473C563.075 601.539 573.094 599.794 585.488 598.327C610.273 595.394 644.52 593.58 682.353 593.58C720.185 593.58 754.432 595.394 779.217 598.327C791.611 599.794 801.63 601.539 808.545 603.473C812.005 604.441 814.673 605.453 816.472 606.493C817.371 607.013 818.041 607.533 818.484 608.049C818.925 608.563 819.131 609.061 819.131 609.544Z"
+				stroke="black" stroke-width="0.5" />
+			<path class="movingLine"
+				d="M799.608 625.486C799.608 625.905 799.43 626.334 799.05 626.777C798.669 627.221 798.093 627.668 797.322 628.114C795.779 629.006 793.49 629.873 790.524 630.703C784.596 632.362 776.007 633.858 765.383 635.115C744.139 637.629 714.784 639.184 682.355 639.184C649.927 639.184 620.572 637.629 599.327 635.115C588.703 633.858 580.115 632.362 574.186 630.703C571.22 629.873 568.932 629.006 567.389 628.114C566.617 627.668 566.041 627.221 565.661 626.777C565.281 626.334 565.102 625.905 565.102 625.486C565.102 625.067 565.281 624.638 565.661 624.195C566.041 623.751 566.617 623.304 567.389 622.858C568.932 621.966 571.22 621.099 574.186 620.269C580.115 618.61 588.703 617.114 599.327 615.857C620.572 613.343 649.927 611.788 682.355 611.788C714.784 611.788 744.139 613.343 765.383 615.857C776.007 617.114 784.596 618.61 790.524 620.269C793.49 621.099 795.779 621.966 797.322 622.858C798.093 623.304 798.669 623.751 799.05 624.195C799.43 624.638 799.608 625.067 799.608 625.486Z"
+				stroke="black" stroke-width="0.4" />
+			<path class="movingLine"
+				d="M784.276 638.012C784.276 638.383 784.117 638.761 783.785 639.149C783.451 639.537 782.948 639.928 782.277 640.316C780.933 641.093 778.942 641.847 776.364 642.569C771.21 644.011 763.745 645.311 754.512 646.403C736.048 648.588 710.536 649.94 682.353 649.94C654.171 649.94 628.659 648.588 610.195 646.403C600.962 645.311 593.497 644.011 588.343 642.569C585.765 641.847 583.774 641.093 582.43 640.316C581.758 639.928 581.255 639.537 580.922 639.149C580.59 638.761 580.431 638.383 580.431 638.012C580.431 637.641 580.59 637.262 580.922 636.875C581.255 636.486 581.758 636.096 582.43 635.707C583.774 634.931 585.765 634.176 588.343 633.455C593.497 632.013 600.962 630.713 610.195 629.62C628.659 627.435 654.171 626.084 682.353 626.084C710.536 626.084 736.048 627.435 754.512 629.62C763.745 630.713 771.21 632.013 776.364 633.455C778.942 634.176 780.933 634.931 782.277 635.707C782.948 636.096 783.451 636.486 783.785 636.875C784.117 637.262 784.276 637.641 784.276 638.012Z"
+				stroke="black" stroke-width="0.3" />
 		</svg>
 
 		<div id="scrollToExplore" style="opacity: 0;"></div>
@@ -156,32 +161,32 @@
 
 	<div id="landscape-section" class="landscape-section wide-24-regular">
 		<span id="landscape-section-title">COLLECTIONS</span>
-		<div>
-			<a href="galerry.html?collection=an-lac" onclick="mixpanel.track('Click Collection Thumbnail', {'Collection ID': 'an-lac', 'Collection Thumbnail': 'an-lac-0.webp'})">
-				<div data-src="url('asset/image/gallery/an-lac/an-lac-0.webp')" loading="lazy" class="clickable collection wide-16-regular lazy" alt="An Lạc" style="color: white;">AN LẠC</div>
-			</a>
-			<a href="galerry.html?collection=diem-nhien" onclick="mixpanel.track('Click Collection Thumbnail', {'Collection ID': 'diem-nhien', 'Collection Thumbnail': 'diem-nhien-0.webp'})">
-				<div data-src="url('asset/image/gallery/diem-nhien/diem-nhien-0.webp')" loading="lazy" class="clickable collection wide-16-regular lazy" style="color: white;">ĐIỀM NHIÊN</div>
-			</a>
-			<a href="galerry.html?collection=soi-sang" onclick="mixpanel.track('Click Collection Thumbnail', {'Collection ID': 'soi-sang', 'Collection Thumbnail': 'soi-sang-0.webp'})">
-				<div data-src="url('asset/image/gallery/soi-sang/soi-sang-0.webp')" loading="lazy" class="clickable collection wide-16-regular lazy" alt="Soi Sáng" style="color: white;">SOI SÁNG</div>
-			</a>
-			<a href="galerry.html?collection=dem" onclick="mixpanel.track('Click Collection Thumbnail', {'Collection ID': 'dem', 'Collection Thumbnail': 'dem-0.webp'})">
-				<div data-src="url('asset/image/gallery/dem/dem-0.webp')" loading="lazy" class="clickable collection wide-16-regular lazy" alt="Đêm" style="color: white;">ĐÊM</div>
-			</a>
+		<div id="collection-list">
 		</div>
-		<a href="galerry.html" onclick="mixpanel.track('Click Explore All Collection, {}')"><button class="CTA wide-12-bold">Explore all collections</button></a>
+		<a href="galerry.html" onclick="mixpanel.track('Click Explore All Collection, {}')"><button
+				class="CTA wide-12-bold">Explore all collections</button></a>
 	</div>
-	
+
 	<!-- Website footer ============================================== -->
 	<div class="footer blur-background">
-		<span class="wide-12-regular">Copyright © 2023 — Tam Do Visual. All Rights Reserved. Email: <a target="_blank" href = "mailto: hello@tamdovisual.com">hello@tamdovisual.com</a></span>
+		<span class="wide-12-regular">Copyright © 2023 — Tam Do Visual. All Rights Reserved. Email: <a target="_blank"
+				href="mailto: hello@tamdovisual.com">hello@tamdovisual.com</a></span>
 		<div>
-			<a target="_blank" alt="facebook page" aria-label="Facebook" href="https://www.facebook.com/Tamdovisual/" onclick="navigateSocial('Visit Facebook', 'Homescreen', 'Footer')"><img onload="SVGInject(this)" src="asset/icon/facebook.svg"></a>
-			<a target="_blank" alt="spotify page" aria-label="Spotify" href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d" onclick="navigateSocial('Visit Spotify', 'Homescreen', 'Footer')"><img onload="SVGInject(this)" src="asset/icon/Spotify.svg"></a>
-			<a target="_blank" alt="instagram page" aria-label="Instagram" href="https://www.instagram.com/tamdovisual/" onclick="navigateSocial('Visit Instagram', 'Homescreen', 'Footer')"><img onload="SVGInject(this)" src="asset/icon/instagram.svg"></a>
-			<a target="_blank" alt="youtube page" aria-label="Youtube" href="https://www.youtube.com/tamdodesign/" onclick="navigateSocial('Visit Youtube', 'Homescreen', 'Footer')"><img onload="SVGInject(this)" src="asset/icon/Youtube.svg"></a>
+			<a target="_blank" alt="facebook page" aria-label="Facebook" href="https://www.facebook.com/Tamdovisual/"
+				onclick="navigateSocial('Visit Facebook', 'Homescreen', 'Footer')"><img onload="SVGInject(this)"
+					src="asset/icon/facebook.svg"></a>
+			<a target="_blank" alt="spotify page" aria-label="Spotify"
+				href="https://open.spotify.com/show/33lf2rh2SaHzRXzuy0dx3a?si=67395e2e2a1e4a7d"
+				onclick="navigateSocial('Visit Spotify', 'Homescreen', 'Footer')"><img onload="SVGInject(this)"
+					src="asset/icon/Spotify.svg"></a>
+			<a target="_blank" alt="instagram page" aria-label="Instagram" href="https://www.instagram.com/tamdovisual/"
+				onclick="navigateSocial('Visit Instagram', 'Homescreen', 'Footer')"><img onload="SVGInject(this)"
+					src="asset/icon/instagram.svg"></a>
+			<a target="_blank" alt="youtube page" aria-label="Youtube" href="https://www.youtube.com/tamdodesign/"
+				onclick="navigateSocial('Visit Youtube', 'Homescreen', 'Footer')"><img onload="SVGInject(this)"
+					src="asset/icon/Youtube.svg"></a>
 		</div>
 	</div>
 </body>
+
 </html>

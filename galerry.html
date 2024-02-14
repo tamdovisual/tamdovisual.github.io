@@ -61,6 +61,7 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 	<script src="https://unpkg.com/split-type"></script>
+	<script src="script/libs/jquery.csv.min.js"></script>
 
 	<!-- custom scripts for each page -->
 	<script src="script/essential.js" defer></script>
@@ -72,9 +73,9 @@
 <body>
 
 	<!-- Page loading element ============================================== -->
-	<div class="loader-wrapper">
+	<!-- <div class="loader-wrapper">
 		<div id="starMovingContainer"></div>
-	</div>
+	</div> -->
 
 	<!-- Website header ============================================== -->
 	<div id="header" class="header all-cap-title-10">
@@ -163,44 +164,6 @@
 		</div>
 	</div>
 
-	<!-- Waving effect filter for div has background image by svg file ================================== -->
-	<!-- <svg style="display: none;">
-		<defs>
-			<filter id="waving2" color-interpolation-filters="sRGB" x="-500%" y="-500%" width="1000%" height="1000%"
-				bx:preset="warp 1 20 0.05">
-				<feComponentTransfer>
-					<feFuncR type="table" tableValues="1 0.5"></feFuncR>
-				</feComponentTransfer>
-				<feMerge result="a">
-					<feMergeNode></feMergeNode>
-					<feMergeNode in="SourceGraphic"></feMergeNode>
-				</feMerge>
-				<feTurbulence type="fractalNoise" baseFrequency="0.005" numOctaves="1" result="warp"></feTurbulence>
-				<feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="40" in="a" in2="warp">
-				</feDisplacementMap>
-			</filter>
-		</defs>
-	</svg>
-
-	<script>
-		const tl = gsap.timeline();
-
-		tl.to("feTurbulence", {
-			duration: 2, repeat: -1, yoyo: true,
-			ease: "power1.inOut",
-			attr: {
-				baseFrequency: 0.001
-			}
-		});
-
-		tl.to("feDisplacementMap", {
-			duration: 5, repeat: -1, yoyo: true,
-			ease: "power1.inOut",
-			attr: {
-				scale: 10
-			}
-		}, 0)
-	</script> -->
 </body>
 
 </html>

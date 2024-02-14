@@ -1,47 +1,71 @@
-// Configure Collections here =========================================
+// Read Menu CSV file =======================================================================
+var image_list_from_csv, collection_list_from_csv;
+$.ajax({
+    url: "asset/image/gallery/image_list.csv",
+    async: false,
+    success: function (csvd) {
+        image_list_from_csv = $.csv.toObjects(csvd).filter(function (el) {
+            return el.file_name != "" &
+            el.showing == 'yes'
+        });
+    },
+    dataType: "text",
+    complete: function () {
+        // call a function on complete 
+        // console.log(image_list_from_csv);
+    }
+});
 
-var collectionAnLac = {
-    collectionName: "An Lạc",
-    folder: "an-lac",
-    numberOfImage: 26,
-};
-var collectionDiemNhien = {
-    collectionName: "Điềm Nhiên",
-    folder: "diem-nhien",
-    numberOfImage: 52,
-};
-var collectionSoiSang = {
-    collectionName: "Soi Sáng",
-    folder: "soi-sang",
-    numberOfImage: 44,
-};
-var collectionDem = {
-    collectionName: "Đêm",
-    folder: "dem",
-    numberOfImage: 24,
-};
+$.ajax({
+    url: "asset/image/gallery/collection_list.csv",
+    async: false,
+    success: function (csvd) {
+        collection_list_from_csv = $.csv.toObjects(csvd);
+    },
+    dataType: "text",
+    complete: function () {
+        // call a function on complete 
+        // console.log(collection_list_from_csv);
+    }
+});
 
 // Define variables =========================================
-var collectionList = [collectionAnLac, collectionDiemNhien, collectionSoiSang, collectionDem];
 var numberOfImage = 0;
 
 var imageList = [];
 
 var cursor;
-// Load images from collections =========================================
-for (var i = 0; i < collectionList.length; i++) {
-    for (var j = 0; j < collectionList[i].numberOfImage; j++) {
-        imageList.push({
-            path: 'asset/image/gallery/' + collectionList[i].folder + '/' + collectionList[i].folder + '-' + j + '.webp',
-            collectionName: collectionList[i].folder,
-            // collection
-            file_name: collectionList[i].folder + '-' + j + '.webp',
-            collectionThumb: false,
 
+for (var i = 0; i < collection_list_from_csv.length; i++) {
+
+    var collection_arr = image_list_from_csv.filter(function (el) {
+        return el.collection_id === collection_list_from_csv[i].collection_id;
+    });
+
+    // sort collection thumbnail to the top of an array
+    const thumbnail_index = collection_arr.findIndex((element) => element.image_id ==  collection_list_from_csv[i].thumbnail_id);
+    const temp = collection_arr[0];
+    collection_arr[0] = collection_arr[thumbnail_index];
+    collection_arr[thumbnail_index] = temp;
+
+    // push image from csv to imageList
+    collection_arr.forEach(function(element, index){
+        imageList.push({
+            image_id: element.image_id,
+            file_name: element.file_name,
+            location: element.location,
+            path: collection_list_from_csv[i].file_folder + element.file_name,
+            collection_id: collection_list_from_csv[i].collection_id,
+            collection_name: collection_list_from_csv[i].collection_name,
+            collection_thumb: false,
         });
-        if (j==0){imageList[imageList.length-1].collectionThumb = true;}
+        if (element.image_id === collection_list_from_csv[i].thumbnail_id){imageList[imageList.length-1].collection_thumb = true;}
+        if (index == 1){
+            imageList[imageList.length-1].collection_thumb = true;
+        }
         numberOfImage++;
-    }
+    });
+    // numberOfImage = numberOfImage + parseInt(collection_list_from_csv[i].number_of_image);
 }
 
 // Load image in sequences ===========================================
