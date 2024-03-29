@@ -1,13 +1,14 @@
 image_id,image_name,location,file_name,collection_id,showing
+147,Tuổi xuân,"Mộc Châu, Sơn La",TDO2139-4.webp,an-lac,yes
+4,Hoa mận trên các sườn đồi,"Tả Van Chư, Bắc Hà, Lào Cai",an-lac-3.webp,an-lac,yes
 1,Thuở niên thiếu,"Mù Cang Chải, Yên Bái",an-lac-0.webp,an-lac,yes
+6,Rực rỡ trang phục người H'mong,"Tả Van Chư, Bắc Hà, Lào Cai",an-lac-5.webp,an-lac,yes
+9,Vào vụ,"Sàng Ma Sáo, Bát Xát, Lào Cai",an-lac-8.webp,an-lac,yes
 2,Cánh đồng mẹ đứng,"Mù Cang Chải, Yên Bái",an-lac-1.webp,an-lac,yes
 3,Đi lễ xuân,"Đồng Văn, Hà Giang",an-lac-2.webp,an-lac,yes
-4,Hoa mận trên các sườn đồi,"Tả Van Chư, Bắc Hà, Lào Cai",an-lac-3.webp,an-lac,yes
 5,Hoa mận trong nắng xuân,"Tả Van Chư, Bắc Hà, Lào Cai",an-lac-4.webp,an-lac,yes
-6,Rực rỡ trang phục người H'mong,"Tả Van Chư, Bắc Hà, Lào Cai",an-lac-5.webp,an-lac,yes
 7,Hoa mận trước hiên nhà người H'mong,"Lả Dì Thàng, Bắc Hà, Lào Cai",an-lac-6.webp,an-lac,yes
 8,Dắt châu về,"Tả Van Chư, Bắc Hà, Lào Cai",an-lac-7.webp,an-lac,yes
-9,Vào vụ,"Sàng Ma Sáo, Bát Xát, Lào Cai",an-lac-8.webp,an-lac,yes
 10,Mẹ đi đồng sáng,Cao Bằng,an-lac-9.webp,an-lac,yes
 11,Mẹ đi đồng sáng,Cao Bằng,an-lac-10.webp,an-lac,
 12,Về,Ninh Bình,an-lac-11.webp,an-lac,
@@ -25,6 +26,8 @@ image_id,image_name,location,file_name,collection_id,showing
 24,Ngư phu mộc bóng đi dò đường xa,"Na Hang, Tuyên Quang",an-lac-23.webp,an-lac,yes
 25,Ngư phu mộc bóng đi dò đường xa,"Na Hang, Tuyên Quang",an-lac-24.webp,an-lac,yes
 26,Ngóng con về,"Đồng Văn, Hà Giang",an-lac-25.webp,an-lac,yes
+148,Tuổi xuân,"Mộc Châu, Sơn La",TDO2235-1.webp,an-lac,yes
+150,Sắc xuân,"Mộc Châu, Sơn La",TDO3951-1.webp,an-lac,yes
 27,Biển trời,"Y Tý, Lào Cai",diem-nhien-0.webp,diem-nhien,yes
 28,Thủy mặc,"Bắc Sơn, Lạng Sơn",diem-nhien-1.webp,diem-nhien,yes
 29,Sớm xuân trên sườn đồi,"Tân Sơn, Phú Thọ",diem-nhien-2.webp,diem-nhien,yes
@@ -77,6 +80,14 @@ image_id,image_name,location,file_name,collection_id,showing
 76,Căn nhà nhỏ trên đồi,"Bát Xát, Lào Cai",diem-nhien-49.webp,diem-nhien,
 77,Đèo Hạnh Phúc,Hà Giang,diem-nhien-50.webp,diem-nhien,yes
 78,Đất mẹ,"Sàng Ma Sáo, Bát Xát, Lào Cai",diem-nhien-51.webp,diem-nhien,yes
+160,Nắng sớm trên thảo nguyên,"Mộc Châu, Sơn La",TDO0737.webp,diem-nhien,yes
+149,Vườn cải,"Mộc Châu, Sơn La",DJI_0275-HDR-1.webp,diem-nhien,yes
+154,Trên nông trường ngày xuân,"Mộc Châu, Sơn La",DJI_0043-HDR-1.webp,diem-nhien,yes
+155,Đồi chè Mộc Châu,"Mộc Châu, Sơn La",DJI_0075-1.webp,diem-nhien,yes
+156,Đồi chè Mộc Châu,"Mộc Châu, Sơn La",DJI_0085-1.webp,diem-nhien,yes
+157,Hoa xuân,"Mộc Châu, Sơn La",DJI_0218-1.webp,diem-nhien,yes
+158,Lẻ loi,"Mộc Châu, Sơn La",DJI_0982-HDR-1.webp,diem-nhien,yes
+161,Hang Táu chiều cuối năm,"Mộc Châu, Sơn La",TDO3211-HDR-1.webp,diem-nhien,yes
 79,Rực cháy buổi bình minh,"Nhìu Cồ San, Bát Xát, Lào Cai",soi-sang-0.webp,soi-sang,yes
 80,Thịnh vượng,"Mù Cang Chải, Yên Bái",soi-sang-1.webp,soi-sang,yes
 81,Chiều soi bóng,"Thiên Sinh, Bát Xát, Lào Cai",soi-sang-2.webp,soi-sang,yes
@@ -121,9 +132,14 @@ image_id,image_name,location,file_name,collection_id,showing
 120,Nhật xuất tinh sơn,"Bắc Sơn, Lạng Sơn",soi-sang-41.webp,soi-sang,yes
 121,Con đường trong mây,Sapa,soi-sang-42.webp,soi-sang,
 122,Về chốn xa xăm cuối trời,"Cú Nhù San, Bát Xát, Lào Cai",soi-sang-43.webp,soi-sang,
-123,Lẻ loi,"Lảo Thẩn, Bát Xát, Lào Cai",dem-0.webp,dem,yes
+152,Bình minh thảo nguyên,"Mộc Châu, Sơn La",DJI_0871-HDR-1.webp,soi-sang,yes
+153,Nắng sớm trên thảo nguyên,"Mộc Châu, Sơn La",DJI_0593-HDR-1.webp,soi-sang,yes
+159,Nắng sớm trên thảo nguyên,"Mộc Châu, Sơn La",TDO0731-HDR-1.webp,soi-sang,yes
+151,Những câu chuyện dài,"Mộc Châu, Sơn La",startrail-hangtau.webp,dem,yes
+162,Đêm rằm,"Nậm Nghiệp, Sơn La",dem-trang-nam-nghiep.webp,dem,yes
 124,Coi đồng đêm,"Mù Cang Chải, Yên Bái",dem-1.webp,dem,yes
 125,Có cơn mưa mùa đông,"Lảo Thẩn, Y Tý",dem-2.webp,dem,yes
+123,Lẻ loi,"Lảo Thẩn, Bát Xát, Lào Cai",dem-0.webp,dem,yes
 126,Đêm trên những nương chè,"Mộc Châu, Sơn La",dem-3.webp,dem,yes
 127,Tĩnh lặng,Hà Nội,dem-4.webp,dem,yes
 128,Ánh trăng cuối cùng của năm,"Cú Nhù San, Bát Xát, Lào Cai",dem-5.webp,dem,yes
@@ -145,22 +161,6 @@ image_id,image_name,location,file_name,collection_id,showing
 144,Phượng hoàng,"Bắc Sơn, Lạng Sơn",dem-21.webp,dem,yes
 145,Đêm mây Hà Nội,Hà Nội,dem-22.webp,dem,yes
 146,Trăng Sapa,Sapa,dem-23.webp,dem,
-147,Tuổi xuân,"Mộc Châu, Sơn La",TDO2139-4.webp,an-lac,yes
-148,Tuổi xuân,"Mộc Châu, Sơn La",TDO2235-1.webp,an-lac,yes
-149,Vườn cải,"Mộc Châu, Sơn La",DJI_0275-HDR-1.webp,diem-nhien,yes
-150,Sắc xuân,"Mộc Châu, Sơn La",TDO3951-1.webp,an-lac,yes
-151,Những câu chuyện dài,"Mộc Châu, Sơn La",startrail-hangtau.webp,dem,yes
-152,Bình minh thảo nguyên,"Mộc Châu, Sơn La",DJI_0871-HDR-1.webp,soi-sang,yes
-153,Nắng sớm trên thảo nguyên,"Mộc Châu, Sơn La",DJI_0593-HDR-1.webp,soi-sang,yes
-154,Trên nông trường ngày xuân,"Mộc Châu, Sơn La",DJI_0043-HDR-1.webp,diem-nhien,yes
-155,Đồi chè Mộc Châu,"Mộc Châu, Sơn La",DJI_0075-1.webp,diem-nhien,yes
-156,Đồi chè Mộc Châu,"Mộc Châu, Sơn La",DJI_0085-1.webp,diem-nhien,yes
-157,Hoa xuân,"Mộc Châu, Sơn La",DJI_0218-1.webp,diem-nhien,yes
-158,Lẻ loi,"Mộc Châu, Sơn La",DJI_0982-HDR-1.webp,diem-nhien,yes
-159,Nắng sớm trên thảo nguyên,"Mộc Châu, Sơn La",TDO0731-HDR-1.webp,soi-sang,yes
-160,Nắng sớm trên thảo nguyên,"Mộc Châu, Sơn La",TDO0737.webp,diem-nhien,yes
-161,Hang Táu chiều cuối năm,"Mộc Châu, Sơn La",TDO3211-HDR-1.webp,diem-nhien,yes
-162,,,,,yes
 163,,,,,yes
 164,,,,,yes
 165,,,,,yes
