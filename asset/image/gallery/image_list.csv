@@ -158,10 +158,10 @@ image_id,image_name,location,file_name,collection_id,showing
 144,Phượng hoàng,"Bắc Sơn, Lạng Sơn",dem-21.webp,dem,yes
 145,Đêm mây Hà Nội,Hà Nội,dem-22.webp,dem,yes
 146,Trăng Sapa,Sapa,dem-23.webp,dem,
-163,Cánh đồng mùa thu,"Mù Cang Chải, Yên Bái",_TDO6600.webp,soi-sang,yes
-164,Cánh đồng mùa thu,"Mù Cang Chải, Yên Bái",_TDO7505-1.webp,diem-nhien,yes
-165,Cánh đồng mùa thu,"Mù Cang Chải, Yên Bái",_TDO7611.webp,soi-sang,yes
-166,Dưới ánh sao mùa thu,"Mù Cang Chải, Yên Bái",_TDO8871.webp,dem,yes
+163,Cánh đồng mùa thu,"Mù Cang Chải, Yên Bái",TDO6600.webp,soi-sang,yes
+164,Cánh đồng mùa thu,"Mù Cang Chải, Yên Bái",TDO7505-1.webp,diem-nhien,yes
+165,Cánh đồng mùa thu,"Mù Cang Chải, Yên Bái",TDO7611.webp,soi-sang,yes
+166,Dưới ánh sao mùa thu,"Mù Cang Chải, Yên Bái",TDO8871.webp,dem,yes
 167,Dưới ánh ban mai,"Mù Cang Chải, Yên Bái",TDO_running.webp,diem-nhien,yes
 168,Cánh đồng mùa thu,"Mù Cang Chải, Yên Bái",TDO_huchulin1.webp,diem-nhien,yes
 169,Cánh đồng mùa thu,"Mù Cang Chải, Yên Bái",TDO_huchulin2.webp,diem-nhien,yes
