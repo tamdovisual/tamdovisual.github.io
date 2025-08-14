@@ -22,61 +22,61 @@ var isAutoFalling = true;
 
 document.getElementsByTagName('html')[0].style.overflowY = "hidden";
 
-$(window).on("load", function (){
-  document.getElementsByTagName('html')[0].style.overflowY = "auto";
-  var logoShowHide = document.getElementById('logoShowHide');
+// $(window).on("load", function (){
+document.getElementsByTagName('html')[0].style.overflowY = "auto";
+var logoShowHide = document.getElementById('logoShowHide');
 
-  var logoShowHideItem = bodymovin.loadAnimation({
-    wrapper: logoShowHide,
-    animType: 'svg',
-    loop: false,
-    autoplay: true,
-    animationData: logoShowHideJson,
-  });
+var logoShowHideItem = bodymovin.loadAnimation({
+  wrapper: logoShowHide,
+  animType: 'svg',
+  loop: false,
+  autoplay: true,
+  animationData: logoShowHideJson,
+});
 
-  // detech device using mouse / trackpad
-  if (!touchDevice.matches) {
-    document.getElementById('fallingImageSection').addEventListener('mousemove', mouseInFallingImgSection, false);
+// detech device using mouse / trackpad
+if (!touchDevice.matches) {
+  document.getElementById('fallingImageSection').addEventListener('mousemove', mouseInFallingImgSection, false);
+  document.getElementById('header').style.opacity = 1;
+  document.getElementById('animateLineHomePage').style.opacity = 1;
+  document.getElementById('scrollToExplore').style.opacity = 1;
+  document.getElementsByClassName('CTA')[0].style.opacity = 1;
+}
+
+// detect touch device
+else {
+  document.getElementById('header').style.opacity = 0;
+  document.getElementById('animateLineHomePage').style.opacity = 0;
+  document.getElementById('scrollToExplore').style.opacity = 0;
+  document.getElementsByClassName('CTA')[0].style.opacity = 0;
+
+  function autoFallingImage() {
+    var fallingImageSectionElement = document.getElementById('fallingImageSection').getBoundingClientRect();
+    if (loadedImage.length > 3 && isAutoFalling) {
+      showFallingImg(Math.floor(Math.random() * loadedImage.length), '#fallingImageSection', fallingImageSectionElement.width / 2, fallingImageSectionElement.height / 2 - 56, fallingImageSectionElement.width / 2, fallingImageSectionElement.height);
+      if (fallingIndex < loadedImage.length) {
+        fallingIndex++;
+      }
+      else {
+        fallingIndex = 0;
+      }
+    }
+    else if (!isAutoFalling) {
+      clearInterval(autoFallImageInterval);
+    }
+  }
+
+  var autoFallImageInterval;
+
+  logoShowHideItem.addEventListener('complete', () => {
+    // console.log('ready for falling image');
+    autoFallImageInterval = setInterval(autoFallingImage, 100);
     document.getElementById('header').style.opacity = 1;
     document.getElementById('animateLineHomePage').style.opacity = 1;
     document.getElementById('scrollToExplore').style.opacity = 1;
-    document.getElementsByClassName('CTA')[0].style.opacity = 1;
-  }
-
-  // detect touch device
-  else {
-    document.getElementById('header').style.opacity = 0;
-    document.getElementById('animateLineHomePage').style.opacity = 0;
-    document.getElementById('scrollToExplore').style.opacity = 0;
-    document.getElementsByClassName('CTA')[0].style.opacity = 0;
-
-    function autoFallingImage() {
-      var fallingImageSectionElement = document.getElementById('fallingImageSection').getBoundingClientRect();
-      if (loadedImage.length > 3 && isAutoFalling) {
-        showFallingImg(Math.floor(Math.random() * loadedImage.length), '#fallingImageSection', fallingImageSectionElement.width / 2, fallingImageSectionElement.height / 2 - 56, fallingImageSectionElement.width / 2, fallingImageSectionElement.height);
-        if (fallingIndex < loadedImage.length) {
-          fallingIndex++;
-        }
-        else {
-          fallingIndex = 0;
-        }
-      }
-      else if (!isAutoFalling) {
-        clearInterval(autoFallImageInterval);
-      }
-    }
-
-    var autoFallImageInterval;
-
-    logoShowHideItem.addEventListener('complete', () => {
-      // console.log('ready for falling image');
-      autoFallImageInterval = setInterval(autoFallingImage, 100);
-      document.getElementById('header').style.opacity = 1;
-      document.getElementById('animateLineHomePage').style.opacity = 1;
-      document.getElementById('scrollToExplore').style.opacity = 1;
-    });
-  }
-})
+  });
+}
+// })
 
 let oldX = 0, oldY = 0;
 

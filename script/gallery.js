@@ -11,7 +11,7 @@ if(!localStorage.getItem('countViewedImg')){
 
 // Initial loading =========================================
 
-$(window).on("load", function () {
+// $(window).on("load", function () {
 	// Load column gallery =======
 	viewGalleryColumn();
 
@@ -23,7 +23,7 @@ $(window).on("load", function () {
 		document.querySelector('#'+ collectionRedirect).scrollIntoView();
 		// console.log(collectionRedirect);
 	}
-});
+// });
 
 
 function toggleColumn(){

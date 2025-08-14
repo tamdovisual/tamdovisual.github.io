@@ -409,6 +409,7 @@ a{
 	gap: 15%;
 	box-sizing: border-box;
 	margin: 0px 2%;
+	min-height: 100vh;
 }
 
 #gallery-container-column > div{
@@ -449,6 +450,7 @@ a{
 	padding: 72px 1px;
 	box-sizing: border-box;
 	overflow: hidden;
+	min-height: 100vh;
 }
 
 .gallery-container-grid .thumbnail-container{
